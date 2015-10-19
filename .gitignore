@@ -29,3 +29,5 @@ bower.json
 
 .env
 .envrc
+
+.DS_Store
