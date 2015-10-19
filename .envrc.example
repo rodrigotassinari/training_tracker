@@ -1,0 +1,5 @@
+# loads application env vars
+dotenv .env
+
+# puts local bin folder on PATH
+PATH_add bin
