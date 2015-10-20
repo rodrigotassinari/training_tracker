@@ -1,0 +1,16 @@
+pt:
+  activerecord:
+    models:
+      identity:
+        one: Identidade
+        other: Identidades
+    attributes:
+      identity:
+        user_id: Usuário
+        provider: Provedor
+        uid: Código no Provedor
+        info: Info
+        credentials: Credenciais
+        extra: Extra
+        created_at: Criada em
+        updated_at: Atualizada em

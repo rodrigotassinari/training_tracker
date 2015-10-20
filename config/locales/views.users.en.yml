@@ -1,0 +1,7 @@
+en:
+  users:
+    edit:
+      title: 'Update your profile'
+      validation_errors:
+        one: '1 error prohibited your profile from being saved'
+        other: '%{count} errors prohibited your profile from being saved'

@@ -34,25 +34,14 @@ class ApplicationController < ActionController::Base
   # page.
   # TODO spec
   def require_login
-    # TODO add flash error message
-    redirect_to root_path and return unless user_signed_in?
-  end
-
-  # before_action
-  # Requires the current visitor to be NOT logged in (to be logged out), if not
-  # redirects to the root page.
-  # TODO spec
-  def require_logout
-    # TODO add flash error message
-    redirect_to root_path and return if user_signed_in?
+    redirect_to(root_path, alert: t('application_controller.login_required_html')) and return unless user_signed_in?
   end
 
   # before_action
   # Requires the current user to be complete (see User#complete?) to proceed.
   # TODO spec
   def require_complete_user
-    # TODO add flash notice message
-    redirect_to edit_user_path and return unless current_user.complete?
+    redirect_to(edit_user_path, notice: t('application_controller.complete_profile')) and return if (user_signed_in? && !current_user.complete?)
   end
 
   # before_action

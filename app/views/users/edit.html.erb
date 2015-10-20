@@ -1,2 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="page-header">
+  <h2><%= t '.title' %></h2>
+</div>
+
+<%= bootstrap_form_for(current_user, url: user_path, method: :put) do |f| %>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t '.validation_errors', count: current_user.errors.count %>:</h3>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, autofocus: true %>
+
+  <%= f.email_field :email %>
+
+  <%= f.select :locale, I18n.available_locales.map { |locale| [I18n.with_locale(locale) { I18n.t 'locale_name' }, locale] } %>
+
+  <%= f.time_zone_select :time_zone %>
+
+  <p>
+    <%= f.primary t('submit'), data: {disable_with: t('submiting')} %>
+  </p>
+
+<% end %>

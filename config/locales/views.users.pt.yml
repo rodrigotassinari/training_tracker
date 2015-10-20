@@ -1,0 +1,7 @@
+pt:
+  users:
+    edit:
+      title: 'Atualize o seu perfil'
+      validation_errors:
+        one: '1 erro impediu que seu perfil fosse salvo'
+        other: '%{count} erros impediram que seu perfil fosse salvo'

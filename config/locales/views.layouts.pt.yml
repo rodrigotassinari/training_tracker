@@ -1,0 +1,15 @@
+pt:
+  layouts:
+    application:
+      description: "Armazene e compartilhe o histórico dos seus treinos de ciclismo, corrida ou natação."
+      keywords: "ciclismo,corrida,natação,gps,garmin,strava,fit,treino,malhação,atividade"
+    flash_messages:
+      alert: 'Alerta'
+      error: 'Erro'
+      notice: 'Informação'
+      success: 'Sucesso'
+    navbar:
+      home: 'Início'
+      my_profile: 'Meu Perfil'
+      sign_in: 'Entrar com seu Strava'
+      sign_out: 'Sair'

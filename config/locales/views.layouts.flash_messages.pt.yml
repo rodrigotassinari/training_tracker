@@ -1,7 +1,0 @@
-pt:
-  layouts:
-    flash_messages:
-      success: 'Sucesso'
-      notice: 'Informação'
-      alert: 'Alerta'
-      error: 'Erro'

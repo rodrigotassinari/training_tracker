@@ -1,0 +1,5 @@
+pt:
+  application_controller:
+    login_required: 'Você precisa fazer login para poder acessar este recurso.'
+    login_required_html: 'Você precisa <a href="/auth/strava" class="alert-link">fazer login</a> para poder acessar este recurso.'
+    complete_profile: 'Por favor complete as informações do seu perfil.'

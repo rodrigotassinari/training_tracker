@@ -1,0 +1,15 @@
+en:
+  layouts:
+    application:
+      description: "Track and share a simple history of your cycling, running or swimming workouts."
+      keywords: "cycling,running,swimming,gps,garmin,strava,fit,training,workout,activity"
+    flash_messages:
+      alert: 'Warning'
+      error: 'Error'
+      notice: 'Notice'
+      success: 'Success'
+    navbar:
+      home: 'Home'
+      my_profile: 'My Profile'
+      sign_in: 'Sign in with Strava'
+      sign_out: 'Sign out'

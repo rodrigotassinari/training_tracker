@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
-  hello: "Olá Mundo"
+  locale_name: 'Português'
+  submit: 'Enviar'
+  submiting: 'Enviando...'

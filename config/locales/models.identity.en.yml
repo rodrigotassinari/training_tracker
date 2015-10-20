@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      identity:
+        one: Identity
+        other: Identities
+    attributes:
+      identity:
+        user_id: User
+        provider: Provider
+        uid: ID on Provider
+        info: Info
+        credentials: Credentials
+        extra: Extra
+        created_at: Created At
+        updated_at: Updated At

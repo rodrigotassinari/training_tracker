@@ -2,3 +2,7 @@
 body {
   padding-top: 50px;
 }
+
+label.required:after {
+  content:" *";
+}

@@ -1,0 +1,4 @@
+en:
+  users:
+    update:
+      success: 'Profile successfully updated.'

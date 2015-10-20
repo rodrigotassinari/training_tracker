@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+    attributes:
+      user:
+        name: Name
+        email: Email
+        locale: Language
+        time_zone: Time Zone
+        created_at: Created At
+        updated_at: Updated At
