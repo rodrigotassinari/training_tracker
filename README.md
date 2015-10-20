@@ -2,9 +2,10 @@
 
 A training tracker web app (WIP)
 
-[![Code Climate](https://codeclimate.com/github/rtopitt/training_tracker.png)](https://codeclimate.com/github/rtopitt/training_tracker)
-[![Build Status](https://travis-ci.org/rtopitt/training_tracker.png?branch=master)](https://travis-ci.org/rtopitt/training_tracker)
+[![Code Climate](https://codeclimate.com/github/rtopitt/training_tracker/badges/gpa.svg)](https://codeclimate.com/github/rtopitt/training_tracker)
+[![Test Coverage](https://codeclimate.com/github/rtopitt/training_tracker/badges/coverage.svg)](https://codeclimate.com/github/rtopitt/training_tracker/coverage)
 [![Coverage Status](https://coveralls.io/repos/rtopitt/training_tracker/badge.png?branch=master)](https://coveralls.io/r/rtopitt/training_tracker)
+[![Build Status](https://travis-ci.org/rtopitt/training_tracker.png?branch=master)](https://travis-ci.org/rtopitt/training_tracker)
 
 **EXTREMELY ALPHA SOFTWARE!**, work in progress.
 

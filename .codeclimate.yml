@@ -1,0 +1,24 @@
+---
+engines:
+  rubocop:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  bundler-audit:
+    enabled: true
+ratings:
+  paths:
+  - "**.rb"
+  - "**.js"
+  - "**.jsx"
+  - "**.css"
+  - "**.scss"
+  - Gemfile.lock
+exclude_paths:
+- config/**/*
+- db/**/*
+- spec/**/*
+- test/**/*
+- vendor/**/*
