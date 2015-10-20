@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # TODO spec
   def current_user=(user)
     reset_session
     session[:user_id] = user.try(:id)
@@ -48,24 +49,27 @@ class ApplicationController < ActionController::Base
 
   # before_action
   # Requires the current user to be complete (see User#complete?) to proceed.
+  # TODO spec
   def require_complete_user
     # TODO add flash notice message
     redirect_to edit_user_path and return unless current_user.complete?
   end
 
   # before_action
+  # TODO spec
   def set_locale
     I18n.locale = if user_signed_in? &&
       current_user.locale.present?
       current_user.locale
     else
-      # TODO get locale from browser or use default
-      I18n.default_locale
+      # see https://github.com/iain/http_accept_language#example
+      http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale
     end
   end
 
   # before_action
   # TODO around_filter ? http://api.rubyonrails.org/classes/Time.html#method-c-zone-3D
+  # TODO spec
   def set_time_zone
     Time.zone = if user_signed_in? &&
       current_user.time_zone.present?
