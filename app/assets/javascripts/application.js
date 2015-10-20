@@ -13,4 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+// https://github.com/rails/turbolinks#events
+$(document).on('ready', function(event) {
+  // initialize persistent state
+});
+$(document).on('ready page:load', function(event) {
+  // apply non-idempotent transformations to the body
+});
+$(document).on('page:partial-load', function(event) {
+  // apply non-idempotent transformations to the nodes in event.data
+});
+$(document).on('page:change', function(event) {
+  // idempotent function
+});
+$(document).on('page:after-remove', function(event) {
+  // delete all references to the nodes in event.data to prevent memory leaks
+});
