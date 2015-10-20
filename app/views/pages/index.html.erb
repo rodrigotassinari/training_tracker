@@ -3,8 +3,10 @@
 
 <p><%= link_to 'Private page', private_path %></p>
 
-<% if logged_in? %>
-  <p>Welcome <%= current_user.name %>!</p>
+<p><%= l Time.zone.now, format: :detailed %></p>
+
+<% if user_signed_in? %>
+  <p>Welcome <%= current_user.name %>! TODO i18n</p>
   <p><%= link_to 'Logout', logout_path %></p>
 <% else %>
   <p>

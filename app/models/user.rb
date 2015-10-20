@@ -1,6 +1,18 @@
 class User < ActiveRecord::Base
   has_many :identities, dependent: :destroy
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: {case_sensitive: false}
+  validates :locale, inclusion: {in: I18n.available_locales.map(&:to_s)}, allow_blank: true
+  validates :time_zone, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}, allow_blank: true
+
+  def complete?
+    name.present? &&
+      email.present? &&
+      time_zone.present? &&
+      locale.present?
+  end
+
   # https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema
   def self.find_or_create_from_auth_hash!(auth_hash)
     find_from_auth_hash(auth_hash) || create_from_auth_hash!(auth_hash)

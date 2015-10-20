@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'logout' => 'sessions#destroy', as: 'logout'
 
+  resource :user, only: [:edit, :update]
+
   get 'private' => 'pages#private', as: 'private' # FIXME temporary
 
 end
