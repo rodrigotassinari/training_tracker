@@ -50,6 +50,8 @@ gem 'omniauth-strava', '~> 0.0'
 
 gem 'strava-api-v3', '~> 0.1'
 
+gem 'ar-uuid', '~> 0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
