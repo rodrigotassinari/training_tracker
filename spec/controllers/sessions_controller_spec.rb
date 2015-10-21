@@ -46,7 +46,7 @@ RSpec.describe SessionsController, type: :controller do
   describe 'GET #destroy' do
     let(:user) { instance_double('User', id: 42, time_zone: 'UTC', locale: 'en', complete?: true) }
     before do
-      subject.send(:current_user=, user)
+      login_as(user)
     end
     it 'signs out the current user' do
       expect(session[:user_id]).to eq(user.id)

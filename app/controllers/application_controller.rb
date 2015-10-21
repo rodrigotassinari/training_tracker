@@ -16,13 +16,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
-  # TODO spec
   def current_user
     @current_user ||= User.find(session[:user_id]) unless session[:user_id].blank?
   end
   helper_method :current_user
 
-  # TODO spec
   def current_user=(user)
     reset_session
     session[:user_id] = user.try(:id)
