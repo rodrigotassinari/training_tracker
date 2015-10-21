@@ -9,6 +9,10 @@ FactoryGirl.define do
     locale "en"
     time_zone "Eastern Time (US & Canada)"
 
+    factory :incomplete_user do
+      email nil
+    end
+
     factory :user_with_identity do
       transient do
         identities_count 1
