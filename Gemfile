@@ -56,7 +56,7 @@ gem 'http_accept_language', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 6.0'
   gem 'rspec-rails', '~> 3.3'
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
@@ -70,7 +70,8 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.4'
+  gem 'spring-commands-rspec', '~> 1.0'
 
   gem 'foreman', '~> 0.78'
 end
