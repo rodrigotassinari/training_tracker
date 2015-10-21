@@ -58,11 +58,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 6.0'
   gem 'rspec-rails', '~> 3.3'
-  gem 'rspec-collection_matchers', '~> 1.1'
-  gem 'rspec-its', '~> 1.2'
-  gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'factory_girl_rails', '~> 4.5'
   gem 'database_cleaner', '~> 1.5'
+  gem 'rspec-collection_matchers', '~> 1.1'
+  gem 'rspec-its', '~> 1.2'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development do
