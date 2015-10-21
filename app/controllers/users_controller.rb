@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   # GET /user/edit
   # edit_user_path
   def edit
-    current_user.locale = I18n.locale if current_user.locale.blank?
-    current_user.time_zone = Time.zone.name if current_user.time_zone.blank?
   end
 
   # PUT /user

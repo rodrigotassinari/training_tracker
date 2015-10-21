@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20151020165743) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                       null: false
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "time_zone"
-    t.string   "locale"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "time_zone",  default: "UTC", null: false
+    t.string   "locale",     default: "en",  null: false
   end
 
   add_foreign_key "identities", "users"

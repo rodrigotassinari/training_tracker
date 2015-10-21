@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_or_create_from_auth_hash!(auth_hash)
     self.current_user = @user
-    if @user.complete?
-      redirect_to root_path
+    if @user.just_created?
+      redirect_to edit_user_path, notice: t('.thanks_and_finish_sign_up')
+    else
+      redirect_to root_path, notice: t('.success', name: @user.name)
       # https://github.com/intridea/omniauth/wiki/Saving-User-Location
       # redirect_to (request.env['omniauth.origin'] || root_path)
-    else
-      redirect_to edit_user_path, notice: 'Please finish your profile TODO i18n'
     end
   end
 
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     self.current_user = nil
     session.destroy if session.respond_to?(:destroy)
     reset_session
-    redirect_to root_path, notice: 'Logged out successfully TOOD i18n'
+    redirect_to root_path, notice: t('.success')
   end
 
   protected

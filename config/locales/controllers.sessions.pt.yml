@@ -1,0 +1,7 @@
+pt:
+  sessions:
+    create:
+      thanks_and_finish_sign_up: 'Obrigado por se cadastrar. Por favor complete seu cadastro abaixo.'
+      success: 'Bem vindo de volta, %{name}!'
+    destroy:
+      success: 'Sessão encerrada com sucesso.'

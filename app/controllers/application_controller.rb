@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  around_action :set_time_zone, if: :user_signed_in?
   before_action :set_locale
-  before_action :set_time_zone
   before_action :require_login
   before_action :require_complete_user
 
@@ -56,17 +56,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # before_action
-  # TODO around_filter ? http://api.rubyonrails.org/classes/Time.html#method-c-zone-3D
+  # around_action
   # TODO spec
-  def set_time_zone
-    Time.zone = if user_signed_in? &&
-      current_user.time_zone.present?
-      current_user.time_zone
-    else
-      # TODO get time_zone from browser or use default
-      'UTC'
-    end
+  def set_time_zone(&block)
+    Time.use_zone(current_user.time_zone, &block)
   end
 
 end

@@ -1,0 +1,7 @@
+en:
+  sessions:
+    create:
+      thanks_and_finish_sign_up: 'Thank you for signing up. Please take a moment to complete your profile.'
+      success: 'Welcome back, %{name}!'
+    destroy:
+      success: 'Successfully logged out.'
