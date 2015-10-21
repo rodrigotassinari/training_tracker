@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :require_complete_user
 
-  private
+  protected
 
   # TODO spec
   def user_signed_in?
