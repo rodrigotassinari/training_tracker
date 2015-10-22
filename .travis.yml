@@ -4,6 +4,16 @@ rvm:
   - 2.2.3
 env:
   global:
+    - RAILS_ENV=test
+    - RACK_ENV=test
+    - PORT=3000
+    - PUMA_MIN_THREADS=8
+    - PUMA_MAX_THREADS=12
+    - PUMA_WORKERS=2
+    - DATABASE_URL=postgres://postgres:postgres@localhost
+    - DATABASE_POOL=5
+    - DATABASE_REAP_FREQ=10
+    - GOOGLE_ANALYTICS_ID=UA-xxxxxxxx-y
     - SECRET_KEY_BASE=training-tracker-secret-key-base
     - AWS_REGION=us-east-1
     - AWS_S3_BUCKET=trainingtracker-test-uploads
