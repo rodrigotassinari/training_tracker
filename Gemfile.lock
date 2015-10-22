@@ -294,6 +294,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 2.14)
   rails (= 4.2.4)
+  rake (~> 10.4)
   rollbar (~> 2.4)
   rspec-collection_matchers (~> 1.1)
   rspec-its (~> 1.2)

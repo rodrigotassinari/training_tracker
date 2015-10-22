@@ -55,6 +55,7 @@ gem 'ar-uuid', '~> 0.1'
 gem 'http_accept_language', '~> 2.0'
 
 group :development, :test do
+  gem 'rake', '~> 10.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 6.0'
   gem 'rspec-rails', '~> 3.3'
@@ -63,6 +64,10 @@ group :development, :test do
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
   gem 'shoulda-matchers', '~> 3.0'
+end
+
+group :test do
+  gem 'codeclimate-test-reporter', '~> 0.4', require: nil
 end
 
 group :development do

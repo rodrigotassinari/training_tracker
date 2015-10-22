@@ -1,0 +1,22 @@
+language: ruby
+bundler_args: "--without development"
+rvm:
+  - 2.2.3
+env:
+  global:
+    - SECRET_KEY_BASE=training-tracker-secret-key-base
+    - AWS_REGION=us-east-1
+    - AWS_S3_BUCKET=trainingtracker-test-uploads
+    - AWS_ACCESS_KEY_ID=aws-access-key-id
+    - AWS_SECRET_ACCESS_KEY=aws-secret-access-key
+    - STRAVA_CLIENT_ID=strava-client-id
+    - STRAVA_API_KEY=strava-api-key
+    # CODECLIMATE_REPO_TOKEN
+    - secure: "QGFMGSh0oX6WYlJuuRxaNDwuGUjbYnBs6Vjh7gzDSwavcpMEFDp9NZtIwP736UdtJTJRQ24+SkFCEV9TUqtgHuw+f8j+GYOj15K2DrfMqIgZfTN6/NB0RXPV7j5ZfypeKxdJ/cehbD8951CfveCZ68UuYFVKL5R28wxDAqXFHZIsKaCAF9yHVUfwgJ/8InI3C6xbd/fJgabp7+DvzK9mTrmzqOs4QSwwf6u4yf3DfBDVMI3SI73W0g8SH8LUqa181PrI41c5s8LGpoWvrs+rg18Y9y2jPnjjxoGt0vZGAJNXlx3Q+CMk7OX7Co0ezBLgfAS7wGetQk2yhH3dJSIQMrkiw7P4sjdV3faehmSt7UNHxi2cdd3jF4Q7l2ALmSkhNUcNTDRpeM3+FDpUC1WAWFW84NvaGy/pwYwKYAz9eWD/FNFXAYloJYuuGQHYyZqEF0zII+xjbAnRqkYdqDpbeSY8W4Y9dwB0lSA5vUVpYVIVcGhoDgUYT9rCvpJtFt1XOgj9V37oS54nFk4holveNbnzmZASyui9cLp/h3vasYLWTxafaYMU7NgmkzKs+qrfm4HhaxPua9+CC6KlnOKZItcJw1wRWrvEi+r+2jui796KIizvQI9PhNOgLFWGRJI33BfdXIwME5v2eKltHCZ+z63UJOMX+1sSTcUOgOwbb1A="
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:schema:load
+  - RAILS_ENV=test bundle exec rake --trace spec
+before_script:
+  - psql -c 'create database training_tracker_test;' -U postgres
+addons:
+  postgresql: "9.4"
