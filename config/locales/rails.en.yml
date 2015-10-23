@@ -35,6 +35,8 @@ en:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
+      long_weekday: "%A, %B %d, %Y"
+      short_weekday: "%a, %b %d"
     month_names:
     -
     - January

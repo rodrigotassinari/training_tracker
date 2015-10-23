@@ -1,0 +1,5 @@
+pt:
+  workouts:
+    index:
+      title: Treinos
+      no_workout_to_show: Nenhum treino para exibir.

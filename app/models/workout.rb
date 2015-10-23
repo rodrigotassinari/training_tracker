@@ -46,4 +46,29 @@ class Workout < ActiveRecord::Base
   validates :weight_after, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
 
+  # TODO spec
+  def done?
+    occurred_on.present?
+  end
+
+  # TODO spec
+  def future?
+    scheduled_on >= Time.zone.today
+  end
+
+  # TODO spec
+  def past?
+    scheduled_on < Time.zone.today
+  end
+
+  # TODO spec
+  def late?
+    past? && !done?
+  end
+
+  # TODO spec
+  def today?
+    scheduled_on == Time.zone.today
+  end
+
 end

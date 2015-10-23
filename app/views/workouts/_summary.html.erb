@@ -1,0 +1,44 @@
+<div class="workout-summary panel <%= workout_summary_panel_style(workout) %>">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= link_to workout_path(workout) do %>
+        <%= l workout.scheduled_on, format: :short_weekday %>
+        <%= workout_kind_image_tag(workout) %>
+        <%= workout.name %>
+      <% end %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <p class="lead"><%= workout.description %></p>
+    <% if workout.done? %>
+      <table>
+        <tbody>
+          <tr>
+            <th><%= Workout.human_attribute_name(:distance) %>:</th>
+            <td><%= workout.distance %></td>
+          </tr>
+          <tr>
+            <th><%= Workout.human_attribute_name(:moving_time) %>:</th>
+            <td><%= workout.moving_time %></td>
+          </tr>
+          <tr>
+            <th><%= Workout.human_attribute_name(:elevation_gain) %>:</th>
+            <td><%= workout.elevation_gain %></td>
+          </tr>
+          <tr>
+            <th><%= Workout.human_attribute_name(:speed_avg) %>:</th>
+            <td><%= workout.speed_avg %></td>
+          </tr>
+          <tr>
+            <th><%= Workout.human_attribute_name(:heart_rate_avg) %>:</th>
+            <td><%= workout.heart_rate_avg %></td>
+          </tr>
+          <tr>
+            <th><%= Workout.human_attribute_name(:cadence_avg) %>:</th>
+            <td><%= workout.cadence_avg %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
