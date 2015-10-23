@@ -1,0 +1,37 @@
+pt:
+  activerecord:
+    models:
+      workout:
+        one: Treino
+        other: Treinos
+    attributes:
+      workout:
+        user_id: Usuário
+        kind: Tipo
+        scheduled_on: Data Prevista
+        occurred_on: Data Real
+        name: Nome
+        description: Descrição
+        observations: Observações
+        coach_observations: Observações do Treinador
+        distance: Distância
+        elapsed_time: Tempo Total
+        moving_time: Tempo em Movimento
+        speed_avg: Velocidade Média
+        speed_max: Velocidade Máxima
+        cadence_avg: Cadência Média
+        cadence_max: Cadência Máxima
+        calories: Calorias
+        elevation_gain: Ganho de Elevação Total
+        temperature_avg: Temperatura Média
+        temperature_max: Temperatura Máxima
+        temperature_min: Temperatura Mínima
+        watts_avg: Potência Média
+        watts_weighted_avg: Potência Média Ponderada
+        watts_max: Potência Máxima
+        heart_rate_avg: Frequência Cardíaca Média
+        heart_rate_max: Frequência Cardíaca Máxima
+        weight_before: Peso
+        weight_after: Peso (após treino)
+        created_at: Cadastrado em
+        updated_at: Atualizado em

@@ -1,0 +1,37 @@
+en:
+  activerecord:
+    models:
+      workout:
+        one: Workout
+        other: Workouts
+    attributes:
+      workout:
+        user_id: User
+        kind: Type
+        scheduled_on: Scheduled Date
+        occurred_on: Actual Date
+        name: Name
+        description: Description
+        observations: Observations
+        coach_observations: Coach Observations
+        distance: Distance
+        elapsed_time: Elapsed Time
+        moving_time: Moving Time
+        speed_avg: Average Speed
+        speed_max: Max Speed
+        cadence_avg: Average Cadence
+        cadence_max: Max Cadence
+        calories: Calories
+        elevation_gain: Total Elevation Gain
+        temperature_avg: Average Temperature
+        temperature_max: Max Temperature
+        temperature_min: Min Temperature
+        watts_avg: Average Watts
+        watts_weighted_avg: Weighted Average Watts
+        watts_max: Max Watts
+        heart_rate_avg: Average Heart Rate
+        heart_rate_max: Max Heart Rate
+        weight_before: Weight
+        weight_after: Weight (after workout)
+        created_at: Created At
+        updated_at: Updated At
