@@ -10,6 +10,7 @@ pt:
       success: 'Sucesso'
     navbar:
       home: 'Início'
+      workouts: 'Treinos'
       my_profile: 'Meu Perfil'
       sign_in: 'Entrar com seu Strava'
       sign_out: 'Sair'

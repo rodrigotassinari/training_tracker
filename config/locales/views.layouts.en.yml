@@ -10,6 +10,7 @@ en:
       success: 'Success'
     navbar:
       home: 'Home'
+      workouts: 'Workouts'
       my_profile: 'My Profile'
       sign_in: 'Sign in with Strava'
       sign_out: 'Sign out'

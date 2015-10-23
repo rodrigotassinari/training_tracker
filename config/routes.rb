@@ -8,6 +8,4 @@ Rails.application.routes.draw do
   resource :user, only: [:edit, :update]
   resources :workouts
 
-  get 'private' => 'pages#private', as: 'private' # FIXME temporary
-
 end
