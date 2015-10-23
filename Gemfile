@@ -63,7 +63,8 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
-  gem 'shoulda-matchers', '~> 3.0'
+  # gem 'shoulda-matchers', '~> 3.0' # until 3.0.1 is released
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'test_notifier', '~> 2.0'
 end
 
@@ -78,6 +79,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.4'
   gem 'spring-commands-rspec', '~> 1.0'
+
+  gem 'guard-rspec', '~> 4.6', require: false
 
   gem 'foreman', '~> 0.78'
 end
