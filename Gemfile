@@ -64,6 +64,7 @@ group :development, :test do
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'test_notifier', '~> 2.0'
 end
 
 group :test do
