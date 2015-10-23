@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :identities, dependent: :destroy
+  has_many :workouts, dependent: :destroy
 
   validates :name, presence: true
   validates :email, uniqueness: {case_sensitive: false}, allow_blank: true
