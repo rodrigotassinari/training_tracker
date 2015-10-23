@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
 
   resource :user, only: [:edit, :update]
+  resources :workouts
 
   get 'private' => 'pages#private', as: 'private' # FIXME temporary
 
