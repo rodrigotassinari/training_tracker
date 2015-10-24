@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  locale_name: 'English'
-  submit: 'Submit'
-  submiting: 'Submiting...'
+  locale_name: English
+  submit: Submit
+  submiting: Submiting...
+  back: Back
+  save: Save
+  saving: Saving...
+  done: Done
+  cancel: Cancel
+  canceling: Canceling...
+  delete: Delete
+  deleting: Deleting...

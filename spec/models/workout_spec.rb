@@ -36,4 +36,16 @@ RSpec.describe Workout, type: :model do
     it { is_expected.to validate_numericality_of(:weight_after).is_greater_than_or_equal_to(0.0).allow_nil }
   end
 
+  describe '.new_with_defaults' do
+    let(:user) { FactoryGirl.build(:user) }
+    let(:workout) { described_class.new_with_defaults(user) }
+    it 'returns a new instance with some values set' do
+      expect(workout).to be_new_record
+      expect(workout).to be_valid
+      expect(workout.kind).to eq('cycling')
+      expect(workout.scheduled_on).to eq(Time.zone.today)
+      expect(workout.user).to eq(user)
+    end
+  end
+
 end

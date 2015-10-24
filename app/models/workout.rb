@@ -46,6 +46,10 @@ class Workout < ActiveRecord::Base
   validates :weight_after, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
 
+  def self.new_with_defaults(user)
+    new(kind: 'cycling', scheduled_on: Time.zone.today, user: user)
+  end
+
   # TODO spec
   def done?
     occurred_on.present?

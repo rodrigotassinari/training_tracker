@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= t '.title' %></h1>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-8">
+    <% if @workout.errors.any? %>
+      <div id="error_explanation" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t('.validation_errors', count: @workout.errors.count) %>:</h3>
+        </div>
+      </div>
+    <% end %>
+
+    <%= bootstrap_form_for(@workout) do |f| %>
+      <%= f.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
+      <%= f.date_select :scheduled_on %>
+      <%= f.text_field :name %>
+      <%= f.text_area :description %>
+      <%= f.text_area :observations, class: 'done-attribute' %>
+      <%= f.text_area :coach_observations, class: 'done-attribute' %>
+      <%= f.text_field :distance, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :elapsed_time, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :moving_time, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :speed_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :speed_max, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :cadence_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :cadence_max, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :calories, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :elevation_gain, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :temperature_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :temperature_max, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :temperature_min, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :watts_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :watts_weighted_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :watts_max, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :heart_rate_avg, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :heart_rate_max, class: 'done-attribute gps-attribute' %>
+      <%= f.text_field :weight_before, class: 'done-attribute' %>
+      <%= f.text_field :weight_after, class: 'done-attribute' %>
+
+      <%= f.submit t('save'), data: {disable_with: t('saving')} %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4">
+    <p>TODO sidebar</p>
+  </div>
+</div>

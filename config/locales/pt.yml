@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
-  locale_name: 'Português'
-  submit: 'Enviar'
-  submiting: 'Enviando...'
+  locale_name: Português
+  submit: Enviar
+  submiting: Enviando...
+  back: Voltar
+  save: Salvar
+  saving: Salvando...
+  done: Feito
+  cancel: Cancelar
+  canceling: Cancelando...
+  delete: Apagar
+  deleting: Apagando...

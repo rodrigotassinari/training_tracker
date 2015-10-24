@@ -35,3 +35,7 @@ en:
         weight_after: Weight (after workout)
         created_at: Created At
         updated_at: Updated At
+      workout/kind:
+        cycling: Cycling
+        running: Running
+        swimming: Swimming

@@ -63,4 +63,31 @@ RSpec.describe WorkoutsController, type: :controller do
     end
   end
 
+  describe 'GET #new' do
+    let(:user) { FactoryGirl.build(:user) }
+    include_examples 'authentication requirement' do
+      let(:action) {-> {get :new}}
+    end
+    include_examples 'complete user requirement' do
+      let(:action) {-> {get :new}}
+    end
+    context 'logged in and complete' do
+      before do
+        login_as(user)
+      end
+      it 'returns a success response' do
+        get :new
+        expect(response).to be_success
+        expect(response).to render_template(:new)
+      end
+      it 'assigns a new workout' do
+        expect(Workout).to receive(:new_with_defaults).
+          with(user).
+          and_return(workout = instance_double(Workout))
+        get :new
+        expect(assigns(:workout)).to eq(workout)
+      end
+    end
+  end
+
 end
