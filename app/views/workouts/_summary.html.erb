@@ -11,6 +11,10 @@
   <div class="panel-body">
     <p class="lead"><%= workout.description %></p>
     <% if workout.done? %>
+      <% if detailed %>
+        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <%= workout.observations %></p>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong><%= workout.coach_observations %></p>
+      <% end %>
       <table>
         <tbody>
           <tr>
@@ -21,22 +25,100 @@
             <th><%= Workout.human_attribute_name(:moving_time) %>:</th>
             <td><%= workout.moving_time %></td>
           </tr>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:elapsed_time) %>:</th>
+              <td><%= workout.elapsed_time %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:elevation_gain) %>:</th>
             <td><%= workout.elevation_gain %></td>
           </tr>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:calories) %>:</th>
+              <td><%= workout.calories %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:speed_avg) %>:</th>
             <td><%= workout.speed_avg %></td>
           </tr>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:speed_max) %>:</th>
+              <td><%= workout.speed_max %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:heart_rate_avg) %>:</th>
             <td><%= workout.heart_rate_avg %></td>
           </tr>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:heart_rate_max) %>:</th>
+              <td><%= workout.heart_rate_max %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:cadence_avg) %>:</th>
             <td><%= workout.cadence_avg %></td>
           </tr>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:cadence_max) %>:</th>
+              <td><%= workout.cadence_max %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:temperature_avg) %>:</th>
+              <td><%= workout.temperature_avg %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:temperature_min) %>:</th>
+              <td><%= workout.temperature_min %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:temperature_max) %>:</th>
+              <td><%= workout.temperature_max %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:watts_avg) %>:</th>
+              <td><%= workout.watts_avg %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:watts_weighted_avg) %>:</th>
+              <td><%= workout.watts_weighted_avg %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:watts_max) %>:</th>
+              <td><%= workout.watts_max %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:weight_before) %>:</th>
+              <td><%= workout.weight_before %></td>
+            </tr>
+          <% end %>
+          <% if detailed %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:weight_after) %>:</th>
+              <td><%= workout.weight_after %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     <% end %>

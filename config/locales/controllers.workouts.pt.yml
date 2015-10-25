@@ -1,2 +1,8 @@
 pt:
   workouts:
+    create:
+      success: Treino criado com sucesso.
+    update:
+      success: Treino alterado com sucesso.
+    destroy:
+      success: Treino apagado.

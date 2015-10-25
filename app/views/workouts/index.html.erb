@@ -14,7 +14,7 @@
       <p><%= t '.no_workout_to_show' %></p>
     <% else %>
       <% @workouts.each do |workout| %>
-        <%= render partial: 'workouts/summary', locals: {workout: workout} %>
+        <%= render partial: 'workouts/summary', locals: {workout: workout, detailed: false} %>
       <% end %>
     <% end %>
   </div>

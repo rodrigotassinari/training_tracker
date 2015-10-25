@@ -4,8 +4,14 @@ en:
       title: Workouts
       no_workout_to_show: No workout to show.
       new_workout: New workout
+    show:
+      title: Workout
+      edit_workout: Edit workout
     new:
       title: New workout
+    edit:
+      title: Edit workout
+    form:
       validation_errors:
         one: '1 error prohibited this workout from being saved'
         other: '%{count} errors prohibited this workout from being saved'

@@ -1,2 +1,8 @@
 en:
   workouts:
+    create:
+      success: Workout successfully created.
+    update:
+      success: Workout successfully updated.
+    destroy:
+      success: Workout deleted.

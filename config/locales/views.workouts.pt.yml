@@ -4,8 +4,14 @@ pt:
       title: Treinos
       no_workout_to_show: Nenhum treino para exibir.
       new_workout: Novo treino
+    show:
+      title: Treino
+      edit_workout: Editar treino
     new:
       title: Novo treino
+    edit:
+      title: Editar treino
+    form:
       validation_errors:
         one: '1 erro impediu que este treino fosse salvo'
         other: '%{count} erros impediram que este treino fosse salvo'
