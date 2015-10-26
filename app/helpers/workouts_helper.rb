@@ -13,4 +13,10 @@ module WorkoutsHelper
     image_tag("workout_#{workout.kind}.png", alt: workout.kind, height: 18)
   end
 
+  # TODO spec
+  def seconds_to_time(seconds)
+    return if seconds.blank?
+    Time.at(seconds.to_i).utc.strftime("%H:%M:%S")
+  end
+
 end

@@ -31,3 +31,30 @@ en:
   canceling: Canceling...
   delete: Delete
   deleting: Deleting...
+  number_to_human:
+    distances:
+      mili:
+        one: millimeter
+        other: millimeters
+      centi:
+        one: centimeter
+        other: centimeters
+      unit:
+        one: meter
+        other: meters
+      thousand:
+        one: kilometer
+        other: kilometers
+    grams:
+      mili:
+        one: milligram
+        other: milligrams
+      unit:
+        one: gram
+        other: grams
+      thousand:
+        one: kilogram
+        other: kilogram
+      million:
+        one: ton
+        other: tons

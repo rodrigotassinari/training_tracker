@@ -19,104 +19,104 @@
         <tbody>
           <tr>
             <th><%= Workout.human_attribute_name(:distance) %>:</th>
-            <td><%= workout.distance %></td>
+            <td><%= number_to_human(workout.distance, units: 'number_to_human.distances', precision: 4) %></td>
           </tr>
           <tr>
             <th><%= Workout.human_attribute_name(:moving_time) %>:</th>
-            <td><%= workout.moving_time %></td>
+            <td><%= seconds_to_time(workout.moving_time) %></td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:elapsed_time) %>:</th>
-              <td><%= workout.elapsed_time %></td>
+              <td><%= seconds_to_time(workout.elapsed_time) %></td>
             </tr>
           <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:elevation_gain) %>:</th>
-            <td><%= workout.elevation_gain %></td>
+            <td><%= number_to_human(workout.elevation_gain, units: 'number_to_human.distances', precision: 3) %></td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:calories) %>:</th>
-              <td><%= workout.calories %></td>
+              <td><%= number_with_delimiter(workout.calories) %></td>
             </tr>
           <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:speed_avg) %>:</th>
-            <td><%= workout.speed_avg %></td>
+            <td><%= number_with_delimiter(workout.speed_avg.try(:round, 1)) %> km/h</td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:speed_max) %>:</th>
-              <td><%= workout.speed_max %></td>
+              <td><%= number_with_delimiter(workout.speed_max.try(:round, 1)) %> km/h</td>
             </tr>
           <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:heart_rate_avg) %>:</th>
-            <td><%= workout.heart_rate_avg %></td>
+            <td><%= number_with_delimiter(workout.heart_rate_avg) %> bpm</td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:heart_rate_max) %>:</th>
-              <td><%= workout.heart_rate_max %></td>
+              <td><%= number_with_delimiter(workout.heart_rate_max) %> bpm</td>
             </tr>
           <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:cadence_avg) %>:</th>
-            <td><%= workout.cadence_avg %></td>
+            <td><%= number_with_delimiter(workout.cadence_avg) %> rpm</td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:cadence_max) %>:</th>
-              <td><%= workout.cadence_max %></td>
+              <td><%= number_with_delimiter(workout.cadence_max) %> rpm</td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_avg) %>:</th>
-              <td><%= workout.temperature_avg %></td>
+              <td><%= number_with_delimiter(workout.temperature_avg.try(:round, 1)) %> ºC</td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_min) %>:</th>
-              <td><%= workout.temperature_min %></td>
+              <td><%= number_with_delimiter(workout.temperature_min.try(:round, 1)) %> ºC</td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_max) %>:</th>
-              <td><%= workout.temperature_max %></td>
+              <td><%= number_with_delimiter(workout.temperature_max.try(:round, 1)) %> ºC</td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_avg) %>:</th>
-              <td><%= workout.watts_avg %></td>
+              <%= number_with_delimiter(workout.watts_avg.try(:round, 0)) %>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_weighted_avg) %>:</th>
-              <td><%= workout.watts_weighted_avg %></td>
+              <%= number_with_delimiter(workout.watts_weighted_avg.try(:round, 0)) %>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_max) %>:</th>
-              <td><%= workout.watts_max %></td>
+              <%= number_with_delimiter(workout.watts_max.try(:round, 0)) %>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_before) %>:</th>
-              <td><%= workout.weight_before %></td>
+              <td><%= number_to_human(workout.weight_before * 1000.0, units: 'number_to_human.grams', precision: 4) %></td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_after) %>:</th>
-              <td><%= workout.weight_after %></td>
+              <td><%= number_to_human(workout.weight_after * 1000.0, units: 'number_to_human.grams', precision: 4) %></td>
             </tr>
           <% end %>
         </tbody>
