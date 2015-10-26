@@ -23,12 +23,12 @@
           </tr>
           <tr>
             <th><%= Workout.human_attribute_name(:moving_time) %>:</th>
-            <td><%= seconds_to_time(workout.moving_time) %></td>
+            <td><%= workout.moving_time_in_hours %></td>
           </tr>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:elapsed_time) %>:</th>
-              <td><%= seconds_to_time(workout.elapsed_time) %></td>
+              <td><%= workout.elapsed_time_in_hours %></td>
             </tr>
           <% end %>
           <tr>

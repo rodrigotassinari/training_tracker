@@ -54,6 +54,8 @@ gem 'ar-uuid', '~> 0.1'
 
 gem 'http_accept_language', '~> 2.0'
 
+gem 'chronic_duration', '~> 0.10'
+
 group :development, :test do
   gem 'rake', '~> 10.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

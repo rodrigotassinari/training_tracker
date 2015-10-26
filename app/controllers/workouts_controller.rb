@@ -74,7 +74,7 @@ class WorkoutsController < ApplicationController
     params.require(:workout).
       permit(:kind, :scheduled_on, :occurred_on, :name, :description,
         :observations, :coach_observations, :weight_before, :weight_after,
-        :distance, :elapsed_time, :moving_time, :speed_avg, :speed_max,
+        :distance, :elapsed_time_in_hours, :moving_time_in_hours, :speed_avg, :speed_max,
         :cadence_avg, :cadence_max, :calories, :elevation_gain,
         :temperature_avg, :temperature_max, :temperature_min, :watts_avg,
         :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max)

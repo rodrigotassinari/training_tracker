@@ -75,4 +75,28 @@ class Workout < ActiveRecord::Base
     scheduled_on == Time.zone.today
   end
 
+  # TODO spec
+  def elapsed_time_in_hours
+    return if elapsed_time.blank?
+    ChronicDuration.output(elapsed_time,
+      format: :short, limit_to_hours: true)
+  end
+
+  # TODO spec
+  def elapsed_time_in_hours=(hour_string)
+    elapsed_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
+  end
+
+  # TODO spec
+  def moving_time_in_hours
+    return if moving_time.blank?
+    ChronicDuration.output(moving_time,
+      format: :short, limit_to_hours: true)
+  end
+
+  # TODO spec
+  def moving_time_in_hours=(hour_string)
+    moving_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
+  end
+
 end
