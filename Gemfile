@@ -65,8 +65,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
-  # gem 'shoulda-matchers', '~> 3.0' # until 3.0.1 is released
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'test_notifier', '~> 2.0'
 end
 
