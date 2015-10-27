@@ -110,13 +110,13 @@
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_before) %>:</th>
-              <td><%= number_to_human(workout.weight_before * 1000.0, units: 'number_to_human.grams', precision: 4) %></td>
+              <td><%= workout.weight_before %> kg</td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_after) %>:</th>
-              <td><%= number_to_human(workout.weight_after * 1000.0, units: 'number_to_human.grams', precision: 4) %></td>
+              <td><%= workout.weight_after %> kg</td>
             </tr>
           <% end %>
         </tbody>

@@ -67,17 +67,25 @@ class WorkoutsController < ApplicationController
   end
 
   def set_workout
-    @workout = finder.find(params[:id])
+    @workout = WorkoutPresenter.new(finder.find(params[:id]))
   end
 
   def workout_params
     params.require(:workout).
       permit(:kind, :scheduled_on, :occurred_on, :name, :description,
         :observations, :coach_observations, :weight_before, :weight_after,
-        :distance, :elapsed_time_in_hours, :moving_time_in_hours, :speed_avg, :speed_max,
-        :cadence_avg, :cadence_max, :calories, :elevation_gain,
+        :distance, :elapsed_time_in_hours, :moving_time_in_hours, :speed_avg,
+        :speed_max, :cadence_avg, :cadence_max, :calories, :elevation_gain,
         :temperature_avg, :temperature_max, :temperature_min, :watts_avg,
-        :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max)
+        :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max).
+      delocalize(weight_before: :number, weight_after: :number,
+        distance: :number, speed_avg: :number, speed_max: :number,
+        cadence_avg: :number, cadence_max: :number, calories: :number,
+        elevation_gain: :number, temperature_avg: :number,
+        temperature_min: :number, temperature_max: :number, watts_avg: :number,
+        watts_weighted_avg: :number, watts_max: :number,
+        heart_rate_avg: :number, heart_rate_max: :number,
+        scheduled_on: :date, occurred_on: :date)
   end
 
 end

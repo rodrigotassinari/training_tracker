@@ -31,8 +31,17 @@ en:
     - Thursday
     - Friday
     - Saturday
+    input:
+      formats:
+        - :default
+        - :calendar
+        - :long_weekday
+        - :short_weekday
+        - :long
+        - :short
     formats:
       default: "%Y-%m-%d"
+      calendar: "%m/%d/%Y"
       long: "%B %d, %Y"
       short: "%b %d"
       long_weekday: "%A, %B %d, %Y"
@@ -200,6 +209,13 @@ en:
       words_connector: ", "
   time:
     am: am
+    input:
+      formats:
+        - :detailed
+        - :default
+        - :db
+        - :long
+        - :short
     formats:
       default: "%a, %d %b %Y %H:%M:%S %Z %z"
       long: "%B %d, %Y %H:%M %Z"

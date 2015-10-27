@@ -56,6 +56,10 @@ gem 'http_accept_language', '~> 2.0'
 
 gem 'chronic_duration', '~> 0.10'
 
+gem 'delocalize', github: 'clemens/delocalize', branch: '1-0-beta'
+
+gem 'burgundy', '~> 0.2'
+
 group :development, :test do
   gem 'rake', '~> 10.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

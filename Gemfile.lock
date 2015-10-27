@@ -8,6 +8,14 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
+GIT
+  remote: git://github.com/clemens/delocalize.git
+  revision: 44e758372ae6f03f4c968a3b9dca22738cfea885
+  branch: 1-0-beta
+  specs:
+    delocalize (1.0.0.beta1)
+      rails (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,6 +68,7 @@ GEM
     bootstrap_form (2.3.0)
     browser (1.0.1)
     builder (3.2.2)
+    burgundy (0.2.0)
     byebug (6.0.2)
     celluloid (0.17.2)
       celluloid-essentials
@@ -331,11 +340,13 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3)
   bootstrap_form (~> 2.3)
   browser (~> 1.0)
+  burgundy (~> 0.2)
   byebug (~> 6.0)
   carrierwave!
   chronic_duration (~> 0.10)
   codeclimate-test-reporter (~> 0.4)
   database_cleaner (~> 1.5)
+  delocalize!
   factory_girl_rails (~> 4.5)
   fog-aws (~> 0.7)
   font-awesome-sass (~> 4.4)

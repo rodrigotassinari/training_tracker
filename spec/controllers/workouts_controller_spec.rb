@@ -90,4 +90,53 @@ RSpec.describe WorkoutsController, type: :controller do
     end
   end
 
+  describe 'POST #create' do
+    let(:user) { FactoryGirl.create(:user) }
+    # let(:workout_attributes) { {kind: 'cycling', "scheduled_on(3i)"=>"27", "scheduled_on(2i)"=>"10", "scheduled_on(1i)"=>"2015", name: 'some workout'} }
+    # let(:workout_attributes) { {kind: 'cycling', scheduled_on: Time.zone.today.to_s, name: 'some workout'} }
+    let(:workout_attributes) { {kind: 'cycling', name: 'some workout'} }
+    include_examples 'authentication requirement' do
+      let(:action) {-> {post :create, workout: workout_attributes}}
+    end
+    include_examples 'complete user requirement' do
+      let(:action) {-> {post :create, workout: workout_attributes}}
+    end
+    context 'delocalize' do
+      before do
+        login_as(user)
+      end
+      let!(:delocalized_attributes) { {scheduled_on: Time.zone.today, weight_before: '87.65', cadence_avg: '85', calories: '1234', elevation_gain: '1234.56', distance: '6543.21'} }
+      context 'user uses english' do
+        let(:user) { FactoryGirl.create(:user, locale: 'en') }
+        it 'delocalizes attributes when en' do
+          localized_attributes = {scheduled_on: Time.zone.today.strftime('%m/%d/%Y'), weight_before: '87.65', cadence_avg: '85', calories: '1,234', elevation_gain: '1,234.56', distance: '6543.21'}
+          expect(Workout).to receive(:new).
+            with(workout_attributes.merge(delocalized_attributes)).
+            and_return(FactoryGirl.build(:workout, user: user))
+          I18n.with_locale(:en) do
+            post :create, workout: workout_attributes.merge(localized_attributes)
+          end
+        end
+      end
+      context 'user uses portuguese' do
+        let(:user) { FactoryGirl.create(:user, locale: 'pt') }
+        it 'delocalizes attributes when pt' do
+          localized_attributes = {scheduled_on: Time.zone.today.strftime('%d/%m/%Y'), weight_before: '87,65', cadence_avg: '85', calories: '1.234', elevation_gain: '1.234,56', distance: '6543,21'}
+          expect(Workout).to receive(:new).
+            with(workout_attributes.merge(delocalized_attributes)).
+            and_return(FactoryGirl.build(:workout, user: user))
+          I18n.with_locale(:pt) do
+            post :create, workout: workout_attributes.merge(localized_attributes)
+          end
+        end
+      end
+    end
+    # context 'logged in and complete' do
+    #   before do
+    #     login_as(user)
+    #   end
+    #   it 'creates a workout'
+    # end
+  end
+
 end
