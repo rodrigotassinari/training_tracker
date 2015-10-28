@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= t '.title' %></h1>
+  </div>
+</div>
+
+<%= bootstrap_form_for(@activity, url: workout_strava_path(@activity.workout), method: :post) do |form| %>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= render partial: 'workouts/summary', locals: {workout: @activity.workout, detailed: false} %>
+
+      <h3>TODO i18n Enter Strava information:</h3>
+      <%= form.text_field :strava_url, class: 'done-attribute', autofocus: true %>
+      <%= form.text_area :observations, class: 'done-attribute' %>
+      <%= form.text_area :coach_observations, class: 'done-attribute' %>
+      <%= form.text_field :weight_before, class: 'done-attribute' %>
+      <%= form.text_field :weight_after, class: 'done-attribute' %>
+    </div>
+
+    <div class="col-sm-4">
+      <p><%= form.submit t('submit'), data: {disable_with: t('submiting')}, class: 'btn btn-primary btn-lg btn-block' %></p>
+      <p><%= link_to t('back'), workout_path(@activity.workout), role: 'button', class: 'btn btn-default btn-block' %></p>
+    </div>
+  </div>
+<% end %>

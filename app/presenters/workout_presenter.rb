@@ -23,9 +23,8 @@ class WorkoutPresenter < Burgundy::Item
   end
 
   def strava_url
-    if item.has_strava?
-      "https://www.strava.com/activities/#{item.strava_data[:id]}"
-    end
+    return unless item.has_strava?
+    "https://www.strava.com/activities/#{item.strava_data[:id]}"
   end
 
 end

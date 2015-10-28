@@ -13,10 +13,16 @@
     <% if workout.done? %>
       <% if detailed %>
         <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <%= workout.observations %></p>
-        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong><%= workout.coach_observations %></p>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <%= workout.coach_observations %></p>
       <% end %>
       <table>
         <tbody>
+          <% if workout.has_strava? %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:strava_url) %>:</th>
+              <td><%= link_to workout.strava_url, workout.strava_url, target: '_blank' %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:distance_in_km) %>:</th>
             <td><%= workout.distance_in_km %> km</td>
@@ -92,19 +98,19 @@
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_avg) %>:</th>
-              <%= workout.watts_avg %>
+              <td><%= workout.watts_avg %></td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_weighted_avg) %>:</th>
-              <%= workout.watts_weighted_avg %>
+              <td><%= workout.watts_weighted_avg %></td>
             </tr>
           <% end %>
           <% if detailed %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_max) %>:</th>
-              <%= workout.watts_max %>
+              <td><%= workout.watts_max %></td>
             </tr>
           <% end %>
           <% if detailed %>

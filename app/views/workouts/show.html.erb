@@ -21,7 +21,7 @@
       </p>
     <% else %>
       <p>
-        <%= link_to t('.mark_done_strava'), '#TODO', role: 'button', class: 'btn btn-primary btn-block', onclick: "alert('#{t(:not_available_yet)}'); return false" %>
+        <%= link_to t('.mark_done_strava'), new_workout_strava_path(@workout), role: 'button', class: 'btn btn-primary btn-block' %>
         <span class="text-muted"><small><%= t('.mark_done_strava_help') %></small></span>
       </p>
       <p>

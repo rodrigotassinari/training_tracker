@@ -38,6 +38,7 @@ en:
         weight_after: Weight (after workout)
         created_at: Created At
         updated_at: Updated At
+        strava_url: Strava activity
       workout/kind:
         cycling: Cycling
         running: Running

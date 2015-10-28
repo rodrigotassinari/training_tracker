@@ -38,6 +38,7 @@ pt:
         weight_after: Peso (após treino)
         created_at: Cadastrado em
         updated_at: Atualizado em
+        strava_url: Atividade no Strava
       workout/kind:
         cycling: Ciclismo
         running: Corrida

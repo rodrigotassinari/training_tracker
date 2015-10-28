@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
 
   resource :user, only: [:edit, :update]
-  resources :workouts
+  resources :workouts do
+    resource :strava, controller: 'workout_strava_activities'
+  end
 
 end

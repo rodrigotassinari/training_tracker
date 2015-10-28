@@ -127,7 +127,7 @@ class Workout < ActiveRecord::Base
 
   # TODO spec
   def has_strava?
-    !strava_data.empty? && strava_data[:id].present?
+    strava_data.present? && strava_data[:id].present?
   end
 
 end
