@@ -1,9 +1,6 @@
 <div class="row">
-  <div class="col-sm-10">
+  <div class="col-sm-12">
     <h1><%= t '.title' %></h1>
-  </div>
-  <div class="col-sm-2">
-    <h2><%= link_to t('.new_workout'), new_workout_path, role: 'button', class: 'btn btn-success btn-lg btn-block' %></h2>
   </div>
 </div>
 
@@ -20,6 +17,10 @@
   </div>
 
   <div class="col-sm-4">
-    <p>TODO sidebar</p>
+    <p><%= link_to t('.new_workout'), new_workout_path, role: 'button', class: 'btn btn-success btn-lg btn-block' %></p>
+    <p>
+      <%= link_to t('.sync_strava'), '#TODO', role: 'button', class: 'btn btn-primary btn-block', onclick: "alert('#{t(:not_available_yet)}'); return false" %>
+      <span class="text-muted"><small><%= t('.sync_strava_help') %></small></span>
+    </p>
   </div>
 </div>

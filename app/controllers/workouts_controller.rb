@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   # new_workout_path
   def new
-    @workout = Workout.new_with_defaults(current_user)
+    @workout = WorkoutPresenter.new(Workout.new_with_defaults(current_user))
   end
 
   # POST /workouts
@@ -37,6 +37,7 @@ class WorkoutsController < ApplicationController
   # edit_workout_path(:id)
   # TODO spec
   def edit
+    @workout.occurred_on = @workout.scheduled_on if !@workout.done?
   end
 
   # PUT /workouts/:id

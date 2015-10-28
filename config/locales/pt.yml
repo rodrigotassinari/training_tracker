@@ -31,6 +31,7 @@ pt:
   canceling: Cancelando...
   delete: Apagar
   deleting: Apagando...
+  not_available_yet: Não disponível ainda.
   number_to_human:
     distances:
       mili:

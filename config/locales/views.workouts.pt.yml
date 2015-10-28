@@ -4,9 +4,18 @@ pt:
       title: Treinos
       no_workout_to_show: Nenhum treino para exibir.
       new_workout: Novo treino
+      sync_strava: Sincronizar com Strava
+      sync_strava_help: Buscar suas atividades no Strava e automaticamente criar novos treinos e/ou marcar treinos existentes como feitos.
     show:
       title: Treino
       edit_workout: Editar treino
+      edit_workout_help: Permite alterar manualmente qualquer dado do treino.
+      share_workout: Compartilhar treino
+      share_workout_help: Envia dados do treino por email para seu treinador.
+      mark_done_strava: Marcar como feito via Strava
+      mark_done_strava_help: Marca treino como feito, pegando dados do treino automaticamente de uma atividade existente no Strava.
+      mark_done_manually: Marcar como feito manualmente
+      mark_done_manually_help: Marca treino como feito, mas digitando manualmente com os dados do treino.
     new:
       title: Novo treino
     edit:

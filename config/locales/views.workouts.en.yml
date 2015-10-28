@@ -4,9 +4,18 @@ en:
       title: Workouts
       no_workout_to_show: No workout to show.
       new_workout: New workout
+      sync_strava: Sync with Strava
+      sync_strava_help: Fetch your Strava activities and automatically create new workouts and/or mark existing workouts as done.
     show:
       title: Workout
       edit_workout: Edit workout
+      edit_workout_help: Change any workout data manually.
+      share_workout: Share workout
+      share_workout_help: Send workout data by email to your coach.
+      mark_done_strava: Mark as done via Strava
+      mark_done_strava_help: Mark workout as done, fetching all workout data automatically from an existing Strava activity.
+      mark_done_manually: Mark as done manually
+      mark_done_manually_help: Mark workout as done, but typing manually all workout data.
     new:
       title: New workout
     edit:

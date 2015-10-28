@@ -4,12 +4,14 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <%= render partial: 'workouts/form', locals: {workout: @workout} %>
+<%= bootstrap_form_for(@workout) do |form| %>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= render partial: 'workouts/form', locals: {form: form, workout: @workout} %>
+    </div>
+    <div class="col-sm-4">
+      <p><%= form.submit t('save'), data: {disable_with: t('saving')}, class: 'btn btn-success btn-lg btn-block' %></p>
+      <p><%= link_to t('back'), workouts_path, role: 'button', class: 'btn btn-default btn-block' %></p>
+    </div>
   </div>
-
-  <div class="col-sm-4">
-    <p>TODO sidebar</p>
-  </div>
-</div>
+<% end %>

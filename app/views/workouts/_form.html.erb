@@ -11,37 +11,33 @@
   </div>
 <% end %>
 
-<%= bootstrap_form_for(workout) do |f| %>
-  <%= f.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
-  <%= f.date_select :scheduled_on %>
-  <% if workout.persisted? %>
-    <%= f.date_select :occurred_on %>
-  <% end %>
-  <%= f.text_field :name %>
-  <%= f.text_area :description %>
-
-  <%= f.text_area :observations, class: 'done-attribute' %>
-  <%= f.text_area :coach_observations, class: 'done-attribute' %>
-  <%= f.text_field :weight_before, class: 'done-attribute' %>
-  <%= f.text_field :weight_after, class: 'done-attribute' %>
-
-  <%= f.text_field :distance_in_km, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :elapsed_time_in_hours, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :moving_time_in_hours, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :speed_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :speed_max, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :cadence_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :cadence_max, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :calories, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :elevation_gain, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :temperature_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :temperature_max, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :temperature_min, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :watts_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :watts_weighted_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :watts_max, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :heart_rate_avg, class: 'done-attribute gps-attribute' %>
-  <%= f.text_field :heart_rate_max, class: 'done-attribute gps-attribute' %>
-
-  <%= f.submit t('save'), data: {disable_with: t('saving')} %>
+<%= form.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
+<%= form.date_select :scheduled_on %>
+<% if workout.persisted? %>
+  <%= form.date_select :occurred_on, include_blank: true %>
 <% end %>
+<%= form.text_field :name %>
+<%= form.text_area :description %>
+
+<%= form.text_area :observations, class: 'done-attribute' %>
+<%= form.text_area :coach_observations, class: 'done-attribute' %>
+<%= form.text_field :weight_before, class: 'done-attribute' %>
+<%= form.text_field :weight_after, class: 'done-attribute' %>
+
+<%= form.text_field :distance_in_km, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :elapsed_time_in_hours, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :moving_time_in_hours, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :speed_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :speed_max, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :cadence_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :cadence_max, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :calories, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :elevation_gain, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :temperature_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :temperature_max, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :temperature_min, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :watts_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :watts_weighted_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :watts_max, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :heart_rate_avg, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :heart_rate_max, class: 'done-attribute gps-attribute' %>
