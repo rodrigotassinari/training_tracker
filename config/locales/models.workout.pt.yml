@@ -15,8 +15,11 @@ pt:
         observations: Observações
         coach_observations: Observações do Treinador
         distance: Distância
+        distance_in_km: Distância
         elapsed_time: Tempo Total
+        elapsed_time_in_hours: Tempo Total
         moving_time: Tempo em Movimento
+        moving_time_in_hours: Tempo em Movimento
         speed_avg: Velocidade Média
         speed_max: Velocidade Máxima
         cadence_avg: Cadência Média

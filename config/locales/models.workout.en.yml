@@ -15,8 +15,11 @@ en:
         observations: Observations
         coach_observations: Coach Observations
         distance: Distance
+        distance_in_km: Distance
         elapsed_time: Elapsed Time
+        elapsed_time_in_hours: Elapsed Time
         moving_time: Moving Time
+        moving_time_in_hours: Moving Time
         speed_avg: Average Speed
         speed_max: Max Speed
         cadence_avg: Average Cadence

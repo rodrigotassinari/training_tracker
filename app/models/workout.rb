@@ -76,6 +76,17 @@ class Workout < ActiveRecord::Base
   end
 
   # TODO spec
+  def distance_in_km
+    return if distance.blank?
+    distance / 1000.0
+  end
+
+  # TODO spec
+  def distance_in_km=(value)
+    distance = value * 1000.0
+  end
+
+  # TODO spec
   def elapsed_time_in_hours
     return if elapsed_time.blank?
     ChronicDuration.output(elapsed_time,
