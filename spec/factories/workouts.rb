@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :workout do
     association :user, factory: :user, strategy: :build
-    kind "cycling"
+    kind 'cycling'
     scheduled_on { Time.zone.tomorrow }
     occurred_on nil
     name nil
@@ -28,6 +28,36 @@ FactoryGirl.define do
     heart_rate_max nil
     weight_before nil
     weight_after nil
+  end
+
+  factory :done_workout, class: Workout do
+    association :user, factory: :user, strategy: :build
+    kind 'cycling'
+    scheduled_on { Time.zone.yesterday }
+    occurred_on { Time.zone.yesterday }
+    name 'a workout I did yesterday'
+    description 'go long and hard'
+    observations 'went long and hard'
+    coach_observations 'very good'
+    distance 23345.67
+    elapsed_time 5432
+    moving_time 4567
+    speed_avg 34.56
+    speed_max 45.67
+    cadence_avg 89
+    cadence_max 123
+    calories 1234
+    elevation_gain 2345.6
+    temperature_avg 23.4
+    temperature_max 34.5
+    temperature_min 12.3
+    watts_avg 234.5
+    watts_weighted_avg 123.4
+    watts_max 345.6
+    heart_rate_avg 167
+    heart_rate_max 178
+    weight_before 74.7
+    weight_after 73.4
   end
 
 end
