@@ -22,4 +22,10 @@ class WorkoutPresenter < Burgundy::Item
     helpers.number_with_precision(item.elevation_gain, precision: 0)
   end
 
+  def strava_url
+    if item.has_strava?
+      "https://www.strava.com/activities/#{item.strava_data[:id]}"
+    end
+  end
+
 end

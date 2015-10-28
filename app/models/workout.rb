@@ -2,6 +2,8 @@ class Workout < ActiveRecord::Base
 
   KINDS = %w(cycling running swimming)
 
+  serialize :strava_data, JsonbHashSerializer
+
   belongs_to :user
 
   validates :user, presence: true
@@ -121,6 +123,11 @@ class Workout < ActiveRecord::Base
   # TODO spec
   def moving_time_in_hours=(hour_string)
     moving_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
+  end
+
+  # TODO spec
+  def has_strava?
+    !strava_data.empty? && strava_data[:id].present?
   end
 
 end

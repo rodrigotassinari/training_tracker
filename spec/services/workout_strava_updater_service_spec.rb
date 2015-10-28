@@ -51,6 +51,12 @@ RSpec.describe WorkoutStravaUpdaterService do
         expect(workout.heart_rate_avg).to eq(150)
         expect(workout.heart_rate_max).to eq(182)
       end
+      it 'saves the raw activity data to the workout' do
+        expect(workout.strava_data).to be_nil
+        expect(subject.update_workout).to be_truthy
+        expect(workout.strava_data).to_not be_nil
+        expect(workout.strava_data).to eq(activity)
+      end
       it 'preserves name and observations if set' do
         workout.name = 'previous name'
         workout.observations = 'previous observations'
@@ -130,7 +136,7 @@ RSpec.describe WorkoutStravaUpdaterService do
         summary_polyline: "...",
         resource_state: 2
       },
-    }.merge(overrides)
+    }.merge(overrides).with_indifferent_access
   end
 
 end

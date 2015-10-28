@@ -56,6 +56,7 @@ class WorkoutStravaUpdaterService
     workout.heart_rate_max = activity[:max_heartrate].to_i unless activity[:max_heartrate].nil?
     # workout.weight_before = activity[:]
     # workout.weight_after = activity[:]
+    workout.strava_data = activity
   end
 
 end
