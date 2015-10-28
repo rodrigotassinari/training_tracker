@@ -50,30 +50,43 @@ class Workout < ActiveRecord::Base
     new(kind: 'cycling', scheduled_on: Time.zone.today, user: user)
   end
 
+  scope :todo, -> { where(occurred_on: nil) }
+  scope :done, -> { where.not(occurred_on: nil) }
+
   # TODO spec
   def done?
     occurred_on.present?
   end
+
+  scope :future, -> { where('scheduled_on >= ?', Time.zone.today) }
 
   # TODO spec
   def future?
     scheduled_on >= Time.zone.today
   end
 
+  scope :past, -> { where('scheduled_on < ?', Time.zone.today) }
+
   # TODO spec
   def past?
     scheduled_on < Time.zone.today
   end
+
+  scope :late, -> { past.todo }
 
   # TODO spec
   def late?
     past? && !done?
   end
 
+  scope :today, -> { where('scheduled_on = ?', Time.zone.today) }
+
   # TODO spec
   def today?
     scheduled_on == Time.zone.today
   end
+
+  scope :latest, -> { order(scheduled_on: :desc, created_at: :desc).limit(1) }
 
   # TODO spec
   def distance_in_km

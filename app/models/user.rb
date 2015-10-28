@@ -49,4 +49,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def latest_workout
+    self.workouts.latest.first
+  end
+
+  def latest_done_workout
+    self.workouts.done.
+      order(occurred_on: :desc, scheduled_on: :desc, created_at: :desc).
+      limit(1).first
+  end
+
+  # TODO spec
+  def strava
+    @strava ||= StravaFinderService.new(self).client
+  end
+
 end
