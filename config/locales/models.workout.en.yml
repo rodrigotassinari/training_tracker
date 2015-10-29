@@ -20,25 +20,34 @@ en:
         elapsed_time_in_hours: Elapsed Time
         moving_time: Moving Time
         moving_time_in_hours: Moving Time
+        speed: Speed
         speed_avg: Average Speed
         speed_max: Max Speed
+        cadence: Cadence
         cadence_avg: Average Cadence
         cadence_max: Max Cadence
         calories: Calories
         elevation_gain: Total Elevation Gain
+        temperature: Temperature
         temperature_avg: Average Temperature
         temperature_max: Max Temperature
         temperature_min: Min Temperature
+        watts: Watts
         watts_avg: Average Watts
         watts_weighted_avg: Weighted Average Watts
         watts_max: Max Watts
+        heart_rate: Heart Rate
         heart_rate_avg: Average Heart Rate
         heart_rate_max: Max Heart Rate
-        weight_before: Weight
+        weight: Weight
+        weight_before: Weight (before workout)
         weight_after: Weight (after workout)
         created_at: Created At
         updated_at: Updated At
-        strava_url: Strava activity
+        strava_url: Strava activity URL
+        strava_data: Strava activity data
+        garmin_connect_url: Garmin Connect activity URL
+        garmin_connect_data: Garmin Connect activity data
       workout/kind:
         cycling: Cycling
         running: Running

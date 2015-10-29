@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028190000) do
+ActiveRecord::Schema.define(version: 20151029161706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20151028190000) do
   end
 
   create_table "workouts", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.uuid     "user_id",            null: false
-    t.string   "kind",               null: false
-    t.date     "scheduled_on",       null: false
+    t.uuid     "user_id",                          null: false
+    t.string   "kind",                             null: false
+    t.date     "scheduled_on",                     null: false
     t.date     "occurred_on"
     t.string   "name"
     t.text     "description"
@@ -69,9 +69,12 @@ ActiveRecord::Schema.define(version: 20151028190000) do
     t.integer  "heart_rate_max"
     t.float    "weight_before"
     t.float    "weight_after"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.jsonb    "strava_data"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.jsonb    "strava_data",         default: {}, null: false
+    t.jsonb    "garmin_connect_data", default: {}, null: false
+    t.string   "strava_url"
+    t.string   "garmin_connect_url"
   end
 
   add_index "workouts", ["kind"], name: "index_workouts_on_kind", using: :btree

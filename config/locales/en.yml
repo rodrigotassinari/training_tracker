@@ -32,6 +32,9 @@ en:
   delete: Delete
   deleting: Deleting...
   not_available_yet: Not available yet.
+  avg: average
+  max: maximum
+  min: minimum
   number_to_human:
     distances:
       mili:

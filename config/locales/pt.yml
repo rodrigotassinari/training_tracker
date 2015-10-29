@@ -32,6 +32,9 @@ pt:
   delete: Apagar
   deleting: Apagando...
   not_available_yet: Não disponível ainda.
+  avg: média
+  max: máxima
+  min: mínima
   number_to_human:
     distances:
       mili:

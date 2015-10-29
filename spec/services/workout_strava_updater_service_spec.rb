@@ -52,9 +52,9 @@ RSpec.describe WorkoutStravaUpdaterService do
         expect(workout.heart_rate_max).to eq(182)
       end
       it 'saves the raw activity data to the workout' do
-        expect(workout.strava_data).to be_nil
+        expect(workout.strava_data).to be_empty
         expect(subject.update_workout).to be_truthy
-        expect(workout.strava_data).to_not be_nil
+        expect(workout.strava_data).to_not be_empty
         expect(workout.strava_data).to eq(activity)
       end
       it 'preserves name and observations if set' do

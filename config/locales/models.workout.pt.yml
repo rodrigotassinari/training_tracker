@@ -20,25 +20,34 @@ pt:
         elapsed_time_in_hours: Tempo Total
         moving_time: Tempo em Movimento
         moving_time_in_hours: Tempo em Movimento
+        speed: Velocidade
         speed_avg: Velocidade Média
         speed_max: Velocidade Máxima
+        cadence: Cadência
         cadence_avg: Cadência Média
         cadence_max: Cadência Máxima
         calories: Calorias
         elevation_gain: Ganho de Elevação Total
+        temperature: Temperatura
         temperature_avg: Temperatura Média
         temperature_max: Temperatura Máxima
         temperature_min: Temperatura Mínima
+        watts: Potência
         watts_avg: Potência Média
         watts_weighted_avg: Potência Média Ponderada
         watts_max: Potência Máxima
+        heart_rate: Frequência Cardíaca
         heart_rate_avg: Frequência Cardíaca Média
         heart_rate_max: Frequência Cardíaca Máxima
-        weight_before: Peso
+        weight: Peso
+        weight_before: Peso (antes do treino)
         weight_after: Peso (após treino)
         created_at: Cadastrado em
         updated_at: Atualizado em
-        strava_url: Atividade no Strava
+        strava_url: URL da atividade no Strava
+        strava_data: Dados da atividade no Strava
+        garmin_connect_url: URL da atividade no Garmin Connect
+        garmin_connect_data: Dados da atividade no Strava
       workout/kind:
         cycling: Ciclismo
         running: Corrida
