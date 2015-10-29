@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
 
-  before_action :set_workout, except: [:index, :new]
+  before_action :set_workout, except: [:index, :new, :create]
 
   # GET /workouts
   # workouts_path
