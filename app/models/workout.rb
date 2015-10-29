@@ -48,8 +48,10 @@ class Workout < ActiveRecord::Base
     greater_than_or_equal_to: 0.0, allow_nil: true}
   validates :weight_after, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
-  # TODO validate (and clean?) strava_url format
-  # TODO validate (and clean?) garmin_connect_url format
+  # TODO validate (and normalize?) strava_url format
+  # TODO validate (and normalize?) garmin_connect_url format
+
+  before_save :clear_strava_data
 
   def self.new_with_defaults(user)
     new(kind: 'cycling', scheduled_on: Time.zone.today, user: user)
@@ -136,9 +138,10 @@ class Workout < ActiveRecord::Base
   end
 
   # TODO spec
-  def fetching_strava?
+  def fetching_strava_data?
     !strava_url.blank? && strava_data.empty?
   end
+  alias :needs_strava_data? :fetching_strava_data?
 
   # TODO spec
   def has_garmin_connect?
@@ -147,7 +150,7 @@ class Workout < ActiveRecord::Base
 
   # TODO spec
   def async_updating?
-    fetching_strava?
+    fetching_strava_data?
   end
 
   # TODO spec
@@ -164,6 +167,20 @@ class Workout < ActiveRecord::Base
       self.send("#{attr}=", {})
     end
     save
+  end
+
+  # TODO spec
+  def fetch_strava_data!
+    StravaDataFetcherJob.perform_later(self.id)
+  end
+
+  private
+
+  # before_save
+  def clear_strava_data
+    if self.strava_url_changed? && !self.strava_data_changed?
+      self.strava_data = {}
+    end
   end
 
 end

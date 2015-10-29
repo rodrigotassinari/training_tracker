@@ -17,7 +17,7 @@ class WorkoutStravaUpdaterService
   end
 
   def update_workout
-    if valid?
+    if valid? # TODO raise error? since we are doing this async now
       set_attributes_from_activity
       workout.save!
     end

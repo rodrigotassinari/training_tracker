@@ -59,6 +59,7 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def update
     if @workout.update(workout_params)
+      @workout.fetch_strava_data! if @workout.needs_strava_data?
       redirect_to workout_path(@workout),
         notice: t('.success')
     else

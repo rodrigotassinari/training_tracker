@@ -1,7 +1,0 @@
-pt:
-  workout_strava_activities:
-    new:
-      title: Marcar treino como feito via Strava
-      validation_errors:
-        one: '1 erro impediu que este treino fosse atualizado'
-        other: '%{count} erros impediram que este treino fosse atualizado'

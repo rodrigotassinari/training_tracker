@@ -1,5 +1,7 @@
 # TODO spec
+require_dependency 'activity_url_helpers'
 class StravaFinderService
+  include ActivityUrlHelpers
 
   attr_reader :user, :identity, :client
 
@@ -22,7 +24,7 @@ class StravaFinderService
   # http://strava.github.io/api/v3/activities/#get-details
   # https://github.com/jaredholdcroft/strava-api-v3#activity
   def find_activity_by_url(activity_url)
-    activity_id = parse_activity_id_from_url(activity_url)
+    activity_id = parse_strava_activity_id_from_url(activity_url)
     find_activity(activity_id)
   end
 
@@ -57,19 +59,6 @@ class StravaFinderService
   end
 
   private
-
-  # Example valid URLs:
-  #   https://www.strava.com/activities/419476182
-  #   https://www.strava.com/activities/419476182/analysis
-  #   https://www.strava.com/activities/419476182/power-curve
-  #   https://www.strava.com/activities/419476182/analysis/609/1724
-  #   https://www.strava.com/activities/419476182/analysis/10/1320
-  #   https://www.strava.com/activities/419476182/segments/10090717782
-  def parse_activity_id_from_url(activity_url)
-    url = URI.parse(activity_url)
-    railse ArgumentError, 'not a Strava URL' unless url.host =~ /strava\.com/
-    url.path.split('/')[2]
-  end
 
   def list_activities(options={})
     client.list_athlete_activities(options).map(&:with_indifferent_access)

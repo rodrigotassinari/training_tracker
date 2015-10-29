@@ -48,4 +48,76 @@ RSpec.describe Workout, type: :model do
     end
   end
 
+  describe 'strava_data clearing' do
+    let(:activity_url) { 'https://www.strava.com/activities/421201541' }
+    let(:other_activity_url) { 'https://www.strava.com/activities/398432511' }
+    context 'on workout create' do
+      context 'normal create' do
+        subject { FactoryGirl.build(:workout) }
+        it 'does nothing' do
+          expect(subject.strava_data).to be_empty
+          subject.save!
+          expect(subject.strava_data).to be_empty
+          expect(subject.needs_strava_data?).to be_falsy
+        end
+      end
+      context 'creation with strava_url' do
+        subject { FactoryGirl.build(:workout, strava_url: activity_url) }
+        it 'does nothing' do
+          expect(subject.strava_data).to be_empty
+          subject.save!
+          expect(subject.strava_data).to be_empty
+          expect(subject.needs_strava_data?).to be_truthy
+        end
+      end
+    end
+    context 'on workout update' do
+      context 'normal update' do
+        subject { FactoryGirl.create(:workout) }
+        it 'does nothing' do
+          expect(subject.strava_data).to be_empty
+          subject.update!(description: 'some description')
+          expect(subject.strava_data).to be_empty
+          expect(subject.needs_strava_data?).to be_falsy
+        end
+      end
+      context 'normal update of done workout' do
+        subject { FactoryGirl.create(:done_workout) }
+        it 'does nothing' do
+          expect(subject.strava_data).to_not be_empty
+          subject.update!(description: 'some description')
+          expect(subject.strava_data).to_not be_empty
+          expect(subject.needs_strava_data?).to be_falsy
+        end
+      end
+      context 'adding strava_url' do
+        subject { FactoryGirl.create(:workout) }
+        it 'enqueues strava data fetch' do
+          expect(subject.strava_data).to be_empty
+          subject.update!(description: 'some description', strava_url: activity_url)
+          expect(subject.strava_data).to be_empty
+          expect(subject.needs_strava_data?).to be_truthy
+        end
+      end
+      context 'replacing strava_url' do
+        subject { FactoryGirl.create(:done_workout, strava_url: activity_url) }
+        it 'enqueues strava data fetch' do
+          expect(subject.strava_data).to_not be_empty
+          subject.update!(description: 'some description', strava_url: other_activity_url)
+          expect(subject.strava_data).to be_empty
+          expect(subject.needs_strava_data?).to be_truthy
+        end
+      end
+      context 're-using strava_url' do
+        subject { FactoryGirl.create(:done_workout, strava_url: activity_url) }
+        it 'does nothing' do
+          expect(subject.strava_data).to_not be_empty
+          subject.update!(description: 'some description', strava_url: activity_url)
+          expect(subject.strava_data).to_not be_empty
+          expect(subject.needs_strava_data?).to be_falsy
+        end
+      end
+    end
+  end
+
 end

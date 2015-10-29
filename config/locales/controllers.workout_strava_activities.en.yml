@@ -1,6 +1,0 @@
-en:
-  workout_strava_activities:
-    create:
-      success: Workout updated with data from Strava activity.
-    new:
-      already_done: This workout is already marked as done.

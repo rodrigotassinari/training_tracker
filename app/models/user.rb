@@ -60,8 +60,8 @@ class User < ActiveRecord::Base
   end
 
   # TODO spec
-  def strava
-    @strava ||= StravaFinderService.new(self).client
+  def strava_client
+    @strava_client ||= StravaFinderService.new(self).client
   end
 
 end
