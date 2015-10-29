@@ -39,7 +39,7 @@ gem 'puma', '~> 2.14'
 
 gem 'sucker_punch', '~> 1.5'
 
-gem 'rollbar', '~> 2.4'
+gem 'rollbar', '~> 2.5'
 
 gem 'browser', '~> 1.0'
 
