@@ -6,3 +6,7 @@ en:
       success: Workout successfully updated.
     destroy:
       success: Workout deleted.
+    undo:
+      success: Workout reverted to not done.
+    do:
+      already_done: This workout is already marked as done.

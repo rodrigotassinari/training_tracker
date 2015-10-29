@@ -6,6 +6,7 @@ class WorkoutStravaActivitiesController < ApplicationController
   # GET /workouts/:workout_id/strava/new
   # new_workout_strava_path(:workout_id)
   def new
+    redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
     @activity = StravaActivityPresenter.new(
       StravaActivity.new(@workout)
     )

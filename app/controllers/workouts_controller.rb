@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
 
-  before_action :set_workout, only: [:show, :edit, :update, :destroy]
+  before_action :set_workout, only: [:show, :edit, :update, :destroy, :do, :undo]
 
   # GET /workouts
   # workouts_path
@@ -37,7 +37,13 @@ class WorkoutsController < ApplicationController
   # edit_workout_path(:id)
   # TODO spec
   def edit
-    @workout.occurred_on = @workout.scheduled_on if (!@workout.done? && params[:done])
+  end
+
+  # GET /workouts/:id/do
+  # do_workout_path(:id)
+  # TODO spec
+  def do
+    redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
   end
 
   # PUT /workouts/:id
@@ -51,6 +57,15 @@ class WorkoutsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  # DELETE /workouts/:id/undo
+  # undo_workout_path(:id)
+  # TODO spec
+  def undo
+    @workout.undo
+    redirect_to workout_path(@workout),
+      notice: t('.success')
   end
 
   # DELETE /workouts/:id

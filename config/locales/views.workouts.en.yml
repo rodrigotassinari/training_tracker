@@ -16,12 +16,17 @@ en:
       mark_done_strava_help: Mark workout as done, fetching all workout data automatically from an existing Strava activity.
       mark_done_manually: Mark as done manually
       mark_done_manually_help: Mark workout as done, but typing manually all workout data.
+      undo_workout: Revert to not done
+      undo_workout_help: Set the workout back as not done (will delete all extra information).
+      confirm_undo_workout: Are your sure you want to revert this workout to not done?
       delete_workout: Delete workout
       confirm_delete_workout: Are you sure you want to delete this workout?
     new:
       title: New workout
     edit:
       title: Edit workout
+    do:
+      title: Mark workout as done manually
     form:
       validation_errors:
         one: '1 error prohibited this workout from being saved'

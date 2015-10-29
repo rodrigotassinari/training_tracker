@@ -2,3 +2,5 @@ pt:
   workout_strava_activities:
     create:
       success: Treino atualizado com dados da atividade no Strava.
+    new:
+      already_done: Este treino já está marcado como feito.

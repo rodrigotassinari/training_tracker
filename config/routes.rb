@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resource :user, only: [:edit, :update]
   resources :workouts do
+    member do
+      get :do
+      delete :undo
+    end
     resource :strava, controller: 'workout_strava_activities'
   end
 

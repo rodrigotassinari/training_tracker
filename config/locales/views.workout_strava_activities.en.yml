@@ -1,7 +1,7 @@
 en:
   workout_strava_activities:
     new:
-      title: Strava information
+      title: Mark workout as done via Strava
       validation_errors:
         one: '1 error prohibited this workout from being updated'
         other: '%{count} errors prohibited this workout from being updated'
