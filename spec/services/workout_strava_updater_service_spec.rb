@@ -66,7 +66,7 @@ RSpec.describe WorkoutStravaUpdaterService do
         expect(workout.observations).to eq('previous observations')
       end
       it 'saves the workout' do
-        expect(workout).to receive(:save).and_return(true)
+        expect(workout).to receive(:save!).and_return(true)
         expect(subject.update_workout).to be_truthy
       end
     end
