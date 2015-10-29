@@ -33,6 +33,7 @@ pt:
   deleting: Apagando...
   not_available_yet: Não disponível ainda.
   avg: média
+  weighted_avg: média ponderada
   max: máxima
   min: mínima
   number_to_human:

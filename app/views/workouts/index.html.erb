@@ -8,7 +8,7 @@
 
   <div class="col-sm-8">
     <% if @workouts.empty? %>
-      <p><%= t '.no_workout_to_show' %></p>
+      <p class="lead"><%= t '.no_workout_to_show' %></p>
     <% else %>
       <% @workouts.each do |workout| %>
         <%= render partial: 'workouts/summary', locals: {workout: workout, detailed: false} %>

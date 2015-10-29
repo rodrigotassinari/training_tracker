@@ -8,6 +8,8 @@ en:
       sync_strava_help: Fetch your Strava activities and automatically create new workouts and/or mark existing workouts as done.
     show:
       title: Workout
+      async_updating_alert_html: This workout is being updated in the background, please %{link} in a few moments.
+      reload: reload this page
       edit_workout: Edit workout
       edit_workout_help: Change any workout data manually.
       share_workout: Share workout
@@ -27,6 +29,8 @@ en:
       title: Edit workout
     do:
       title: Mark workout as done manually
+    do_strava:
+      title: Mark workout as done via Strava activity
     form:
       validation_errors:
         one: '1 error prohibited this workout from being saved'

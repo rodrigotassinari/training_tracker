@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :workouts do
     member do
       get :do
+      get :do_strava
       delete :undo
     end
-    resource :strava, controller: 'workout_strava_activities'
   end
 
 end

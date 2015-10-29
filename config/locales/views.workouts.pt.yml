@@ -8,6 +8,8 @@ pt:
       sync_strava_help: Buscar suas atividades no Strava e automaticamente criar novos treinos e/ou marcar treinos existentes como feitos.
     show:
       title: Treino
+      async_updating_alert_html: Este treino está sendo atualizado em segundo plano, por favor %{link} em alguns segundos.
+      reload: recarrege esta página
       edit_workout: Editar treino
       edit_workout_help: Permite alterar manualmente qualquer dado do treino.
       share_workout: Compartilhar treino
@@ -27,6 +29,8 @@ pt:
       title: Editar treino
     do:
       title: Marcar treino como feito manualmente
+    do_strava:
+      title: Marcar treino como feito via atividade no Strava
     form:
       validation_errors:
         one: '1 erro impediu que este treino fosse salvo'

@@ -10,3 +10,5 @@ en:
       success: Workout reverted to not done.
     do:
       already_done: This workout is already marked as done.
+    do_strava:
+      already_done: This workout is already marked as done.

@@ -10,3 +10,5 @@ pt:
       success: Treino revertido para não feito.
     do:
       already_done: Este treino já está marcado como feito.
+    do_strava:
+      already_done: Este treino já está marcado como feito.

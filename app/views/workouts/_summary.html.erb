@@ -23,6 +23,12 @@
               <td><%= link_to workout.strava_url, workout.strava_url, target: '_blank' %></td>
             </tr>
           <% end %>
+          <% if workout.has_garmin_connect? %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:garmin_connect_url) %>:</th>
+              <td><%= link_to workout.garmin_connect_url, workout.garmin_connect_url, target: '_blank' %></td>
+            </tr>
+          <% end %>
           <tr>
             <th><%= Workout.human_attribute_name(:distance_in_km) %>:</th>
             <td><%= workout.distance_in_km %> km</td>

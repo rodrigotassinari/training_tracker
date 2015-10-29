@@ -33,6 +33,7 @@ en:
   deleting: Deleting...
   not_available_yet: Not available yet.
   avg: average
+  weighted_avg: weighted average
   max: maximum
   min: minimum
   number_to_human:

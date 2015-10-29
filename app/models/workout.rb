@@ -3,6 +3,7 @@ class Workout < ActiveRecord::Base
   KINDS = %w(cycling running swimming)
 
   serialize :strava_data, JsonbHashSerializer
+  serialize :garmin_connect_data, JsonbHashSerializer
 
   belongs_to :user
 
@@ -47,6 +48,8 @@ class Workout < ActiveRecord::Base
     greater_than_or_equal_to: 0.0, allow_nil: true}
   validates :weight_after, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
+  # TODO validate (and clean?) strava_url format
+  # TODO validate (and clean?) garmin_connect_url format
 
   def self.new_with_defaults(user)
     new(kind: 'cycling', scheduled_on: Time.zone.today, user: user)
@@ -127,7 +130,24 @@ class Workout < ActiveRecord::Base
 
   # TODO spec
   def has_strava?
-    strava_data.present? && strava_data[:id].present?
+    !strava_url.blank? &&
+      !strava_data.empty? &&
+      strava_data[:id].present?
+  end
+
+  # TODO spec
+  def fetching_strava?
+    !strava_url.blank? && strava_data.empty?
+  end
+
+  # TODO spec
+  def has_garmin_connect?
+    !garmin_connect_url.blank?
+  end
+
+  # TODO spec
+  def async_updating?
+    fetching_strava?
   end
 
   # TODO spec
@@ -137,8 +157,11 @@ class Workout < ActiveRecord::Base
       :speed_max, :cadence_avg, :cadence_max, :calories, :elevation_gain,
       :temperature_avg, :temperature_max, :temperature_min, :watts_avg,
       :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max,
-      :strava_data].each do |attr|
+      :strava_url, :garmin_connect_url].each do |attr|
       self.send("#{attr}=", nil)
+    end
+    [:strava_data, :garmin_connect_data].each do |attr|
+      self.send("#{attr}=", {})
     end
     save
   end

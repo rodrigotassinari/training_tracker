@@ -41,7 +41,7 @@ pt:
         heart_rate_max: Frequência Cardíaca Máxima
         weight: Peso
         weight_before: Peso (antes do treino)
-        weight_after: Peso (após treino)
+        weight_after: Peso (depois do treino)
         created_at: Cadastrado em
         updated_at: Atualizado em
         strava_url: URL da atividade no Strava
