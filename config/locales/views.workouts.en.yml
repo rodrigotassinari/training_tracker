@@ -16,6 +16,8 @@ en:
       mark_done_strava_help: Mark workout as done, fetching all workout data automatically from an existing Strava activity.
       mark_done_manually: Mark as done manually
       mark_done_manually_help: Mark workout as done, but typing manually all workout data.
+      delete_workout: Delete workout
+      confirm_delete_workout: Are you sure you want to delete this workout?
     new:
       title: New workout
     edit:

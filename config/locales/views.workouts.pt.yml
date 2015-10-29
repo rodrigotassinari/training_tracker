@@ -16,6 +16,8 @@ pt:
       mark_done_strava_help: Marca treino como feito, pegando dados do treino automaticamente de uma atividade existente no Strava.
       mark_done_manually: Marcar como feito manualmente
       mark_done_manually_help: Marca treino como feito, mas digitando manualmente com os dados do treino.
+      delete_workout: Apagar treino
+      confirm_delete_workout: Tem certeza que deseja apagar este treino?
     new:
       title: Novo treino
     edit:

@@ -37,7 +37,7 @@ class WorkoutsController < ApplicationController
   # edit_workout_path(:id)
   # TODO spec
   def edit
-    @workout.occurred_on = @workout.scheduled_on if !@workout.done?
+    @workout.occurred_on = @workout.scheduled_on if (!@workout.done? && params[:done])
   end
 
   # PUT /workouts/:id
