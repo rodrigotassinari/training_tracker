@@ -1,0 +1,4 @@
+en:
+  workout_strava_activities:
+    create:
+      success: Workout updated with data from Strava activity.

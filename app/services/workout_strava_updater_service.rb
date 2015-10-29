@@ -19,7 +19,7 @@ class WorkoutStravaUpdaterService
   def update_workout
     if valid?
       set_attributes_from_activity
-      workout.save
+      workout.save!
     end
   end
 

@@ -1,0 +1,15 @@
+en:
+  activemodel:
+    models:
+      strava_activity:
+        one: Strava Activity
+        other: Strava Activities
+    attributes:
+      strava_activity:
+        workout: Workout
+        workout_id: Workout
+        strava_url: Activity URL on Strava
+        observations: Observations
+        coach_observations: Coach Observations
+        weight_before: Weight
+        weight_after: Weight (after workout)

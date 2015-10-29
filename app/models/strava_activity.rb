@@ -1,7 +1,7 @@
-class WorkoutStravaActivity
-  include ActiveModel::Validations
+class StravaActivity
+  include ActiveModel::Model
 
-  attr_reader :workout, :strava_activity
+  attr_reader :workout, :strava_data
   attr_accessor :strava_url, :observations, :coach_observations, :weight_before, :weight_after
 
   validates :strava_url, presence: true
@@ -14,10 +14,14 @@ class WorkoutStravaActivity
 
   def initialize(workout, attributes={})
     @workout = workout
-    @strava_activity = nil
+    @strava_data = nil
     [:strava_url, :observations, :coach_observations, :weight_before, :weight_after].each do |attr|
       instance_variable_set("@#{attr}", attributes[attr])
     end
+  end
+
+  def user
+    workout.try(:user)
   end
 
   def to_key
@@ -25,10 +29,10 @@ class WorkoutStravaActivity
   end
 
   def save
-    valid? &&
-      set_workout_attributes &&
-      find_strava_activity &&
-      WorkoutStravaUpdaterService.new(workout, strava_activity).update_workout
+    return false unless valid?
+    set_workout_attributes
+    fetch_strava_data
+    WorkoutStravaUpdaterService.new(workout, strava_data).update_workout
   end
 
   private
@@ -38,9 +42,6 @@ class WorkoutStravaActivity
     workout.coach_observations = coach_observations
     workout.weight_before = weight_before unless weight_before.blank?
     workout.weight_after = weight_after unless weight_after.blank?
-
-    Rails.logger.debug('>>> set_workout_attributes OK')
-    true
   end
 
   def strava_url_format
@@ -50,13 +51,9 @@ class WorkoutStravaActivity
     end
   end
 
-  def find_strava_activity
-    @strava_activity = StravaFinderService.new(workout.user).
+  def fetch_strava_data
+    @strava_data = StravaFinderService.new(user).
       find_activity_by_url(strava_url)
-
-    Rails.logger.debug('>>> find_strava_activity OK')
-    Rails.logger.debug(">>> find_strava_activity: #{@strava_activity[:id]}")
-    true
   end
 
 end

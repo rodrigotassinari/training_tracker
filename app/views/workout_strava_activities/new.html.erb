@@ -9,7 +9,19 @@
     <div class="col-sm-8">
       <%= render partial: 'workouts/summary', locals: {workout: @activity.workout, detailed: false} %>
 
-      <h3>TODO i18n Enter Strava information:</h3>
+      <% if @activity.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= t('.validation_errors', count: @activity.errors.count) %></h3>
+          </div>
+          <% if @activity.errors[:base].present? %>
+            <div class="panel-body">
+              <p><%= @activity.errors[:base] %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
       <%= form.text_field :strava_url, class: 'done-attribute', autofocus: true %>
       <%= form.text_area :observations, class: 'done-attribute' %>
       <%= form.text_area :coach_observations, class: 'done-attribute' %>

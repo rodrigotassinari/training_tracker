@@ -1,0 +1,4 @@
+pt:
+  workout_strava_activities:
+    create:
+      success: Treino atualizado com dados da atividade no Strava.

@@ -1,4 +1,7 @@
-pt:
+en:
   workout_strava_activities:
     new:
-      title: Dados do Strava
+      title: Strava information
+      validation_errors:
+        one: '1 error prohibited this workout from being updated'
+        other: '%{count} errors prohibited this workout from being updated'

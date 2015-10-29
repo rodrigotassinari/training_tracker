@@ -6,22 +6,21 @@ class WorkoutStravaActivitiesController < ApplicationController
   # GET /workouts/:workout_id/strava/new
   # new_workout_strava_path(:workout_id)
   def new
-    @activity = WorkoutStravaActivityPresenter.new(
-      WorkoutStravaActivity.new(@workout)
+    @activity = StravaActivityPresenter.new(
+      StravaActivity.new(@workout)
     )
   end
 
   # POST /workouts/:workout_id/strava
   # workout_strava_path(:workout_id)
   def create
-    @activity = WorkoutStravaActivityPresenter.new(
-      WorkoutStravaActivity.new(@workout, workout_strava_activity_params)
+    @activity = StravaActivityPresenter.new(
+      StravaActivity.new(@workout, strava_activity_params)
     )
     if @activity.save
       redirect_to workout_path(@workout),
-        notice: 'TODO i18n strava created successfully'
+        notice: t('.success')
     else
-
       render :new
     end
   end
@@ -55,8 +54,8 @@ class WorkoutStravaActivitiesController < ApplicationController
     )
   end
 
-  def workout_strava_activity_params
-    params.require(:workout_strava_activity).
+  def strava_activity_params
+    params.require(:strava_activity).
       permit(:strava_url, :observations, :coach_observations, :weight_before, :weight_after).
       delocalize(weight_before: :number, weight_after: :number)
   end
