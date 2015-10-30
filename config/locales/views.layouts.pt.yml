@@ -9,8 +9,9 @@ pt:
       notice: 'Informação'
       success: 'Sucesso'
     navbar:
-      home: 'Início'
       workouts: 'Treinos'
+      statistics: Estatísticas
+      coaches: Treinadores
       my_profile: 'Meu Perfil'
       sign_in: 'Entrar com seu Strava'
       sign_out: 'Sair'

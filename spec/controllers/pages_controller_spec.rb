@@ -25,15 +25,14 @@ RSpec.describe PagesController, type: :controller do
       before do
         login_as(user)
       end
-      it 'responds successfully with an HTTP 200 status code' do
+      it 'redirects to the workouts page' do
         # next 3 lines to test logging in with a non-persisted user record (see
         # TestHelpers#login_as)
         expect(controller.send(:current_user)).to_not be_nil
         expect(controller.send(:current_user)).to eq(user)
         expect(session[:user_id]).to eq(user.id)
         get :index
-        expect(response).to be_success
-        expect(response).to have_http_status(200)
+        expect(response).to redirect_to(workouts_path)
       end
     end
   end

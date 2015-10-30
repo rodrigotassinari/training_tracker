@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   # GET /
   # root_path
   def index
+    redirect_to(workouts_path) if user_signed_in?
   end
 
 end

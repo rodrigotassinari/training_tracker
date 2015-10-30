@@ -27,7 +27,7 @@ RSpec.describe SessionsController, type: :controller do
         expect(user).to receive(:just_created?).and_return(false)
         get :create, provider: 'strava'
         expect(flash[:notice]).to eq("Welcome back, #{user.name}!")
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(workouts_path)
       end
     end
     context 'when the user was just created' do

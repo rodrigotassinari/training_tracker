@@ -9,8 +9,9 @@ en:
       notice: 'Notice'
       success: 'Success'
     navbar:
-      home: 'Home'
       workouts: 'Workouts'
+      statistics: Statistics
+      coaches: Coaches
       my_profile: 'My Profile'
       sign_in: 'Sign in with Strava'
       sign_out: 'Sign out'

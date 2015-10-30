@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user.just_created?
       redirect_to edit_user_path, notice: t('.thanks_and_finish_sign_up')
     else
-      redirect_to root_path, notice: t('.success', name: user.name)
+      redirect_to workouts_path, notice: t('.success', name: user.name)
       # https://github.com/intridea/omniauth/wiki/Saving-User-Location
       # redirect_to (request.env['omniauth.origin'] || root_path)
     end
