@@ -43,6 +43,12 @@ RSpec.describe WorkoutFinderService do
     it 'returns an empty list if no workouts exist for the user' do
       expect(subject.most_recents).to be_empty
     end
+    it 'paginates' do
+      expect(subject.most_recents(page: 1)).to eq([workout2, workout1])
+      expect(subject.most_recents(page: 42)).to be_empty
+      expect(subject.most_recents(page: nil)).to eq([workout2, workout1]) # simulating no params[:page]
+      expect(subject.most_recents(page: '')).to eq([workout2, workout1])  # simulating empty params[:page]
+    end
   end
 
 end

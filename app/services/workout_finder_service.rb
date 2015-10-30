@@ -6,9 +6,8 @@ class WorkoutFinderService
     @user = user
   end
 
-  # TODO paginate
-  def most_recents(page: 1)
-    user.workouts.order(scheduled_on: :desc).all
+  def most_recents(page: 1, per_page: 12)
+    user.workouts.order(scheduled_on: :desc).page(page).per(per_page)
   end
 
   def find(workout_id)

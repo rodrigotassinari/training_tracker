@@ -5,7 +5,9 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # workouts_path
   def index
-    @workouts = WorkoutPresenter.wrap(finder.most_recents)
+    @workouts = WorkoutPresenter.wrap(
+      finder.most_recents(page: params[:page])
+    )
   end
 
   # GET /workouts/:id

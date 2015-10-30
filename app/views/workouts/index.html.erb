@@ -13,6 +13,7 @@
       <% @workouts.each do |workout| %>
         <%= render partial: 'workouts/summary', locals: {workout: workout, detailed: false} %>
       <% end %>
+      <%= paginate @workouts %>
     <% end %>
   </div>
 

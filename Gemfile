@@ -60,6 +60,8 @@ gem 'delocalize', github: 'clemens/delocalize', branch: '1-0-beta'
 
 gem 'burgundy', '~> 0.2'
 
+gem 'kaminari', '~> 0.16'
+
 group :development, :test do
   gem 'rake', '~> 10.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
