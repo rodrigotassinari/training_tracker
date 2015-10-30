@@ -9,7 +9,7 @@ RSpec.describe PublicWorkoutsController, type: :controller do
     it 'is accessible by logged in users'
     it 'is accessible by visitors'
     it 'selects locale from visitor browser'
-    it 'guesses time_zone from visitor locale'
+    it 'uses the time_zone from the workout user'
   end
 
 end
