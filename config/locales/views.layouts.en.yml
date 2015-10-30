@@ -14,3 +14,5 @@ en:
       my_profile: 'My Profile'
       sign_in: 'Sign in with Strava'
       sign_out: 'Sign out'
+    navbar_public:
+      workout: 'Workout'

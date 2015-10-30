@@ -1,0 +1,7 @@
+en:
+  public_workouts:
+    show:
+      title: Workout
+      public_view: public view
+      async_updating_alert_html: This workout is being updated in the background, please %{link} in a few moments.
+      reload: reload this page

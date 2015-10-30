@@ -14,3 +14,5 @@ pt:
       my_profile: 'Meu Perfil'
       sign_in: 'Entrar com seu Strava'
       sign_out: 'Sair'
+    navbar_public:
+      workout: 'Treino'

@@ -23,7 +23,7 @@
     <title>TrainingTracker</title>
   </head>
   <body role="document">
-    <%= render partial: 'layouts/navbar' %>
+    <%= render partial: (@public_view ? 'layouts/navbar_public' : 'layouts/navbar') %>
     <div class="container">
       <%= render partial: 'layouts/flash_messages' %>
       <%= yield %>

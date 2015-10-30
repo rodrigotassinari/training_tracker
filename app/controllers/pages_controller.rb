@@ -8,10 +8,4 @@ class PagesController < ApplicationController
   def index
   end
 
-  # GET /private
-  # private_path
-  def private
-    # FIXME temporary
-  end
-
 end

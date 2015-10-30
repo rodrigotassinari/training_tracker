@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/workout/:token' => 'public_workouts#show', as: 'public_workout'
+
 end

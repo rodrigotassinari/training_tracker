@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= t '.title' %> <small><%= t '.public_view' %></small></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <% if @workout.async_updating? %>
+      <div class="alert alert-info" role="alert">
+        <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> <%= t '.async_updating_alert_html', link: link_to(t('.reload'), public_workout_path(@workout.public_access_token), class: 'alert-link') %>
+      </div>
+    <% end %>
+    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?} %>
+  </div>
+  <div class="col-sm-4">
+    TODO user info
+  </div>
+</div>
