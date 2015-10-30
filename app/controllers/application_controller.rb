@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id]) unless session[:user_id].blank?
+    @current_user ||= UserPresenter.new(User.find_by_id(session[:user_id])) unless session[:user_id].blank?
   end
   helper_method :current_user
 

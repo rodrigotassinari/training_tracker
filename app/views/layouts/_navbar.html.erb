@@ -22,8 +22,15 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li class="<%= 'active' if request.path == edit_user_path %>"><%= link_to t('.my_profile'), edit_user_path %></li>
+          <li class="<%= 'active' if request.path == edit_user_path %>">
+            <%= link_to t('.my_profile'), edit_user_path %>
+          </li>
           <li><%= link_to t('.sign_out'), logout_path %></li>
+          <li>
+            <%= link_to current_user.strava_profile_url, target: '_blank', class: 'navbar-brand' do %>
+              <%= image_tag(current_user.strava_photo_url(:medium), class: 'img-responsive img-circle', width: 24, height: 24) %>
+            <% end %>
+          </li>
         <% else %>
           <li><%= link_to t('.sign_in'), strava_login_path %></li>
         <% end %>
