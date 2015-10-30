@@ -5,3 +5,6 @@ en:
       public_view: public view
       async_updating_alert_html: This workout is being updated in the background, please %{link} in a few moments.
       reload: reload this page
+    user:
+      athlete: Athlete
+      strava_profile: Strava profile

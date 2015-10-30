@@ -1,0 +1,11 @@
+<div class="user-summary panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('.athlete') %></h3>
+  </div>
+  <div class="panel-body">
+    <p class="lead"><%= user.name %></p>
+    <p><%= image_tag user.strava_photo_url, class: 'img-responsive img-thumbnail', width: 124, height: 124 %></p>
+    <p><%= link_to t('.strava_profile'), user.strava_profile_url, target: '_blank' %></p>
+    <p><%= user.location %></p>
+  </div>
+</div>

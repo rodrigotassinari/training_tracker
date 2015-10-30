@@ -22,4 +22,8 @@ class WorkoutPresenter < Burgundy::Item
     helpers.number_with_precision(item.elevation_gain, precision: 0)
   end
 
+  def user
+    @user ||= UserPresenter.new(item.user)
+  end
+
 end

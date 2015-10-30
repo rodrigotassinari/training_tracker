@@ -14,6 +14,6 @@
     <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?} %>
   </div>
   <div class="col-sm-4">
-    TODO user info
+    <%= render partial: 'public_workouts/user', locals: {user: @workout.user} %>
   </div>
 </div>

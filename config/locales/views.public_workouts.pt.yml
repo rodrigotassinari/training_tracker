@@ -5,3 +5,6 @@ pt:
       public_view: visão pública
       async_updating_alert_html: Este treino está sendo atualizado em segundo plano, por favor %{link} em alguns segundos.
       reload: recarrege esta página
+    user:
+      athlete: Atleta
+      strava_profile: Perfil no Strava
