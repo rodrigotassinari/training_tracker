@@ -1,4 +1,6 @@
+require_dependency 'activity_url_helpers'
 class WorkoutPresenter < Burgundy::Item
+  include ActivityUrlHelpers
 
   def self.validators_on(args)
     Workout.validators_on(args)
@@ -24,6 +26,18 @@ class WorkoutPresenter < Burgundy::Item
 
   def user
     @user ||= UserPresenter.new(item.user)
+  end
+
+  def strava_id
+    return if item.strava_url.blank?
+    parse_strava_activity_id_from_url(item.strava_url)
+  end
+
+  def garmin_connect_id
+    return if item.garmin_connect_url.blank?
+    # TODO
+    # parse_garmin_connect_activity_id_from_url(item.garmin_connect_url)
+    item.garmin_connect_url
   end
 
 end

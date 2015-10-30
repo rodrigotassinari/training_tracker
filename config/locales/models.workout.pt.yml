@@ -44,8 +44,10 @@ pt:
         weight_after: Peso (depois do treino)
         created_at: Cadastrado em
         updated_at: Atualizado em
+        strava_activity: Atividade no Strava
         strava_url: URL da atividade no Strava
         strava_data: Dados da atividade no Strava
+        garmin_connect_activity: Atividade no Garmin Connect
         garmin_connect_url: URL da atividade no Garmin Connect
         garmin_connect_data: Dados da atividade no Strava
         public_access_token: Código de acesso público
