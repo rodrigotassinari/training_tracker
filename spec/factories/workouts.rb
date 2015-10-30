@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  sequence :public_access_token_seq do |n|
+    "some-unique-token-#{n}"
+  end
 
   factory :workout do
     association :user, factory: :user, strategy: :build

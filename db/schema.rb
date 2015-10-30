@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029161706) do
+ActiveRecord::Schema.define(version: 20151030164254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20151029161706) do
     t.jsonb    "garmin_connect_data", default: {}, null: false
     t.string   "strava_url"
     t.string   "garmin_connect_url"
+    t.string   "public_access_token",              null: false
   end
 
   add_index "workouts", ["kind"], name: "index_workouts_on_kind", using: :btree

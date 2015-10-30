@@ -48,6 +48,7 @@ en:
         strava_data: Strava activity data
         garmin_connect_url: Garmin Connect activity URL
         garmin_connect_data: Garmin Connect activity data
+        public_access_token: Public access token
       workout/kind:
         cycling: Cycling
         running: Running

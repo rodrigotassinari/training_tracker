@@ -10,6 +10,7 @@ class Workout < ActiveRecord::Base
   validates :user, presence: true
   validates :kind, presence: true, inclusion: {in: KINDS}
   validates :scheduled_on, presence: true
+  validates :public_access_token, presence: true, uniqueness: true
   validates :elapsed_time, numericality: {
     greater_than_or_equal_to: 0, only_integer: true, allow_nil: true}
   validates :moving_time, numericality: {
@@ -51,6 +52,7 @@ class Workout < ActiveRecord::Base
   # TODO validate (and normalize?) strava_url format
   # TODO validate (and normalize?) garmin_connect_url format
 
+  before_validation :generate_public_access_token, on: [:create]
   before_save :clear_strava_data
 
   def self.new_with_defaults(user)
@@ -181,6 +183,11 @@ class Workout < ActiveRecord::Base
     if self.strava_url_changed? && !self.strava_data_changed?
       self.strava_data = {}
     end
+  end
+
+  # before_validation on: create
+  def generate_public_access_token
+    self.public_access_token ||= SecureRandom.urlsafe_base64(24)
   end
 
 end

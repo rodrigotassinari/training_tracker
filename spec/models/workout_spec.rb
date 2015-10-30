@@ -10,6 +10,8 @@ RSpec.describe Workout, type: :model do
     subject { FactoryGirl.build(:workout) }
     it { is_expected.to validate_presence_of(:user) }
     it { is_expected.to validate_presence_of(:kind) }
+    # it { is_expected.to validate_presence_of(:public_access_token) } # can't test this because it is auto-generated
+    it { is_expected.to validate_uniqueness_of(:public_access_token) }
     it { is_expected.to validate_inclusion_of(:kind).
           in_array(Workout::KINDS) }
     it { is_expected.to validate_presence_of(:scheduled_on) }
@@ -45,6 +47,28 @@ RSpec.describe Workout, type: :model do
       expect(workout.kind).to eq('cycling')
       expect(workout.scheduled_on).to eq(Time.zone.today)
       expect(workout.user).to eq(user)
+    end
+  end
+
+  describe 'public_access_token' do
+    it 'sets a random value on creation' do
+      w1 = FactoryGirl.build(:workout)
+      w2 = FactoryGirl.build(:workout)
+      expect(w1.public_access_token).to be_blank
+      expect(w2.public_access_token).to be_blank
+      expect(w1).to be_valid
+      expect(w2).to be_valid
+      expect(w1.public_access_token).to_not be_blank
+      expect(w2.public_access_token).to_not be_blank
+      expect(w1.public_access_token).to_not eq(w2.public_access_token)
+    end
+    it 'does not change the value on update' do
+      workout = FactoryGirl.create(:workout)
+      token = workout.public_access_token
+      expect(token).to_not be_blank
+      workout.save!
+      workout.reload
+      expect(workout.public_access_token).to eq(token)
     end
   end
 
