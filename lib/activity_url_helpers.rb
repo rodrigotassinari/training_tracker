@@ -35,4 +35,33 @@ module ActivityUrlHelpers
     uri.path.split('/')[2]
   end
 
+  # TODO spec
+  def is_garmin_connect_url?(url)
+    uri = URI.parse(url)
+    uri.scheme =~ /http/ && uri.host =~ /connect\.garmin\.com/
+  end
+
+  # TODO spec
+  def is_garmin_connect_activity_url?(activity_url)
+    return false unless is_garmin_connect_url?(activity_url)
+    uri = URI.parse(activity_url)
+    uri.path =~ /activity\/[0-9]+/
+  end
+
+  # Example valid URLs:
+  #   https://connect.garmin.com/activity/944270875
+  #   https://connect.garmin.com/modern/activity/944270875
+  #
+  # For any of those, returns "944270875".
+  #
+  # Raises ArgumentError if URL is not from "garmin.com" or does not contain
+  # activity information.
+  # TODO spec
+  def parse_garmin_connect_activity_id_from_url(activity_url)
+    raise ArgumentError, 'not a Garmin Connect URL' unless is_garmin_connect_url?(activity_url)
+    raise ArgumentError, 'activity information not found' unless is_garmin_connect_activity_url?(activity_url)
+    uri = URI.parse(activity_url)
+    uri.path.split('/').last
+  end
+
 end

@@ -16,12 +16,12 @@
         <p><strong><%= Workout.human_attribute_name(:strava_activity) %>:</strong> <%= link_to workout.strava_id, workout.strava_url, target: '_blank' %></p>
       <% end %>
       <% if workout.has_garmin_connect? %>
-        <p><strong><%= Workout.human_attribute_name(:garmin_connect_activity) %>:</<strong> <%= link_to workout.garmin_connect_id, workout.garmin_connect_url, target: '_blank' %></p>
+        <p><strong><%= Workout.human_attribute_name(:garmin_connect_activity) %>:</strong> <%= link_to workout.garmin_connect_id, workout.garmin_connect_url, target: '_blank' %></p>
       <% end %>
 
       <% if detailed %>
-        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <%= workout.observations %></p>
-        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <%= workout.coach_observations %></p>
+        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <pre><%= workout.observations %></pre></p>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <pre><%= workout.coach_observations %></pre></p>
       <% end %>
       <table>
         <tbody>

@@ -35,9 +35,7 @@ class WorkoutPresenter < Burgundy::Item
 
   def garmin_connect_id
     return if item.garmin_connect_url.blank?
-    # TODO
-    # parse_garmin_connect_activity_id_from_url(item.garmin_connect_url)
-    item.garmin_connect_url
+    parse_garmin_connect_activity_id_from_url(item.garmin_connect_url)
   end
 
 end
