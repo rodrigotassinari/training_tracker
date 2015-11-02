@@ -18,7 +18,11 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   # new_workout_path
   def new
-    @workout = WorkoutPresenter.new(Workout.new_with_defaults(current_user))
+    @workout = WorkoutPresenter.new(
+      Workout.new_with_defaults(
+        current_user!
+      )
+    )
   end
 
   # POST /workouts

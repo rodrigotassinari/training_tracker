@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_user!
+    return unless user_signed_in?
+    current_user.respond_to?(:item) ? current_user.item : current_user
+  end
+  helper_method :current_user!
+
   def current_user=(user)
     reset_session
     session[:user_id] = user.try(:id)

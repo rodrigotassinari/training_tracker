@@ -80,6 +80,12 @@ RSpec.describe WorkoutsController, type: :controller do
         expect(response).to be_success
         expect(response).to render_template(:new)
       end
+      # REGRESSION
+      it 'works with an user wrapped in a presenter' do
+        login_as(WorkoutPresenter.new(user))
+        get :new
+        expect(response).to be_success
+      end
       it 'assigns a new workout' do
         expect(Workout).to receive(:new_with_defaults).
           with(user).
