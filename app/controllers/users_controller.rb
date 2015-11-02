@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # PATCH /user
   # user_path
   def update
-    if current_user.update(user_params)
+    if current_user!.update(user_params)
       redirect_to root_path,
         notice: t('.success')
     else

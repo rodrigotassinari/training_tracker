@@ -30,7 +30,7 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def create
     @workout = Workout.new(workout_params)
-    @workout.user = current_user
+    @workout.user = current_user!
     if @workout.save
       redirect_to workout_path(@workout),
         notice: t('.success')
