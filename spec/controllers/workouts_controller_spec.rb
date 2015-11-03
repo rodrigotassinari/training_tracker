@@ -33,7 +33,8 @@ RSpec.describe WorkoutsController, type: :controller do
 
   describe 'GET #show' do
     let(:user) { FactoryGirl.build(:user) }
-    let(:workout) { instance_double(Workout, user: user, id: 42) }
+    let(:workout) { instance_double(Workout, user: user, id: 42,
+      kind: 'cycling', scheduled_on: Date.today, name: 'some workout') }
     include_examples 'authentication requirement' do
       let(:action) {-> {get :show, id: workout.id}}
     end
