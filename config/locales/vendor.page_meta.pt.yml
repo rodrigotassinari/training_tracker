@@ -1,0 +1,23 @@
+pt:
+  page_meta:
+    titles:
+      base: "%{value} :: Training Tracker"
+      pages:
+        index: "Início"
+      users:
+        edit: "Editar meu perfil"
+      workouts:
+        index: "Treinos"
+        show: "Treino %{workout_description}"
+        new: "Novo treino"
+        edit: "Editar treino %{workout_description}"
+        do: "Marcar treino como feito"
+        do_strava: "Marcar treino como feito via Strava"
+      public_workouts:
+        show: "Treino %{workout_description} por %{user_description}"
+    descriptions:
+      pages:
+        index: "Armazene e compartilhe o histórico dos seus treinos de ciclismo, corrida ou natação."
+    keywords:
+      pages:
+        index: "ciclismo, corrida, natação, gps, garmin, strava, fit, treino, malhação, atividade"

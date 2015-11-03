@@ -38,4 +38,12 @@ class WorkoutPresenter < Burgundy::Item
     parse_garmin_connect_activity_id_from_url(item.garmin_connect_url)
   end
 
+  def short_description
+    [
+      Workout.human_attribute_name("kind.#{item.kind}"),
+      I18n.l(item.scheduled_on, format: :short_weekday),
+      item.name,
+    ].reject(&:blank?).join(' ')
+  end
+
 end

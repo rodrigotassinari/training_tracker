@@ -216,6 +216,8 @@ GEM
     omniauth-strava (0.0.6)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
+    page_meta (0.1.1)
+      rails
     pg (0.18.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -361,6 +363,7 @@ DEPENDENCIES
   jquery-rails (~> 4.0)
   kaminari (~> 0.16)
   omniauth-strava (~> 0.0)
+  page_meta (~> 0.1)
   pg (~> 0.18)
   puma (~> 2.14)
   rails (= 4.2.4)

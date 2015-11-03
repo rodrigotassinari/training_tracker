@@ -11,6 +11,8 @@ class PublicWorkoutsController < ApplicationController
   # TODO spec
   def show
     @public_view = true
+    page_meta[:workout_description] = @workout.short_description
+    page_meta[:user_description] = current_user.name
   end
 
   private

@@ -62,6 +62,8 @@ gem 'burgundy', '~> 0.2'
 
 gem 'kaminari', '~> 0.16'
 
+gem 'page_meta', '~> 0.1'
+
 group :development, :test do
   gem 'rake', '~> 10.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

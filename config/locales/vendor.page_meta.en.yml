@@ -1,0 +1,23 @@
+en:
+  page_meta:
+    titles:
+      base: "%{value} :: Training Tracker"
+      pages:
+        index: "Home"
+      users:
+        edit: "Edit my profile"
+      workouts:
+        index: "Workouts"
+        show: "Workout %{workout_description}"
+        new: "New workout"
+        edit: "Edit workout %{workout_description}"
+        do: "Mark workout as done"
+        do_strava: "Mark workout as done via Strava"
+      public_workouts:
+        show: "Workout %{workout_description} by %{user_description}"
+    descriptions:
+      pages:
+        index: "Track and share a simple history of your cycling, running or swimming workouts."
+    keywords:
+      pages:
+        index: "cycling, running, swimming, gps, garmin, strava, fit, training, workout, activity"

@@ -13,6 +13,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/:id
   # workout_path(:id)
   def show
+    page_meta[:workout_description] = @workout.short_description
   end
 
   # GET /workouts/new
@@ -43,6 +44,7 @@ class WorkoutsController < ApplicationController
   # edit_workout_path(:id)
   # TODO spec
   def edit
+    page_meta[:workout_description] = @workout.short_description
   end
 
   # GET /workouts/:id/do
