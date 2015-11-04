@@ -8,4 +8,8 @@ module ApplicationHelper
     omniauth_login_path(:strava)
   end
 
+  def locale_mask(mask)
+    "#{I18n.locale}_#{mask}"
+  end
+
 end

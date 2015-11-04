@@ -13,16 +13,10 @@
 
 <%= form.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
 
-<%= form.text_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?) %>
-<script type="text/javascript">
-  $(document).on('ready page:load', function(event) {
-    // apply non-idempotent transformations to the body
-    $('#workout_scheduled_on').inputmask("99/99/9999");
-  });
-</script>
+<%= form.text_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?), data: {mask: locale_mask('date')} %>
 
 <% if workout.persisted? %>
-  <%= form.text_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?) %>
+  <%= form.text_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?), data: {mask: locale_mask('date')} %>
 <% end %>
 
 <%= form.text_field :name %>
@@ -30,26 +24,26 @@
 
 <%= form.text_area :observations, class: 'done-attribute' %>
 <%= form.text_area :coach_observations, class: 'done-attribute' %>
-<%= form.text_field :weight_before, class: 'done-attribute' %>
-<%= form.text_field :weight_after, class: 'done-attribute' %>
+<%= form.text_field :weight_before, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :weight_after, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
 
-<%= form.text_field :distance_in_km, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :distance_in_km, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal2')} %>
 <%= form.text_field :elapsed_time_in_hours, class: 'done-attribute gps-attribute' %>
 <%= form.text_field :moving_time_in_hours, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :speed_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :speed_max, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :cadence_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :cadence_max, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :calories, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :elevation_gain, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :temperature_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :temperature_max, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :temperature_min, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :watts_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :watts_weighted_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :watts_max, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :heart_rate_avg, class: 'done-attribute gps-attribute' %>
-<%= form.text_field :heart_rate_max, class: 'done-attribute gps-attribute' %>
+<%= form.text_field :speed_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :speed_max, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :cadence_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :cadence_max, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :calories, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :elevation_gain, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :temperature_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :temperature_max, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :temperature_min, class: 'done-attribute gps-attribute', data: {mask: locale_mask('decimal')} %>
+<%= form.text_field :watts_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :watts_weighted_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :watts_max, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :heart_rate_avg, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
+<%= form.text_field :heart_rate_max, class: 'done-attribute gps-attribute', data: {mask: locale_mask('integer')} %>
 
 <%= form.text_field :strava_url, class: 'done-attribute', disabled: true %>
 <%= form.text_field :garmin_connect_url, class: 'done-attribute' %>

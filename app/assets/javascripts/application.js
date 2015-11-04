@@ -19,7 +19,10 @@
 //= require inputmask.extensions.min
 //= require inputmask.date.extensions.min
 //= require inputmask.numeric.extensions.min
+//= require inputmask.app
 //= require_tree .
+
+
 
 // https://github.com/rails/turbolinks#events
 $(document).on('ready', function(event) {
