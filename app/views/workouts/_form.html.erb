@@ -12,10 +12,19 @@
 <% end %>
 
 <%= form.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
-<%= form.date_select :scheduled_on %>
+
+<%= form.text_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?) %>
+<script type="text/javascript">
+  $(document).on('ready page:load', function(event) {
+    // apply non-idempotent transformations to the body
+    $('#workout_scheduled_on').inputmask("99/99/9999");
+  });
+</script>
+
 <% if workout.persisted? %>
-  <%= form.date_select :occurred_on, include_blank: true %>
+  <%= form.text_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?) %>
 <% end %>
+
 <%= form.text_field :name %>
 <%= form.text_area :description %>
 

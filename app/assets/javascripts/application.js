@@ -14,6 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require inputmask.min
+//= require jquery.inputmask.min
+//= require inputmask.extensions.min
+//= require inputmask.date.extensions.min
+//= require inputmask.numeric.extensions.min
 //= require_tree .
 
 // https://github.com/rails/turbolinks#events
