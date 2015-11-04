@@ -22,8 +22,6 @@
 //= require inputmask.app
 //= require_tree .
 
-
-
 // https://github.com/rails/turbolinks#events
 $(document).on('ready', function(event) {
   // initialize persistent state

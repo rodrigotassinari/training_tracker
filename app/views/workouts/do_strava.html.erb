@@ -26,8 +26,8 @@
 
       <%= form.text_area :observations, class: 'done-attribute' %>
       <%= form.text_area :coach_observations, class: 'done-attribute' %>
-      <%= form.text_field :weight_before, class: 'done-attribute' %>
-      <%= form.text_field :weight_after, class: 'done-attribute' %>
+      <%= form.text_field :weight_before, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
+      <%= form.text_field :weight_after, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
     </div>
 
     <div class="col-sm-4">

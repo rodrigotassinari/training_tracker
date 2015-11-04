@@ -50,6 +50,13 @@ Inputmask.extendAliases({'en_decimal2': {
   digits: 2
 }});
 
+Inputmask.extendAliases({'pt_duration': {
+  alias: 'hh:mm:ss'
+}});
+Inputmask.extendAliases({'en_duration': {
+  alias: 'hh:mm:ss'
+}});
+
 $(document).on('ready page:load', function(event) {
   // apply non-idempotent transformations to the body
 
