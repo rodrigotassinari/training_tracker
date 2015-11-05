@@ -9,25 +9,11 @@
     <div class="col-sm-8">
       <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: false} %>
 
-      <% if @workout.errors.any? %>
-        <div id="error_explanation" class="panel panel-danger">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= t('.validation_errors', count: @workout.errors.count) %></h3>
-          </div>
-          <% if @workout.errors[:base].present? %>
-            <div class="panel-body">
-              <p><%= @workout.errors[:base] %></p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 
       <%= form.text_field :strava_url, class: 'done-attribute', autofocus: true %>
 
-      <%= form.text_area :observations, class: 'done-attribute' %>
-      <%= form.text_area :coach_observations, class: 'done-attribute' %>
-      <%= form.text_field :weight_before, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
-      <%= form.text_field :weight_after, class: 'done-attribute', data: {mask: locale_mask('decimal')} %>
+      <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
     </div>
 
     <div class="col-sm-4">

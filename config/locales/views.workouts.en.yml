@@ -31,7 +31,7 @@ en:
       title: Mark workout as done manually
     do_strava:
       title: Mark workout as done via Strava activity
-    form:
+    form_errors:
       validation_errors:
         one: '1 error prohibited this workout from being saved'
         other: '%{count} errors prohibited this workout from being saved'

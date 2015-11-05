@@ -31,7 +31,7 @@ pt:
       title: Marcar treino como feito manualmente
     do_strava:
       title: Marcar treino como feito via atividade no Strava
-    form:
+    form_errors:
       validation_errors:
         one: '1 erro impediu que este treino fosse salvo'
         other: '%{count} erros impediram que este treino fosse salvo'

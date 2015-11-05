@@ -1,0 +1,12 @@
+<% if workout.errors.any? %>
+  <div id="error_explanation" class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= t('.validation_errors', count: workout.errors.count) %></h3>
+    </div>
+    <% if workout.errors[:base].present? %>
+      <div class="panel-body">
+        <p><%= workout.errors[:base] %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
