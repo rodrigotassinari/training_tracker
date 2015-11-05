@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'validations' do
-    subject { FactoryGirl.build(:user) }
+    subject { FactoryGirl.build(:user, remember_me_token: SecureRandom.urlsafe_base64(24)) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:locale) }
     it { is_expected.to validate_presence_of(:time_zone) }
@@ -18,6 +18,30 @@ RSpec.describe User, type: :model do
           in_array(I18n.available_locales.map(&:to_s)) }
     it { is_expected.to validate_inclusion_of(:time_zone).
           in_array(ActiveSupport::TimeZone::MAPPING.keys) }
+    # it { is_expected.to validate_presence_of(:remember_me_token) } # can't test this because it is auto-generated
+    it { is_expected.to validate_uniqueness_of(:remember_me_token) }
+  end
+
+  describe 'remember_me_token' do
+    it 'sets a random value on creation' do
+      u1 = FactoryGirl.build(:user)
+      u2 = FactoryGirl.build(:user)
+      expect(u1.remember_me_token).to be_blank
+      expect(u2.remember_me_token).to be_blank
+      expect(u1).to be_valid
+      expect(u2).to be_valid
+      expect(u1.remember_me_token).to_not be_blank
+      expect(u2.remember_me_token).to_not be_blank
+      expect(u1.remember_me_token).to_not eq(u2.remember_me_token)
+    end
+    it 'does not change the value on update' do
+      user = FactoryGirl.create(:user)
+      token = user.remember_me_token
+      expect(token).to_not be_blank
+      user.save!
+      user.reload
+      expect(user.remember_me_token).to eq(token)
+    end
   end
 
   describe '#complete?' do

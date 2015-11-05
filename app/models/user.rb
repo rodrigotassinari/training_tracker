@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: {case_sensitive: false}, allow_blank: true
   validates :locale, presence: true, inclusion: {in: I18n.available_locales.map(&:to_s)}
   validates :time_zone, presence: true, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}
+  validates :remember_me_token, presence: true, uniqueness: true
+
+  before_validation :generate_remember_me_token, on: [:create]
 
   def complete?
     name.present? &&
@@ -62,6 +65,13 @@ class User < ActiveRecord::Base
   # TODO spec
   def strava_client
     @strava_client ||= StravaFinderService.new(self).client
+  end
+
+  private
+
+  # before_validation on: create
+  def generate_remember_me_token
+    self.remember_me_token ||= SecureRandom.urlsafe_base64(24)
   end
 
 end

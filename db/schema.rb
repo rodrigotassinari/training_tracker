@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030164254) do
+ActiveRecord::Schema.define(version: 20151105193310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20151030164254) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "name",                       null: false
+    t.string   "name",                              null: false
     t.string   "email"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "time_zone",  default: "UTC", null: false
-    t.string   "locale",     default: "en",  null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "time_zone",         default: "UTC", null: false
+    t.string   "locale",            default: "en",  null: false
+    t.string   "remember_me_token",                 null: false
   end
 
   create_table "workouts", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
