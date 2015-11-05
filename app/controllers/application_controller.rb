@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    @current_user ||= UserPresenter.new(User.find_by_remember_me_token(session[:user_token])) unless session[:user_token].blank?
+    @current_user ||= UserPresenter.new(User.find_by_remember_me_token(cookies.signed[:user_token])) unless cookies.signed[:user_token].blank?
   end
   helper_method :current_user
 
@@ -28,8 +28,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user!
 
   def current_user=(user)
+    session.destroy if session.respond_to?(:destroy)
     reset_session
-    session[:user_token] = user.try(:remember_me_token)
+    cookies.delete :user_token
+
+    cookies.permanent.signed[:user_token] = {value: user.try(:remember_me_token), httponly: true}
     @current_user = user
   end
 

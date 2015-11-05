@@ -14,10 +14,10 @@ RSpec.describe SessionsController, type: :controller do
     it 'signs in the user' do
       expect(User).to receive(:find_or_create_from_auth_hash!).
         with(auth_hash).and_return(user)
-      expect(session[:user_token]).to be_nil
+      expect(cookies.signed[:user_token]).to be_nil
       expect(subject.send(:current_user)).to be_nil
       get :create, provider: 'strava'
-      expect(session[:user_token]).to eq(user.remember_me_token)
+      expect(cookies.signed[:user_token]).to eq(user.remember_me_token)
       expect(subject.send(:current_user)).to eq(user)
     end
     context 'when the user already exists' do
@@ -51,10 +51,10 @@ RSpec.describe SessionsController, type: :controller do
       login_as(user)
     end
     it 'signs out the current user' do
-      expect(session[:user_token]).to eq(user.remember_me_token)
+      expect(cookies.signed[:user_token]).to eq(user.remember_me_token)
       expect(subject.send(:current_user)).to eq(user)
       get :destroy
-      expect(session[:user_token]).to be_nil
+      expect(cookies.signed[:user_token]).to be_nil
       expect(subject.send(:current_user)).to be_nil
     end
     it 'redirects to the root path with a message' do

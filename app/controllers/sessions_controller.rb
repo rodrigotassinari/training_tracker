@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
   # logout_path
   def destroy
     self.current_user = nil
-    session.destroy if session.respond_to?(:destroy)
-    reset_session
     redirect_to root_path, notice: t('.success')
   end
 
