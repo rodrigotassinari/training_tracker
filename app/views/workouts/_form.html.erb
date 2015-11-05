@@ -2,10 +2,10 @@
 
 <%= form.select :kind, Workout::KINDS.map { |kind| [Workout.human_attribute_name("kind.#{kind}"), kind]} %>
 
-<%= form.text_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
+<%= form.date_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
 
 <% if workout.persisted? %>
-  <%= form.text_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?), data: {mask: locale_mask('date')} %>
+  <%= form.date_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?), data: {mask: locale_mask('date')} %>
 <% end %>
 
 <%= form.text_field :name %>
