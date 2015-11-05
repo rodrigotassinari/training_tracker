@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    @current_user ||= UserPresenter.new(User.find_by_id(session[:user_id])) unless session[:user_id].blank?
+    @current_user ||= UserPresenter.new(User.find_by_remember_me_token(session[:user_token])) unless session[:user_token].blank?
   end
   helper_method :current_user
 
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def current_user=(user)
     reset_session
-    session[:user_id] = user.try(:id)
+    session[:user_token] = user.try(:remember_me_token)
     @current_user = user
   end
 

@@ -6,17 +6,18 @@ RSpec.describe SessionsController, type: :controller do
     let(:auth_hash) { {'some' => 'omniauth', 'test' => 'values'} }
     let(:user) { instance_double('User',
       id: 42, name: 'John Doe', just_created?: false,
-      time_zone: 'UTC', locale: 'en', complete?: true) }
+      time_zone: 'UTC', locale: 'en', complete?: true,
+      remember_me_token: 'some-unique-token-42') }
     before do
       @request.env['omniauth.auth'] = auth_hash
     end
     it 'signs in the user' do
       expect(User).to receive(:find_or_create_from_auth_hash!).
         with(auth_hash).and_return(user)
-      expect(session[:user_id]).to be_nil
+      expect(session[:user_token]).to be_nil
       expect(subject.send(:current_user)).to be_nil
       get :create, provider: 'strava'
-      expect(session[:user_id]).to eq(user.id)
+      expect(session[:user_token]).to eq(user.remember_me_token)
       expect(subject.send(:current_user)).to eq(user)
     end
     context 'when the user already exists' do
@@ -44,15 +45,16 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe 'GET #destroy' do
-    let(:user) { instance_double('User', id: 42, time_zone: 'UTC', locale: 'en', complete?: true) }
+    let(:user) { instance_double('User', id: 42, time_zone: 'UTC',
+      locale: 'en', complete?: true, remember_me_token: 'some-unique-token-42') }
     before do
       login_as(user)
     end
     it 'signs out the current user' do
-      expect(session[:user_id]).to eq(user.id)
+      expect(session[:user_token]).to eq(user.remember_me_token)
       expect(subject.send(:current_user)).to eq(user)
       get :destroy
-      expect(session[:user_id]).to be_nil
+      expect(session[:user_token]).to be_nil
       expect(subject.send(:current_user)).to be_nil
     end
     it 'redirects to the root path with a message' do
