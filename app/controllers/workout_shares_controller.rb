@@ -7,15 +7,24 @@ class WorkoutSharesController < ApplicationController
   # new_workout_share_path(:workout_id)
   def new
     page_meta[:workout_description] = @workout.short_description
+    @workout_share = WorkoutShare.new(workout: @workout)
   end
 
   # POST /workouts/:workout_id/share
   # workout_shares_path(:workout_id)
   def create
-
+    @workout_share = WorkoutShare.new(
+      workout_share_params.merge(workout: @workout)
+    )
+    render :new
   end
 
   private
+
+  def workout_share_params
+    params.require(:workout_share).
+      permit(:emails)
+  end
 
   # before_action
   def set_workout

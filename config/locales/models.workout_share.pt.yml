@@ -5,6 +5,7 @@ pt:
         one: Compartilhamento de Treino
         other: Compartilhamento de Treinos
     attributes:
+      workout_share:
         workout: Treino
         workout_id: Treino
         emails: E-mails

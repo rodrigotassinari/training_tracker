@@ -4,18 +4,18 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-8">
+<%= bootstrap_form_for(@workout_share) do |form| %>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= form.text_field :emails, help: t('.emails_help'), autofocus: true %>
 
+      <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: @workout.done?} %>
+    </div>
 
-    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: @workout.done?} %>
+    <div class="col-sm-4">
+      <p><%= form.submit t('submit'), data: {disable_with: t('saving')}, class: 'btn btn-primary btn-lg btn-block' %></p>
+
+      <p><%= link_to t('back'), workout_path(@workout), role: 'button', class: 'btn btn-default btn-block' %></p>
+    </div>
   </div>
-
-  <div class="col-sm-4">
-    <p>
-      <%= link_to t('submit'), '#TODO', role: 'button', class: 'btn btn-primary btn-block' %>
-    </p>
-
-    <p><%= link_to t('back'), workout_path(@workout), role: 'button', class: 'btn btn-default btn-block' %></p>
-  </div>
-</div>
+<% end %>

@@ -2,3 +2,4 @@ en:
   workout_shares:
     new:
       title: Share workout data
+      emails_help: Email address of the person you want to receive this workout data. If you want to send it to more than one person, separate the email addresses with a comman. It will not be required an account on this site to view the data.

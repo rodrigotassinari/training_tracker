@@ -2,3 +2,4 @@ pt:
   workout_shares:
     new:
       title: Compartilhar dados do treino
+      emails_help: Endereço de email de quem deve receber as informações deste treino. Se quiser enviar para mais de uma pessoa, separar os emails com vírgula. Não será necessário uma conta neste site para ver as informações enviadas.
