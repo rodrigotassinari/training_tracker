@@ -12,7 +12,7 @@ class PublicWorkoutsController < ApplicationController
   def show
     @public_view = true
     page_meta[:workout_description] = @workout.short_description
-    page_meta[:user_description] = current_user.name
+    page_meta[:user_description] = @workout.user.name
   end
 
   private
