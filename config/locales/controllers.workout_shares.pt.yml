@@ -1,0 +1,7 @@
+pt:
+  workout_shares:
+    new:
+      async_updating: Este treino está sendo atualizado com dados do Strava. Por favor tente novamente em alguns segundos.
+    create:
+      async_updating: Este treino está sendo atualizado com dados do Strava. Por favor tente novamente em alguns segundos.
+      success: Dados do treino enviados com sucesso.

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :do_strava
       delete :undo
     end
+    resources :shares, only: [:new, :create], controller: 'workout_shares'
   end
 
   get '/workout/:token' => 'public_workouts#show', as: 'public_workout'

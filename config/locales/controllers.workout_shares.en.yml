@@ -1,0 +1,7 @@
+en:
+  workout_shares:
+    new:
+      async_updating: This workout is being updated from Strava. Please try again in a few seconds.
+    create:
+      async_updating: This workout is being updated from Strava. Please try again in a few seconds.
+      success: Workout information sent successfully.

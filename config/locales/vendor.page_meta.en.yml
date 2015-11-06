@@ -15,6 +15,8 @@ en:
         do_strava: "Mark workout as done via Strava"
       public_workouts:
         show: "Workout %{workout_description} by %{user_description}"
+      workout_shares:
+        new: "Share workout data from %{workout_description}"
     descriptions:
       pages:
         index: "Track and share a simple history of your cycling, running or swimming workouts."

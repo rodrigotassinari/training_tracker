@@ -1,0 +1,11 @@
+en:
+  activemodel:
+    models:
+      workout_share:
+        one: Workout Share
+        other: Workout Shares
+    attributes:
+      workout_share:
+        workout: Workout
+        workout_id: Workout
+        emails: E-mails

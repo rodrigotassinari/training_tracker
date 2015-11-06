@@ -1,0 +1,10 @@
+pt:
+  activemodel:
+    models:
+      workout_share:
+        one: Compartilhamento de Treino
+        other: Compartilhamento de Treinos
+    attributes:
+        workout: Treino
+        workout_id: Treino
+        emails: E-mails
