@@ -9,124 +9,191 @@
     </h3>
   </div>
   <div class="panel-body">
+    <% if workout.description %>
     <p class="lead"><%= workout.description %></p>
+    <% end %>
+
     <% if workout.done? %>
 
       <% if workout.has_strava? %>
-        <p><strong><%= Workout.human_attribute_name(:strava_activity) %>:</strong> <%= link_to workout.strava_id, workout.strava_url, target: '_blank' %></p>
+      <p><strong><%= Workout.human_attribute_name(:strava_activity) %>:</strong> <%= link_to workout.strava_id, workout.strava_url, target: '_blank' %></p>
       <% end %>
+
       <% if workout.has_garmin_connect? %>
-        <p><strong><%= Workout.human_attribute_name(:garmin_connect_activity) %>:</strong> <%= link_to workout.garmin_connect_id, workout.garmin_connect_url, target: '_blank' %></p>
+      <p><strong><%= Workout.human_attribute_name(:garmin_connect_activity) %>:</strong> <%= link_to workout.garmin_connect_id, workout.garmin_connect_url, target: '_blank' %></p>
       <% end %>
 
       <% if detailed %>
+        <% unless workout.observations.blank? %>
         <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <pre><%= workout.observations %></pre></p>
+        <% end %>
+
+        <% unless workout.coach_observations.blank? %>
         <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <pre><%= workout.coach_observations %></pre></p>
+        <% end %>
       <% end %>
+
       <table>
         <tbody>
+          <% if workout.distance %>
           <tr>
             <th><%= Workout.human_attribute_name(:distance_in_km) %>:</th>
             <td><%= workout.distance_in_km %> km</td>
           </tr>
+          <% end %>
+
+          <% if workout.moving_time %>
           <tr>
             <th><%= Workout.human_attribute_name(:moving_time_in_hours) %>:</th>
             <td><%= workout.moving_time_in_hours %></td>
           </tr>
+          <% end %>
+
           <% if detailed %>
+            <% if workout.elapsed_time %>
             <tr>
               <th><%= Workout.human_attribute_name(:elapsed_time_in_hours) %>:</th>
               <td><%= workout.elapsed_time_in_hours %></td>
             </tr>
+            <% end %>
           <% end %>
+
+          <% if workout.elevation_gain %>
           <tr>
             <th><%= Workout.human_attribute_name(:elevation_gain) %>:</th>
             <td><%= workout.elevation_gain %> m</td>
           </tr>
+          <% end %>
+
           <% if detailed %>
+            <% if workout.calories %>
             <tr>
               <th><%= Workout.human_attribute_name(:calories) %>:</th>
               <td><%= workout.calories %></td>
             </tr>
+            <% end %>
           <% end %>
+
+          <% if workout.speed_avg %>
           <tr>
             <th><%= Workout.human_attribute_name(:speed_avg) %>:</th>
             <td><%= workout.speed_avg %> km/h</td>
           </tr>
+          <% end %>
+
           <% if detailed %>
+            <% if workout.speed_max %>
             <tr>
               <th><%= Workout.human_attribute_name(:speed_max) %>:</th>
               <td><%= workout.speed_max %> km/h</td>
             </tr>
+            <% end %>
           <% end %>
+
+          <% if workout.heart_rate_avg %>
           <tr>
             <th><%= Workout.human_attribute_name(:heart_rate_avg) %>:</th>
             <td><%= workout.heart_rate_avg %> bpm</td>
           </tr>
+          <% end %>
+
           <% if detailed %>
+            <% if workout.heart_rate_max %>
             <tr>
               <th><%= Workout.human_attribute_name(:heart_rate_max) %>:</th>
               <td><%= workout.heart_rate_max %> bpm</td>
             </tr>
+            <% end %>
           <% end %>
+
+          <% if workout.cadence_avg %>
           <tr>
             <th><%= Workout.human_attribute_name(:cadence_avg) %>:</th>
             <td><%= workout.cadence_avg %> rpm</td>
           </tr>
+          <% end %>
+
           <% if detailed %>
+            <% if workout.cadence_max %>
             <tr>
               <th><%= Workout.human_attribute_name(:cadence_max) %>:</th>
               <td><%= workout.cadence_max %> rpm</td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.temperature_avg %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_avg) %>:</th>
               <td><%= workout.temperature_avg %> ºC</td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.temperature_min %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_min) %>:</th>
               <td><%= workout.temperature_min %> ºC</td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.temperature_max %>
             <tr>
               <th><%= Workout.human_attribute_name(:temperature_max) %>:</th>
               <td><%= workout.temperature_max %> ºC</td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.watts_avg %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_avg) %>:</th>
               <td><%= workout.watts_avg %></td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.watts_weighted_avg %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_weighted_avg) %>:</th>
               <td><%= workout.watts_weighted_avg %></td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.watts_max %>
             <tr>
               <th><%= Workout.human_attribute_name(:watts_max) %>:</th>
               <td><%= workout.watts_max %></td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.weight_before %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_before) %>:</th>
               <td><%= workout.weight_before %> kg</td>
             </tr>
+            <% end %>
           <% end %>
+
           <% if detailed %>
+            <% if workout.weight_after %>
             <tr>
               <th><%= Workout.human_attribute_name(:weight_after) %>:</th>
               <td><%= workout.weight_after %> kg</td>
             </tr>
+            <% end %>
           <% end %>
+
         </tbody>
       </table>
     <% end %>
