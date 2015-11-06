@@ -14,13 +14,17 @@ class WorkoutShare
     valid? && send_email_to_each_address
   end
 
+  def workout!
+    workout.respond_to?(:item) ? workout.item : workout
+  end
+
   private
 
   def send_email_to_each_address
     emails.split(',').each do |email|
       email = email.strip
       next if email.blank?
-      # TODO send email
+      WorkoutMailer.share(workout!, email).deliver_later
     end
     true
   end
