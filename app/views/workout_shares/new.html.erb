@@ -7,6 +7,19 @@
 <%= bootstrap_form_for(@workout_share) do |form| %>
   <div class="row">
     <div class="col-sm-8">
+    <% if @workout_share.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= t('.validation_errors', count: @workout_share.errors.count) %></h3>
+          </div>
+          <% if @workout_share.errors[:base].present? %>
+            <div class="panel-body">
+              <p><%= @workout_share.errors[:base] %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
       <%= form.text_field :emails, help: t('.emails_help'), autofocus: true %>
 
       <div class="form-group">

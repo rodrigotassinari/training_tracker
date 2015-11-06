@@ -5,6 +5,7 @@ class WorkoutSharesController < ApplicationController
 
   # GET /workouts/:workout_id/share/new
   # new_workout_share_path(:workout_id)
+  # TODO spec
   def new
     page_meta[:workout_description] = @workout.short_description
     @workout_share = WorkoutShare.new(workout: @workout)
@@ -12,11 +13,16 @@ class WorkoutSharesController < ApplicationController
 
   # POST /workouts/:workout_id/share
   # workout_shares_path(:workout_id)
+  # TODO spec
   def create
     @workout_share = WorkoutShare.new(
       workout_share_params.merge(workout: @workout)
     )
-    render :new
+    if @workout_share.send_emails
+      redirect_to(workout_path(@workout), notice: t('.success'))
+    else
+      render :new
+    end
   end
 
   private

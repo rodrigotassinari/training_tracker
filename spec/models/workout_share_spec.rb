@@ -16,4 +16,8 @@ describe WorkoutShare do
     it { is_expected.to_not allow_value(', foo@bar.com').for(:emails) }
   end
 
+  describe '#send_emails' do
+    # TODO
+  end
+
 end
