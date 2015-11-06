@@ -51,6 +51,7 @@ pt:
         garmin_connect_url: URL da atividade no Garmin Connect
         garmin_connect_data: Dados da atividade no Strava
         public_access_token: Código de acesso público
+        public_access_url: URL de acesso público
       workout/kind:
         cycling: Ciclismo
         running: Corrida

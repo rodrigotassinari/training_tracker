@@ -3,3 +3,4 @@ pt:
     new:
       title: Compartilhar dados do treino
       emails_help: Endereço de email de quem deve receber as informações deste treino. Se quiser enviar para mais de uma pessoa, separar os emails com vírgula. Não será necessário uma conta neste site para ver as informações enviadas.
+      public_access_url_help: Endereço que será exibido no email enviado para o(s) endereço(s) fornecido(s) acima. Qualquer pessoa com esta URL será capas de ler as informações deste treino (apenas este treino!) sem ser necessário fazer login. Alternativamente, você pode copiar esta URL e compartilhar por outros meios com quem você quiser dar acesso de leitura aos dados deste treino.

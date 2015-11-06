@@ -3,3 +3,4 @@ en:
     new:
       title: Share workout data
       emails_help: Email address of the person you want to receive this workout data. If you want to send it to more than one person, separate the email addresses with a comman. It will not be required an account on this site to view the data.
+      public_access_url_help: URL that will be shown on the email sent to the addresses above. Anyone with this URL can read the information of this workout (only this one!) without requiring to login here. Alternatively, you could copy this URL and share it by any other means with whoever you want to give access to this workout data.

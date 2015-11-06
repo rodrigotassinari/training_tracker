@@ -9,6 +9,12 @@
     <div class="col-sm-8">
       <%= form.text_field :emails, help: t('.emails_help'), autofocus: true %>
 
+      <div class="form-group">
+        <label class="control-label" for="workout_public_access_url"><%= Workout.human_attribute_name(:public_access_url) %></label>
+        <input class="form-control" type="text" readonly="readonly" value="<%= public_workout_url(@workout.public_access_token) %>" id="workout_public_access_url" onclick="this.select();">
+        <span class="help-block"><%= t('.public_access_url_help') %></span>
+      </div>
+
       <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: @workout.done?} %>
     </div>
 
