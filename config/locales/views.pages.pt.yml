@@ -3,3 +3,4 @@ pt:
     index:
       title: 'Training Tracker'
       description: "Armazene e compartilhe o histórico dos seus treinos de ciclismo, corrida ou natação."
+      sign_in: 'Entrar com seu Strava'
