@@ -1,0 +1,5 @@
+<p>Olá <%= @recipient %>,</p>
+
+<p><strong><%= @user.name %></strong> gostaria de compartilhar com você este treino:</p>
+
+<%= render partial: 'workout_mailer/workout_summary', locals: {workout: @workout} %>

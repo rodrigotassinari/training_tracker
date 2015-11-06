@@ -1,0 +1,201 @@
+<p><%= link_to public_workout_url(@workout.public_access_token), public_workout_url(@workout.public_access_token), target: '_blank' %></p>
+
+<table>
+
+  <% if workout.kind %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:kind) %></td>
+    <td><%= Workout.human_attribute_name("kind.#{workout.kind}") %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.scheduled_on %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:scheduled_on) %></td>
+    <td><%= l workout.scheduled_on, format: :long_weekday %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.occurred_on %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:occurred_on) %></td>
+    <td><%= l workout.occurred_on, format: :long_weekday %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.name %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:name) %></td>
+    <td><%= workout.name %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.description %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:description) %></td>
+    <td><%= workout.description %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.has_strava? %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:strava_activity) %></td>
+    <td><%= link_to workout.strava_id, workout.strava_url, target: '_blank' %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.has_garmin_connect? %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:garmin_connect_activity) %></td>
+    <td><%= link_to workout.garmin_connect_id, workout.garmin_connect_url, target: '_blank' %></td>
+  </tr>
+  <% end %>
+
+  <% unless workout.observations.blank? %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:observations) %></td>
+    <td><%= workout.observations %></td>
+  </tr>
+  <% end %>
+
+  <% unless workout.coach_observations.blank? %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:coach_observations) %></td>
+    <td><%= workout.coach_observations %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.distance %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:distance_in_km) %></td>
+    <td><%= workout.distance_in_km %> km</td>
+  </tr>
+  <% end %>
+
+  <% if workout.moving_time %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:moving_time_in_hours) %></td>
+    <td><%= workout.moving_time_in_hours %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.elapsed_time %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:elapsed_time_in_hours) %></td>
+    <td><%= workout.elapsed_time_in_hours %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.elevation_gain %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:elevation_gain) %></td>
+    <td><%= workout.elevation_gain %> m</td>
+  </tr>
+  <% end %>
+
+  <% if workout.calories %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:calories) %></td>
+    <td><%= workout.calories %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.speed_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:speed_avg) %></td>
+    <td><%= workout.speed_avg %> km/h</td>
+  </tr>
+  <% end %>
+
+  <% if workout.speed_max %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:speed_max) %></td>
+    <td><%= workout.speed_max %> km/h</td>
+  </tr>
+  <% end %>
+
+  <% if workout.heart_rate_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:heart_rate_avg) %></td>
+    <td><%= workout.heart_rate_avg %> bpm</td>
+  </tr>
+  <% end %>
+
+  <% if workout.heart_rate_max %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:heart_rate_max) %></td>
+    <td><%= workout.heart_rate_max %> bpm</td>
+  </tr>
+  <% end %>
+
+  <% if workout.cadence_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:cadence_avg) %></td>
+    <td><%= workout.cadence_avg %> rpm</td>
+  </tr>
+  <% end %>
+
+  <% if workout.cadence_max %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:cadence_max) %></td>
+    <td><%= workout.cadence_max %> rpm</td>
+  </tr>
+  <% end %>
+
+  <% if workout.temperature_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:temperature_avg) %></td>
+    <td><%= workout.temperature_avg %> ºC</td>
+  </tr>
+  <% end %>
+
+  <% if workout.temperature_min %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:temperature_min) %></td>
+    <td><%= workout.temperature_min %> ºC</td>
+  </tr>
+  <% end %>
+
+  <% if workout.temperature_max %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:temperature_max) %></td>
+    <td><%= workout.temperature_max %> ºC</td>
+  </tr>
+  <% end %>
+
+  <% if workout.watts_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:watts_avg) %></td>
+    <td><%= workout.watts_avg %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.watts_weighted_avg %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:watts_weighted_avg) %></td>
+    <td><%= workout.watts_weighted_avg %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.watts_max %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:watts_max) %></td>
+    <td><%= workout.watts_max %></td>
+  </tr>
+  <% end %>
+
+  <% if workout.weight_before %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:weight_before) %></td>
+    <td><%= workout.weight_before %> kg</td>
+  </tr>
+  <% end %>
+
+  <% if workout.weight_after %>
+  <tr>
+    <td><%= Workout.human_attribute_name(:weight_after) %></td>
+    <td><%= workout.weight_after %> kg</td>
+  </tr>
+  <% end %>
+
+</table>

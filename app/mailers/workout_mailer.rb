@@ -1,14 +1,23 @@
 class WorkoutMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.workout_mailer.share.subject
-  #
+  # TODO spec
   def share(workout, recipient)
-    @workout = workout
-    @greeting = "Hi"
-
-    mail(to: recipient, subject: 'TODO')
+    @workout = WorkoutPresenter.new(workout)
+    @user = @workout.user
+    @recipient = recipient
+    I18n.with_locale(@user.locale) do
+      @date = l((@workout.occurred_on || @workout.scheduled_on), format: :calendar)
+      @kind = Workout.human_attribute_name("kind.#{@workout.kind}").downcase
+      mail(
+        to: @recipient,
+        reply_to: @user.email,
+        subject: t('.subject',
+          kind: @kind,
+          date: @date,
+          user_name: @user.name,
+          workout_name: @workout.name,
+        )
+      )
+    end
   end
 end

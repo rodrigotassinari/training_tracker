@@ -1,0 +1,4 @@
+pt:
+  workout_mailer:
+    share:
+      subject: 'Treino de %{kind} de %{user_name} em %{date}: %{workout_name}'

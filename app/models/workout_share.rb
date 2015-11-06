@@ -24,7 +24,7 @@ class WorkoutShare
     emails.split(',').each do |email|
       email = email.strip
       next if email.blank?
-      WorkoutMailer.share(workout!, email).deliver_later
+      WorkoutMailer.share(workout!, email).deliver_now #later
     end
     true
   end

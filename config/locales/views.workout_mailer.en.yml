@@ -1,0 +1,4 @@
+en:
+  workout_mailer:
+    share:
+      subject: "%{user_name}'s %{kind} workout on %{date}: %{workout_name}"
