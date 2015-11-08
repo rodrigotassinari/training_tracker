@@ -57,7 +57,7 @@ GEM
     ar-uuid (0.1.2)
       activerecord
     arel (6.0.3)
-    autoprefixer-rails (6.0.3)
+    autoprefixer-rails (6.1.0.1)
       execjs
       json
     binding_of_caller (0.7.2)
@@ -69,7 +69,7 @@ GEM
     browser (1.0.1)
     builder (3.2.2)
     burgundy (0.2.0)
-    byebug (6.0.2)
+    byebug (8.0.1)
     celluloid (0.17.2)
       celluloid-essentials
       celluloid-extras
@@ -175,7 +175,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    listen (3.0.3)
+    listen (3.0.4)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     loofah (2.0.3)
@@ -223,7 +223,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.14.0)
+    puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -256,7 +256,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
-    rollbar (2.5.1)
+    rollbar (2.5.2)
       multi_json
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -346,7 +346,7 @@ DEPENDENCIES
   bootstrap_form (~> 2.3)
   browser (~> 1.0)
   burgundy (~> 0.2)
-  byebug (~> 6.0)
+  byebug (~> 8.0)
   carrierwave!
   chronic_duration (~> 0.10)
   codeclimate-test-reporter (~> 0.4)
@@ -365,7 +365,7 @@ DEPENDENCIES
   omniauth-strava (~> 0.0)
   page_meta (~> 0.1)
   pg (~> 0.18)
-  puma (~> 2.14)
+  puma (~> 2.15)
   rails (= 4.2.4)
   rake (~> 10.4)
   rollbar (~> 2.5)

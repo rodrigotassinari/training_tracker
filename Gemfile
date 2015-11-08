@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
-gem 'puma', '~> 2.14'
+gem 'puma', '~> 2.15'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -66,8 +66,7 @@ gem 'page_meta', '~> 0.1'
 
 group :development, :test do
   gem 'rake', '~> 10.4'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '~> 6.0'
+  gem 'byebug', '~> 8.0'
   gem 'rspec-rails', '~> 3.3'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'database_cleaner', '~> 1.5'
