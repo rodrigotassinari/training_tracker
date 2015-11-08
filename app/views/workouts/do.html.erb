@@ -12,7 +12,7 @@
       <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 
       <% @workout.occurred_on ||= @workout.scheduled_on %>
-      <%= form.date_field :occurred_on, value: (l(@workout.occurred_on, format: :calendar) unless @workout.occurred_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
+      <%= form.text_field :occurred_on, value: (l(@workout.occurred_on, format: :calendar) unless @workout.occurred_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
 
       <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
 
