@@ -11,7 +11,9 @@
 
       <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 
-      <%= form.text_field :strava_url, class: 'done-attribute', autofocus: true %>
+      <div id="strava_activities">
+        <p>Pesquisando suas atividades no Strava...</p>
+      </div>
 
       <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
     </div>
@@ -22,3 +24,14 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).on('page:change', function(event) {
+    // idempotent function
+    $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"});
+  });
+
+  // $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"}).done(function(html) {
+  //   return $("#strava_activities").append(html);
+  // });
+</script>

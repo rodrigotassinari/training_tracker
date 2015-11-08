@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       get :do
       get :do_strava
+      get :strava_activities
       delete :undo
     end
     resources :shares, only: [:new, :create], controller: 'workout_shares'

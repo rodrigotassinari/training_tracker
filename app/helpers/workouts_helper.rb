@@ -19,4 +19,10 @@ module WorkoutsHelper
     Time.at(seconds.to_i).utc.strftime("%H:%M:%S")
   end
 
+  # TODO spec
+  def strava_activity_description(activity)
+    date = Time.zone.parse(activity[:start_date]).to_date
+    "#{I18n.l date, format: :calendar} #{activity[:name]} <small>(##{activity[:id]})</small>".html_safe
+  end
+
 end

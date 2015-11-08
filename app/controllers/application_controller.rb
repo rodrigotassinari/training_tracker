@@ -17,7 +17,9 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    @current_user ||= UserPresenter.new(User.find_by_remember_me_token(cookies.signed[:user_token])) unless cookies.signed[:user_token].blank?
+    @current_user ||= UserPresenter.new(
+      User.find_by_remember_me_token(cookies.signed[:user_token])
+    ) unless cookies.signed[:user_token].blank?
   end
   helper_method :current_user
 

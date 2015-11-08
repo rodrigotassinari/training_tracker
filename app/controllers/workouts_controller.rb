@@ -75,6 +75,17 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  # GET /workouts/:id/strava_activities (ajax only)
+  # strava_activities_workout_path(:id)
+  # TODO spec
+  def strava_activities
+    @search_date = current_user.latest_done_workout.try(:occurred_on) || @workout.scheduled_on
+    @activities = StravaFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # DELETE /workouts/:id/undo
   # undo_workout_path(:id)
   # TODO spec
