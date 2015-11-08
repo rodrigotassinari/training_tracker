@@ -22,7 +22,22 @@ module WorkoutsHelper
   # TODO spec
   def strava_activity_description(activity)
     date = Time.zone.parse(activity[:start_date]).to_date
-    "#{I18n.l date, format: :calendar} #{activity[:name]} <small>(##{activity[:id]})</small>".html_safe
+    image = activity_kind_image(activity)
+    "#{image} #{I18n.l date, format: :calendar} #{activity[:name]} <small>(##{activity[:id]})</small>".html_safe
+  end
+
+  private
+
+  def activity_kind_image(activity)
+    kind = case activity[:type]
+    when 'Run'
+      'running'
+    when 'Swim'
+      'swimming'
+    else
+      'cycling'
+    end
+    image_tag("workout_#{kind}.png", alt: kind, height: 18)
   end
 
 end
