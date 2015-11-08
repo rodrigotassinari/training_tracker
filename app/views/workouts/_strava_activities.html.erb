@@ -1,12 +1,12 @@
 <% if @activities.empty? %>
-  <p>Nenhuma atividade encontrada desde <%= l @search_date, format: :calendar %>.</p>
+  <p><%= t('.no_strava_activity_found', date: l(@search_date, format: :calendar)) %></p>
   <div class="form-group">
-    <label class="control-label" for="workout_strava_url">URL da atividade no Strava</label>
+    <label class="control-label required" for="workout_strava_url"><%= Workout.human_attribute_name('strava_url') %></label>
     <input class="form-control done-attribute" autofocus="autofocus" type="text" name="workout[strava_url]" id="workout_strava_url">
   </div>
 <% else %>
   <div class="form-group">
-    <label class="control-label" for="workout_strava_url"><%= Workout.human_attribute_name('strava_activity') %></label>
+    <label class="control-label required" for="workout_strava_url"><%= Workout.human_attribute_name('strava_activity') %></label>
     <% @activities.each_with_index do |activity, index| %>
       <div class="radio">
         <label for="workout_strava_url_<%= index %>"><input type="radio" value="https://www.strava.com/activities/<%= activity[:id] %>" name="workout[strava_url]" id="workout_strava_url_<%= index %>"> <%= strava_activity_description(activity) %></label>

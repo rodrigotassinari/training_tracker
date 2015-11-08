@@ -31,6 +31,9 @@ en:
       title: Mark workout as done manually
     do_strava:
       title: Mark workout as done via Strava activity
+      searching_strava_activities: Searching your Strava activities...
+    strava_activities:
+      no_strava_activity_found: No activity found since %{date}.
     form_errors:
       validation_errors:
         one: '1 error prohibited this workout from being saved'

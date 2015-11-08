@@ -12,7 +12,7 @@
       <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 
       <div id="strava_activities">
-        <p>Pesquisando suas atividades no Strava...</p>
+        <p><%= t('.searching_strava_activities') %></p>
       </div>
 
       <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
@@ -30,8 +30,4 @@
     // idempotent function
     $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"});
   });
-
-  // $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"}).done(function(html) {
-  //   return $("#strava_activities").append(html);
-  // });
 </script>
