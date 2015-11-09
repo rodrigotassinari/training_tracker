@@ -75,6 +75,7 @@ class WorkoutsController < ApplicationController
       redirect_to workout_path(@workout),
         notice: t('.success')
     else
+      page_meta[:workout_description] = @workout.short_description
       render :edit
     end
   end
