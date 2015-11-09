@@ -52,6 +52,7 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def do
     redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
+    @workout.weight_before = current_user.latest_weight_before
   end
 
   # GET /workouts/:id/do_strava
@@ -59,6 +60,7 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def do_strava
     redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
+    @workout.weight_before = current_user.latest_weight_before
   end
 
   # PUT /workouts/:id

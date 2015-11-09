@@ -63,6 +63,15 @@ class User < ActiveRecord::Base
   end
 
   # TODO spec
+  def latest_weight_before
+    self.workouts.
+      where.not(weight_before: nil).
+      order(occurred_on: :desc, scheduled_on: :desc, created_at: :desc).
+      limit(1).
+      first.try(:weight_before)
+  end
+
+  # TODO spec
   def strava_client
     @strava_client ||= StravaFinderService.new(self).client
   end

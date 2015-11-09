@@ -23,8 +23,8 @@ Inputmask.extendAliases({'pt_decimal': {
   radixPoint: ',',
   groupSeparator: '.',
   digits: 1,
-  digitsOptional: false,
-  integerOptional: false,
+  digitsOptional: true,
+  integerOptional: true,
   rightAlign: false,
   autoGroup: true,
   decimalProtect: false
@@ -34,8 +34,8 @@ Inputmask.extendAliases({'en_decimal': {
   radixPoint: '.',
   groupSeparator: ',',
   digits: 1,
-  digitsOptional: false,
-  integerOptional: false,
+  digitsOptional: true,
+  integerOptional: true,
   rightAlign: false,
   autoGroup: true,
   decimalProtect: false
