@@ -23,6 +23,7 @@ en:
       confirm_undo_workout: Are your sure you want to revert this workout to not done?
       delete_workout: Delete workout
       confirm_delete_workout: Are you sure you want to delete this workout?
+      new_workout: New workout
     new:
       title: New workout
     edit:

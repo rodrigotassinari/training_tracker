@@ -1,9 +1,10 @@
 class WorkoutSharesController < ApplicationController
+  include WorkoutsChecker
 
   before_action :set_workout
   before_action :check_if_workout_is_async_updating
 
-  # GET /workouts/:workout_id/share/new
+  # GET /workouts/:workout_id/shares/new
   # new_workout_share_path(:workout_id)
   # TODO spec
   def new
@@ -11,7 +12,7 @@ class WorkoutSharesController < ApplicationController
     @workout_share = WorkoutShare.new(workout: @workout)
   end
 
-  # POST /workouts/:workout_id/share
+  # POST /workouts/:workout_id/shares
   # workout_shares_path(:workout_id)
   # TODO spec
   def create
@@ -37,12 +38,6 @@ class WorkoutSharesController < ApplicationController
     @workout = WorkoutPresenter.new(
       Workout.find(params[:workout_id])
     )
-  end
-
-  # before_action
-  def check_if_workout_is_async_updating
-    redirect_to(workout_path(@workout), alert: t('.async_updating')) if @workout.async_updating?
-    false
   end
 
 end

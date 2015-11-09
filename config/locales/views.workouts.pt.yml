@@ -23,6 +23,7 @@ pt:
       confirm_undo_workout: Tem certeza que deseja reverter este treino para não feito?
       delete_workout: Apagar treino
       confirm_delete_workout: Tem certeza que deseja apagar este treino?
+      new_workout: Novo treino
     new:
       title: Novo treino
     edit:

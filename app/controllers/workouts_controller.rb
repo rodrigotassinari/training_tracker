@@ -1,6 +1,8 @@
 class WorkoutsController < ApplicationController
+  include WorkoutsChecker
 
   before_action :set_workout, except: [:index, :new, :create]
+  before_action :check_if_workout_is_async_updating, only: [:edit, :update, :do_strava, :do, :undo]
 
   # GET /workouts
   # workouts_path

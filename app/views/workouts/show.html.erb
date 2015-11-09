@@ -29,18 +29,29 @@
         <%= link_to t('.mark_done_manually'), do_workout_path(@workout), role: 'button', class: 'btn btn-info btn-block' %>
         <span class="text-muted"><small><%= t('.mark_done_manually_help') %></small></span>
       </p>
+
+      <p>
+        <%= link_to t('.share_workout'), new_workout_share_path(@workout), role: 'button', class: 'btn btn-default btn-xs btn-block' %>
+        <span class="text-muted"><small><%= t('.share_workout_help') %></small></span>
+      </p>
     <% end %>
+
     <p>
       <%= link_to t('.edit_workout'), edit_workout_path(@workout), role: 'button', class: 'btn btn-default btn-block' %>
       <span class="text-muted"><small><%= t('.edit_workout_help') %></small></span>
     </p>
+
     <% if @workout.done? %>
       <p>
         <%= link_to t('.undo_workout'), undo_workout_path(@workout), role: 'button', class: 'btn btn-warning btn-xs btn-block', method: :delete, data: {confirm: t('.confirm_undo_workout')} %>
         <span class="text-muted"><small><%= t('.undo_workout_help') %></small></span>
       </p>
     <% end %>
+
     <p><%= link_to t('.delete_workout'), workout_path(@workout), role: 'button', class: 'btn btn-danger btn-xs btn-block', method: :delete, data: {confirm: t('.confirm_delete_workout')} %></p>
+
     <p><%= link_to t('back'), workouts_path, role: 'button', class: 'btn btn-default btn-block' %></p>
+
+    <p><%= link_to t('.new_workout'), new_workout_path, role: 'button', class: 'btn btn-success btn-xs btn-block' %></p>
   </div>
 </div>
