@@ -20,7 +20,7 @@
         </div>
       <% end %>
 
-      <%= form.text_field :emails, help: t('.emails_help'), autofocus: true %>
+      <%= form.email_field :emails, help: t('.emails_help'), autofocus: true %>
 
       <div class="form-group">
         <label class="control-label" for="workout_public_access_url"><%= Workout.human_attribute_name(:public_access_url) %></label>
