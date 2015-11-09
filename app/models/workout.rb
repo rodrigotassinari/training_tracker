@@ -10,6 +10,7 @@ class Workout < ActiveRecord::Base
   validates :user, presence: true
   validates :kind, presence: true, inclusion: {in: KINDS}
   validates :scheduled_on, presence: true
+  validate :occurred_on_cannot_be_in_the_future
   validates :public_access_token, presence: true, uniqueness: true
   validates :elapsed_time, numericality: {
     greater_than_or_equal_to: 0, only_integer: true, allow_nil: true}
@@ -188,6 +189,13 @@ class Workout < ActiveRecord::Base
   # before_validation on: create
   def generate_public_access_token
     self.public_access_token ||= SecureRandom.urlsafe_base64(24)
+  end
+
+  # validate
+  def occurred_on_cannot_be_in_the_future
+    if occurred_on.present? && occurred_on > Time.zone.today
+      errors.add(:occurred_on, :invalid)
+    end
   end
 
 end

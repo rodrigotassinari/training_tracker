@@ -36,6 +36,9 @@ RSpec.describe Workout, type: :model do
     it { is_expected.to validate_numericality_of(:watts_max).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:weight_before).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:weight_after).is_greater_than_or_equal_to(0.0).allow_nil }
+    it { is_expected.to allow_value(Time.zone.today).for(:occurred_on) }
+    it { is_expected.to allow_value(Time.zone.yesterday).for(:occurred_on) }
+    it { is_expected.to_not allow_value(Time.zone.tomorrow).for(:occurred_on) }
   end
 
   describe '.new_with_defaults' do
