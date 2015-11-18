@@ -47,7 +47,8 @@ RSpec.describe WorkoutStravaUpdaterService do
         expect(workout.calories).to eq(390)
         expect(workout.elevation_gain).to eq(853.0)
         expect(workout.temperature_avg).to eq(23.0)
-        expect(workout.watts_avg).to eq(136.4)
+        expect(workout.power_avg).to eq(136.4)
+        expect(workout.energy_output).to eq(788.7)
         expect(workout.heart_rate_avg).to eq(150)
         expect(workout.heart_rate_max).to eq(182)
       end

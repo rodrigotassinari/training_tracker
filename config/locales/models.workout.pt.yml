@@ -33,9 +33,10 @@ pt:
         temperature_max: Temperatura Máxima
         temperature_min: Temperatura Mínima
         watts: Potência
-        watts_avg: Potência Média
-        watts_weighted_avg: Potência Média Ponderada
-        watts_max: Potência Máxima
+        power_avg: Potência Média
+        power_weighted_avg: Potência Média Ponderada
+        power_max: Potência Máxima
+        energy_output: Saída de Energia
         heart_rate: Frequência Cardíaca
         heart_rate_avg: Frequência Cardíaca Média
         heart_rate_max: Frequência Cardíaca Máxima

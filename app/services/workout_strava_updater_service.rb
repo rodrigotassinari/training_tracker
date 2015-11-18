@@ -49,9 +49,10 @@ class WorkoutStravaUpdaterService
     workout.temperature_avg = activity[:average_temp]
     # workout.temperature_max = activity[:]
     # workout.temperature_min = activity[:]
-    workout.watts_avg = activity[:average_watts]
-    # workout.watts_weighted_avg = activity[:]
-    # workout.watts_max = activity[:]
+    workout.power_avg = activity[:average_watts]
+    # workout.power_weighted_avg = activity[:]
+    # workout.power_max = activity[:]
+    workout.energy_output = activity[:kilojoules]
     workout.heart_rate_avg = activity[:average_heartrate].to_i unless activity[:average_heartrate].nil?
     workout.heart_rate_max = activity[:max_heartrate].to_i unless activity[:max_heartrate].nil?
     # workout.weight_before = activity[:]

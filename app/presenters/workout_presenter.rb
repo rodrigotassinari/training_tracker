@@ -8,8 +8,9 @@ class WorkoutPresenter < Burgundy::Item
 
   [:weight_before, :weight_after, :distance,
     :speed_avg, :speed_max, :cadence_avg, :cadence_max, :calories,
-    :temperature_avg, :temperature_max, :temperature_min, :watts_avg,
-    :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max
+    :temperature_avg, :temperature_max, :temperature_min, :power_avg,
+    :power_weighted_avg, :power_max, :energy_output, :heart_rate_avg,
+    :heart_rate_max
     ].each do |attr|
     define_method(attr) do
       helpers.number_with_delimiter(item.send(attr))

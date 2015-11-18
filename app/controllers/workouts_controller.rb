@@ -126,15 +126,15 @@ class WorkoutsController < ApplicationController
         :distance, :distance_in_km, :elapsed_time_in_hours,
         :moving_time_in_hours, :speed_avg, :speed_max, :cadence_avg,
         :cadence_max, :calories, :elevation_gain, :temperature_avg,
-        :temperature_max, :temperature_min, :watts_avg, :watts_weighted_avg,
-        :watts_max, :heart_rate_avg, :heart_rate_max, :strava_url,
-        :garmin_connect_url).
+        :temperature_max, :temperature_min, :power_avg, :power_weighted_avg,
+        :power_max, :energy_output, :heart_rate_avg, :heart_rate_max,
+        :strava_url, :garmin_connect_url).
       delocalize(weight_before: :number, weight_after: :number,
         distance: :number, distance_in_km: :number, speed_avg: :number,
         speed_max: :number, cadence_avg: :number, cadence_max: :number,
         calories: :number, elevation_gain: :number, temperature_avg: :number,
-        temperature_min: :number, temperature_max: :number, watts_avg: :number,
-        watts_weighted_avg: :number, watts_max: :number,
+        temperature_min: :number, temperature_max: :number, power_avg: :number,
+        power_weighted_avg: :number, power_max: :number, energy_output: :number,
         heart_rate_avg: :number, heart_rate_max: :number, scheduled_on: :date,
         occurred_on: :date)
   end

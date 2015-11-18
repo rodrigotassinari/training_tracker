@@ -150,28 +150,37 @@
           <% end %>
 
           <% if detailed %>
-            <% if workout.watts_avg %>
+            <% if workout.power_avg %>
             <tr>
-              <th><%= Workout.human_attribute_name(:watts_avg) %>:</th>
-              <td><%= workout.watts_avg %></td>
+              <th><%= Workout.human_attribute_name(:power_avg) %>:</th>
+              <td><%= workout.power_avg %> w</td>
             </tr>
             <% end %>
           <% end %>
 
           <% if detailed %>
-            <% if workout.watts_weighted_avg %>
+            <% if workout.power_weighted_avg %>
             <tr>
-              <th><%= Workout.human_attribute_name(:watts_weighted_avg) %>:</th>
-              <td><%= workout.watts_weighted_avg %></td>
+              <th><%= Workout.human_attribute_name(:power_weighted_avg) %>:</th>
+              <td><%= workout.power_weighted_avg %> w</td>
             </tr>
             <% end %>
           <% end %>
 
           <% if detailed %>
-            <% if workout.watts_max %>
+            <% if workout.power_max %>
             <tr>
-              <th><%= Workout.human_attribute_name(:watts_max) %>:</th>
-              <td><%= workout.watts_max %></td>
+              <th><%= Workout.human_attribute_name(:power_max) %>:</th>
+              <td><%= workout.power_max %> w</td>
+            </tr>
+            <% end %>
+          <% end %>
+
+          <% if detailed %>
+            <% if workout.energy_output %>
+            <tr>
+              <th><%= Workout.human_attribute_name(:energy_output) %>:</th>
+              <td><%= workout.energy_output %> kJ</td>
             </tr>
             <% end %>
           <% end %>

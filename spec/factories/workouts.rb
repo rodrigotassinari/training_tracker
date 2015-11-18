@@ -24,9 +24,10 @@ FactoryGirl.define do
     temperature_avg nil
     temperature_max nil
     temperature_min nil
-    watts_avg nil
-    watts_weighted_avg nil
-    watts_max nil
+    power_avg nil
+    power_weighted_avg nil
+    power_max nil
+    energy_output nil
     heart_rate_avg nil
     heart_rate_max nil
     weight_before nil
@@ -58,9 +59,10 @@ FactoryGirl.define do
     temperature_avg 23.4
     temperature_max 34.5
     temperature_min 12.3
-    watts_avg 234.5
-    watts_weighted_avg 123.4
-    watts_max 345.6
+    power_avg 234.5
+    power_weighted_avg 123.4
+    power_max 345.6
+    energy_output 2345.6
     heart_rate_avg 167
     heart_rate_max 178
     weight_before 74.7

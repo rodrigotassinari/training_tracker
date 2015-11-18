@@ -33,9 +33,10 @@ en:
         temperature_max: Max Temperature
         temperature_min: Min Temperature
         watts: Watts
-        watts_avg: Average Watts
-        watts_weighted_avg: Weighted Average Watts
-        watts_max: Max Watts
+        power_avg: Average Watts
+        power_weighted_avg: Weighted Average Watts
+        power_max: Max Watts
+        energy_output: Energy Output
         heart_rate: Heart Rate
         heart_rate_avg: Average Heart Rate
         heart_rate_max: Max Heart Rate

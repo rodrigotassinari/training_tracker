@@ -40,11 +40,13 @@ class Workout < ActiveRecord::Base
     greater_than_or_equal_to: 0.0, allow_nil: true}
   validates :temperature_min, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
-  validates :watts_avg, numericality: {
+  validates :power_avg, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
-  validates :watts_weighted_avg, numericality: {
+  validates :power_weighted_avg, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
-  validates :watts_max, numericality: {
+  validates :power_max, numericality: {
+    greater_than_or_equal_to: 0.0, allow_nil: true}
+  validates :energy_output, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
   validates :weight_before, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
@@ -161,9 +163,9 @@ class Workout < ActiveRecord::Base
     [:occurred_on, :observations, :coach_observations, :weight_before,
       :weight_after, :distance, :elapsed_time, :moving_time, :speed_avg,
       :speed_max, :cadence_avg, :cadence_max, :calories, :elevation_gain,
-      :temperature_avg, :temperature_max, :temperature_min, :watts_avg,
-      :watts_weighted_avg, :watts_max, :heart_rate_avg, :heart_rate_max,
-      :strava_url, :garmin_connect_url].each do |attr|
+      :temperature_avg, :temperature_max, :temperature_min, :power_avg,
+      :power_weighted_avg, :power_max, :energy_output, :heart_rate_avg,
+      :heart_rate_max, :strava_url, :garmin_connect_url].each do |attr|
       self.send("#{attr}=", nil)
     end
     [:strava_data, :garmin_connect_data].each do |attr|

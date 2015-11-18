@@ -31,9 +31,10 @@ RSpec.describe Workout, type: :model do
     it { is_expected.to validate_numericality_of(:temperature_avg).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:temperature_max).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:temperature_min).is_greater_than_or_equal_to(0.0).allow_nil }
-    it { is_expected.to validate_numericality_of(:watts_avg).is_greater_than_or_equal_to(0.0).allow_nil }
-    it { is_expected.to validate_numericality_of(:watts_weighted_avg).is_greater_than_or_equal_to(0.0).allow_nil }
-    it { is_expected.to validate_numericality_of(:watts_max).is_greater_than_or_equal_to(0.0).allow_nil }
+    it { is_expected.to validate_numericality_of(:power_avg).is_greater_than_or_equal_to(0.0).allow_nil }
+    it { is_expected.to validate_numericality_of(:power_weighted_avg).is_greater_than_or_equal_to(0.0).allow_nil }
+    it { is_expected.to validate_numericality_of(:power_max).is_greater_than_or_equal_to(0.0).allow_nil }
+    it { is_expected.to validate_numericality_of(:energy_output).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:weight_before).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to validate_numericality_of(:weight_after).is_greater_than_or_equal_to(0.0).allow_nil }
     it { is_expected.to allow_value(Time.zone.today).for(:occurred_on) }

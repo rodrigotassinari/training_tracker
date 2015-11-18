@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105193310) do
+ActiveRecord::Schema.define(version: 20151118184610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20151105193310) do
     t.float    "temperature_avg"
     t.float    "temperature_max"
     t.float    "temperature_min"
-    t.float    "watts_avg"
-    t.float    "watts_weighted_avg"
-    t.float    "watts_max"
+    t.float    "power_avg"
+    t.float    "power_weighted_avg"
+    t.float    "power_max"
     t.integer  "heart_rate_avg"
     t.integer  "heart_rate_max"
     t.float    "weight_before"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20151105193310) do
     t.string   "strava_url"
     t.string   "garmin_connect_url"
     t.string   "public_access_token",              null: false
+    t.float    "energy_output"
   end
 
   add_index "workouts", ["kind"], name: "index_workouts_on_kind", using: :btree
