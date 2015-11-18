@@ -11,7 +11,7 @@
       <p class="lead"><%= t '.no_workout_to_show' %></p>
     <% else %>
       <% @workouts.each do |workout| %>
-        <%= render partial: 'workouts/summary', locals: {workout: workout, detailed: false} %>
+        <%= render partial: 'workouts/summary', locals: {workout: workout, detailed: false, quick_actions: true} %>
       <% end %>
       <%= paginate @workouts %>
     <% end %>

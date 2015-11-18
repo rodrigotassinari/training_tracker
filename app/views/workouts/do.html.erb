@@ -7,7 +7,7 @@
 <%= bootstrap_form_for(@workout) do |form| %>
   <div class="row">
     <div class="col-sm-8">
-      <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: false} %>
+      <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: false, quick_actions: false} %>
 
       <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 

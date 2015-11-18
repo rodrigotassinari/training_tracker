@@ -11,7 +11,7 @@
         <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> <%= t '.async_updating_alert_html', link: link_to(t('.reload'), public_workout_path(@workout.public_access_token), class: 'alert-link') %>
       </div>
     <% end %>
-    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?} %>
+    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?, quick_actions: false} %>
   </div>
   <div class="col-sm-4">
     <%= render partial: 'public_workouts/user', locals: {user: @workout.user} %>

@@ -28,7 +28,7 @@
         <span class="help-block"><%= t('.public_access_url_help') %></span>
       </div>
 
-      <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: @workout.done?} %>
+      <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: @workout.done?, quick_actions: false} %>
     </div>
 
     <div class="col-sm-4">

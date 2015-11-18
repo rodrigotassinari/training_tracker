@@ -24,6 +24,15 @@ pt:
       delete_workout: Apagar treino
       confirm_delete_workout: Tem certeza que deseja apagar este treino?
       new_workout: Novo treino
+    summary:
+      edit_workout: Editar
+      share_workout: Compartilhar
+      mark_done_strava: Feito via Strava
+      mark_done_manually: Feito manualmente
+      undo_workout: Reverter
+      confirm_undo_workout: Tem certeza que deseja reverter este treino para não feito?
+      delete_workout: Apagar
+      confirm_delete_workout: Tem certeza que deseja apagar este treino?
     new:
       title: Novo treino
     edit:

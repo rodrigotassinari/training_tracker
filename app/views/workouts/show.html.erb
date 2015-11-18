@@ -11,7 +11,7 @@
         <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> <%= t '.async_updating_alert_html', link: link_to(t('.reload'), workout_path(@workout), class: 'alert-link') %>
       </div>
     <% end %>
-    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?} %>
+    <%= render partial: 'workouts/summary', locals: {workout: @workout, detailed: !@workout.async_updating?, quick_actions: false} %>
   </div>
 
   <div class="col-sm-4">
@@ -48,10 +48,16 @@
       </p>
     <% end %>
 
-    <p><%= link_to t('.delete_workout'), workout_path(@workout), role: 'button', class: 'btn btn-danger btn-xs btn-block', method: :delete, data: {confirm: t('.confirm_delete_workout')} %></p>
+    <p>
+      <%= link_to t('.delete_workout'), workout_path(@workout), role: 'button', class: 'btn btn-danger btn-xs btn-block', method: :delete, data: {confirm: t('.confirm_delete_workout')} %>
+    </p>
 
-    <p><%= link_to t('back'), workouts_path, role: 'button', class: 'btn btn-default btn-block' %></p>
+    <p>
+      <%= link_to t('back'), workouts_path, role: 'button', class: 'btn btn-default btn-block' %>
+    </p>
 
-    <p><%= link_to t('.new_workout'), new_workout_path, role: 'button', class: 'btn btn-success btn-xs btn-block' %></p>
+    <p>
+      <%= link_to t('.new_workout'), new_workout_path, role: 'button', class: 'btn btn-success btn-xs btn-block' %>
+    </p>
   </div>
 </div>
