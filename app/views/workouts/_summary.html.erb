@@ -13,6 +13,18 @@
     <p class="lead"><%= workout.description %></p>
     <% end %>
 
+    <% if workout.skipped? %>
+      <% if detailed %>
+        <% unless workout.observations.blank? %>
+        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <pre><%= workout.observations %></pre></p>
+        <% end %>
+
+        <% unless workout.coach_observations.blank? %>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <pre><%= workout.coach_observations %></pre></p>
+        <% end %>
+      <% end %>
+    <% end %>
+
     <% if workout.done? %>
 
       <% if workout.has_strava? %>
@@ -215,6 +227,9 @@
         <% else %>
           <%= link_to t('.mark_done_strava'), do_strava_workout_path(workout), role: 'button', class: 'btn btn-xs btn-primary' %>
           <%= link_to t('.mark_done_manually'), do_workout_path(workout), role: 'button', class: 'btn btn-xs btn-info' %>
+          <% if workout.late? || workout.today? %>
+            <%= link_to t('.mark_not_done'), do_not_workout_path(workout), role: 'button', class: 'btn btn-xs btn-default' %>
+          <% end %>
           <%= link_to t('.share_workout'), new_workout_share_path(workout), role: 'button', class: 'btn btn-xs btn-default' %>
         <% end %>
         <%= link_to t('.edit_workout'), edit_workout_path(workout), role: 'button', class: 'btn btn-xs btn-default' %>

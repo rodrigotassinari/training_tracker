@@ -54,6 +54,7 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def do
     redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
+    redirect_to(workout_path(@workout), alert: t('.already_skipped')) if @workout.skipped?
     @workout.weight_before = current_user.latest_weight_before
   end
 
@@ -62,6 +63,17 @@ class WorkoutsController < ApplicationController
   # TODO spec
   def do_strava
     redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
+    redirect_to(workout_path(@workout), alert: t('.already_skipped')) if @workout.skipped?
+    @workout.weight_before = current_user.latest_weight_before
+  end
+
+  # GET /workouts/:id/do_not
+  # do_not_workout_path(:id)
+  # TODO spec
+  def do_not
+    redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
+    redirect_to(workout_path(@workout), alert: t('.already_skipped')) if @workout.skipped?
+    @workout.skipped = true
     @workout.weight_before = current_user.latest_weight_before
   end
 
@@ -128,7 +140,7 @@ class WorkoutsController < ApplicationController
         :cadence_max, :calories, :elevation_gain, :temperature_avg,
         :temperature_max, :temperature_min, :power_avg, :power_weighted_avg,
         :power_max, :energy_output, :heart_rate_avg, :heart_rate_max,
-        :strava_url, :garmin_connect_url).
+        :strava_url, :garmin_connect_url, :skipped).
       delocalize(weight_before: :number, weight_after: :number,
         distance: :number, distance_in_km: :number, speed_avg: :number,
         speed_max: :number, cadence_avg: :number, cadence_max: :number,

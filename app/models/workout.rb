@@ -52,6 +52,7 @@ class Workout < ActiveRecord::Base
     greater_than_or_equal_to: 0.0, allow_nil: true}
   validates :weight_after, numericality: {
     greater_than_or_equal_to: 0.0, allow_nil: true}
+  validate :skipped_only_if_not_done
   # TODO validate (and normalize?) strava_url format
   # TODO validate (and normalize?) garmin_connect_url format
 
@@ -64,10 +65,12 @@ class Workout < ActiveRecord::Base
 
   scope :todo, -> { where(occurred_on: nil) }
   scope :done, -> { where.not(occurred_on: nil) }
+  scope :skipped, -> { where(skipped: true) }
+  scope :unskipped, -> { where(skipped: false) }
 
   # TODO spec
   def done?
-    occurred_on.present?
+    occurred_on.present? && !skipped?
   end
 
   scope :future, -> { where('scheduled_on >= ?', Time.zone.today) }
@@ -165,6 +168,7 @@ class Workout < ActiveRecord::Base
     [:strava_data, :garmin_connect_data].each do |attr|
       self.send("#{attr}=", {})
     end
+    self.skipped = false
     save
   end
 
@@ -209,6 +213,14 @@ class Workout < ActiveRecord::Base
 
   def hours_string(seconds=0, minutes=0, hours=0)
     "#{"%02d" % hours}:#{"%02d" % minutes}:#{"%02d" % seconds}"
+  end
+
+  # validate
+  # TODO spec
+  def skipped_only_if_not_done
+    if skipped? && occurred_on.present?
+      errors.add(:skipped, :invalid)
+    end
   end
 
 end

@@ -53,6 +53,7 @@ en:
         garmin_connect_data: Garmin Connect activity data
         public_access_token: Public access token
         public_access_url: Public access URL
+        skipped: Skipped
       workout/kind:
         cycling: Cycling
         running: Running

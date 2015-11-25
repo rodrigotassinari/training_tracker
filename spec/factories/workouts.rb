@@ -36,6 +36,7 @@ FactoryGirl.define do
     strava_data { {} }
     garmin_connect_url nil
     garmin_connect_data { {} }
+    skipped false
   end
 
   factory :done_workout, class: Workout do
@@ -71,6 +72,7 @@ FactoryGirl.define do
     strava_data { {"id"=>421201541, "resource_state"=>2, "external_id"=>"garmin_push_939552911", "upload_id"=>471162968} }
     garmin_connect_url 'https://connect.garmin.com/modern/activity/939552911'
     garmin_connect_data { {} }
+    skipped false
   end
 
 end

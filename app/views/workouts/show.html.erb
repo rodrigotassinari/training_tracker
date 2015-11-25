@@ -30,6 +30,12 @@
         <span class="text-muted"><small><%= t('.mark_done_manually_help') %></small></span>
       </p>
 
+      <% if @workout.late? || @workout.today? %>
+        <p>
+          <%= link_to t('.mark_not_done'), do_not_workout_path(@workout), role: 'button', class: 'btn btn-block btn-default' %>
+        </p>
+      <% end %>
+
       <p>
         <%= link_to t('.share_workout'), new_workout_share_path(@workout), role: 'button', class: 'btn btn-default btn-xs btn-block' %>
         <span class="text-muted"><small><%= t('.share_workout_help') %></small></span>

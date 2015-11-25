@@ -18,6 +18,7 @@ pt:
       mark_done_strava_help: Marca treino como feito, pegando dados do treino automaticamente de uma atividade existente no Strava.
       mark_done_manually: Marcar como feito manualmente
       mark_done_manually_help: Marca treino como feito, mas digitando manualmente com os dados do treino.
+      mark_not_done: Marcar como não feito / pulado
       undo_workout: Reverter para não feito
       undo_workout_help: Volta o treino para estado de não feito (irá apagar as informações extras).
       confirm_undo_workout: Tem certeza que deseja reverter este treino para não feito?
@@ -29,6 +30,7 @@ pt:
       share_workout: Compartilhar
       mark_done_strava: Feito via Strava
       mark_done_manually: Feito manualmente
+      mark_not_done: Não feito
       undo_workout: Reverter
       confirm_undo_workout: Tem certeza que deseja reverter este treino para não feito?
       delete_workout: Apagar
@@ -42,6 +44,8 @@ pt:
     do_strava:
       title: Marcar treino como feito via atividade no Strava
       searching_strava_activities: Pesquisando suas atividades no Strava...
+    do_not:
+      title: Marcar treino como não feito / pulado
     strava_activities:
       no_strava_activity_found: Nenhuma atividade encontrada desde %{date}.
     form_errors:

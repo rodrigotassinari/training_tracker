@@ -18,6 +18,7 @@ en:
       mark_done_strava_help: Mark workout as done, fetching all workout data automatically from an existing Strava activity.
       mark_done_manually: Mark as done manually
       mark_done_manually_help: Mark workout as done, but typing manually all workout data.
+      mark_not_done: Mark as not done / skipped
       undo_workout: Revert to not done
       undo_workout_help: Set the workout back as not done (will delete all extra information).
       confirm_undo_workout: Are your sure you want to revert this workout to not done?
@@ -29,6 +30,7 @@ en:
       share_workout: Share
       mark_done_strava: Done via Strava
       mark_done_manually: Done manually
+      mark_not_done: Not done
       undo_workout: Revert
       confirm_undo_workout: Are your sure you want to revert this workout to not done?
       delete_workout: Delete
@@ -42,6 +44,8 @@ en:
     do_strava:
       title: Mark workout as done via Strava activity
       searching_strava_activities: Searching your Strava activities...
+    do_not:
+      title: Mark workout as not done / skipped
     strava_activities:
       no_strava_activity_found: No activity found since %{date}.
     form_errors:
