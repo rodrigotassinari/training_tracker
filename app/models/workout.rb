@@ -198,14 +198,19 @@ class Workout < ActiveRecord::Base
   end
 
   def seconds_to_hours_string(seconds_integer)
-    return "00:00:#{"%02d" % seconds_integer}" if seconds_integer < 60
+    return hours_string(seconds_integer) if seconds_integer < 60
+    hours = minutes = seconds = 0
     one_minute = 60
     one_hour = 60 * one_minute
     minutes = (seconds_integer / one_minute).to_i
     seconds = seconds_integer % one_minute
-    return "00:#{"%02d" % minutes}:#{"%02d" % seconds}" if seconds_integer < 3600
+    return hours_string(seconds, minutes) if seconds_integer < 3600
     hours = (minutes / 60).to_i
     minutes = (minutes % 60).to_i
+    hours_string(seconds, minutes, hours)
+  end
+
+  def hours_string(seconds=0, minutes=0, hours=0)
     "#{"%02d" % hours}:#{"%02d" % minutes}:#{"%02d" % seconds}"
   end
 
