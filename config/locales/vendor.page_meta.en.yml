@@ -13,6 +13,7 @@ en:
         edit: "Edit workout %{workout_description}"
         do: "Mark workout as done"
         do_strava: "Mark workout as done via Strava"
+        do_not: "Mark workout as not done / skipped"
       public_workouts:
         show: "Workout %{workout_description} by %{user_description}"
       workout_shares:
