@@ -15,7 +15,7 @@
   </div>
 
   <div class="col-sm-4">
-    <% if @workout.done? %>
+    <% if @workout.done? || @workout.skipped? %>
       <p>
         <%= link_to t('.share_workout'), new_workout_share_path(@workout), role: 'button', class: 'btn btn-primary btn-lg btn-block' %>
         <span class="text-muted"><small><%= t('.share_workout_help') %></small></span>
@@ -47,7 +47,7 @@
       <span class="text-muted"><small><%= t('.edit_workout_help') %></small></span>
     </p>
 
-    <% if @workout.done? %>
+    <% if @workout.done? || @workout.skipped? %>
       <p>
         <%= link_to t('.undo_workout'), undo_workout_path(@workout), role: 'button', class: 'btn btn-warning btn-xs btn-block', method: :delete, data: {confirm: t('.confirm_undo_workout')} %>
         <span class="text-muted"><small><%= t('.undo_workout_help') %></small></span>

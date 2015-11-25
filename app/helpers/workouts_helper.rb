@@ -3,7 +3,7 @@ module WorkoutsHelper
   # TODO spec
   def workout_summary_panel_style(workout)
     return 'panel-info' if workout.done?
-    return 'panel-primary' if workout.today?
+    return 'panel-primary' if (workout.today? && !workout.skipped?)
     return 'panel-warning' if (workout.late? && !workout.skipped?)
     return 'panel-default skipped-workout' if workout.skipped?
     return 'panel-default'
