@@ -111,15 +111,13 @@ class Workout < ActiveRecord::Base
     distance = value * 1000.0
   end
 
-  # TODO spec
   def elapsed_time_in_hours
     return if elapsed_time.blank?
     seconds_to_hours_string(elapsed_time)
   end
 
-  # TODO spec
   def elapsed_time_in_hours=(hour_string)
-    self.elapsed_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
+    self.elapsed_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string, keep_zero: true))
   end
 
   def moving_time_in_hours
@@ -127,9 +125,8 @@ class Workout < ActiveRecord::Base
     seconds_to_hours_string(moving_time)
   end
 
-  # TODO spec
   def moving_time_in_hours=(hour_string)
-    self.moving_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
+    self.moving_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string, keep_zero: true))
   end
 
   # TODO spec
