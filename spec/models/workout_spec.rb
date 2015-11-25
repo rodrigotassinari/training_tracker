@@ -148,4 +148,24 @@ RSpec.describe Workout, type: :model do
     end
   end
 
+  context '#moving_time_in_hours' do
+    [
+      {seconds: nil,      text: nil},
+      {seconds: 0,        text:   '00:00:00'},
+      {seconds: 1,        text:   '00:00:01'},
+      {seconds: 12,       text:   '00:00:12'},
+      {seconds: 123,      text:   '00:02:03'},
+      {seconds: 1234,     text:   '00:20:34'},
+      {seconds: 12345,    text:   '03:25:45'},
+      {seconds: 123456,   text:   '34:17:36'},
+      {seconds: 1234567,  text:  '342:56:07'},
+      {seconds: 12345678, text: '3429:21:18'},
+    ].each do |values|
+      it "returns '#{values[:text]}' when moving_time is #{values[:seconds]} seconds" do
+        subject.moving_time = values[:seconds]
+        expect(subject.moving_time_in_hours).to eq(values[:text])
+      end
+    end
+  end
+
 end

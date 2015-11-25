@@ -114,8 +114,7 @@ class Workout < ActiveRecord::Base
   # TODO spec
   def elapsed_time_in_hours
     return if elapsed_time.blank?
-    ChronicDuration.output(elapsed_time,
-      format: :chrono, limit_to_hours: true)
+    seconds_to_hours_string(elapsed_time)
   end
 
   # TODO spec
@@ -123,11 +122,9 @@ class Workout < ActiveRecord::Base
     self.elapsed_time = (hour_string.blank? ? nil : ChronicDuration.parse(hour_string))
   end
 
-  # TODO spec
   def moving_time_in_hours
     return if moving_time.blank?
-    ChronicDuration.output(moving_time,
-      format: :chrono, limit_to_hours: true)
+    seconds_to_hours_string(moving_time)
   end
 
   # TODO spec
@@ -198,6 +195,18 @@ class Workout < ActiveRecord::Base
     if occurred_on.present? && occurred_on > Time.zone.today
       errors.add(:occurred_on, :invalid)
     end
+  end
+
+  def seconds_to_hours_string(seconds_integer)
+    return "00:00:#{"%02d" % seconds_integer}" if seconds_integer < 60
+    one_minute = 60
+    one_hour = 60 * one_minute
+    minutes = (seconds_integer / one_minute).to_i
+    seconds = seconds_integer % one_minute
+    return "00:#{"%02d" % minutes}:#{"%02d" % seconds}" if seconds_integer < 3600
+    hours = (minutes / 60).to_i
+    minutes = (minutes % 60).to_i
+    "#{"%02d" % hours}:#{"%02d" % minutes}:#{"%02d" % seconds}"
   end
 
 end
