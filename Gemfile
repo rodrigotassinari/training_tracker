@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Twitter Bootstrap
@@ -32,19 +32,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
-gem 'puma', '~> 2.15'
+gem 'puma', '~> 3.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'sucker_punch', '~> 1.5'
+gem 'sucker_punch', '~> 2.0'
 
 gem 'rollbar', '~> 2.5'
 
-gem 'browser', '~> 1.0'
-
-gem 'fog-aws', '~> 0.7'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'browser', '~> 2.0'
 
 gem 'omniauth-strava', '~> 0.0'
 
@@ -56,7 +53,7 @@ gem 'http_accept_language', '~> 2.0'
 
 gem 'chronic_duration', '~> 0.10'
 
-gem 'delocalize', github: 'clemens/delocalize', branch: '1-0-beta'
+gem 'delocalize', '~> 1.0'
 
 gem 'burgundy', '~> 0.2'
 
@@ -65,7 +62,7 @@ gem 'kaminari', '~> 0.16'
 gem 'page_meta', '~> 0.1'
 
 group :development, :test do
-  gem 'rake', '~> 10.4'
+  gem 'rake', '~> 11.1'
   gem 'byebug', '~> 8.0'
   gem 'rspec-rails', '~> 3.3'
   gem 'factory_girl_rails', '~> 4.5'
@@ -82,7 +79,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.4'

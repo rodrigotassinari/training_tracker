@@ -13,8 +13,8 @@ RSpec.describe Identity, type: :model do
     it { is_expected.to validate_presence_of(:uid) }
     it { is_expected.to validate_inclusion_of(:provider).
           in_array(%w(strava)) }
-    it { is_expected.to validate_uniqueness_of(:provider).scoped_to(:user_id) }
-    it { is_expected.to validate_uniqueness_of(:uid).scoped_to(:provider) }
+    it { is_expected.to validate_uniqueness_of(:provider).scoped_to(:user_id).case_insensitive }
+    it { is_expected.to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
   end
 
 end

@@ -11,7 +11,7 @@ class Workout < ActiveRecord::Base
   validates :kind, presence: true, inclusion: {in: KINDS}
   validates :scheduled_on, presence: true
   validate :occurred_on_cannot_be_in_the_future
-  validates :public_access_token, presence: true, uniqueness: true
+  validates :public_access_token, presence: true, uniqueness: {case_sensitive: false}
   validates :elapsed_time, numericality: {
     greater_than_or_equal_to: 0, only_integer: true, allow_nil: true}
   validates :moving_time, numericality: {
