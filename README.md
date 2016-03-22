@@ -12,7 +12,7 @@ A training tracker web app (WIP)
 
 You will need:
 
-- Ruby 2.2+
+- Ruby 2.3+
 - PostgreSQL 9.4+
 
 Clone the repo and create a `.env` file with values for your environment (use `.env.example` as a starting point, changing the values where needed).
