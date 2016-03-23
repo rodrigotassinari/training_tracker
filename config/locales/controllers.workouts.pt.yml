@@ -11,9 +11,6 @@ pt:
     do:
       already_done: Este treino já está marcado como feito.
       already_skipped: Este treino já está marcado como não feito / pulado.
-    do_strava:
-      already_done: Este treino já está marcado como feito.
-      already_skipped: Este treino já está marcado como não feito / pulado.
     do_not:
       already_done: Este treino já está marcado como feito.
       already_skipped: Este treino já está marcado como não feito / pulado.

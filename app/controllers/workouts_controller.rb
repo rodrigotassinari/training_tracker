@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
   include WorkoutsChecker
 
   before_action :set_workout, except: [:index, :new, :create]
-  before_action :check_if_workout_is_async_updating, only: [:edit, :update, :do_strava, :do, :undo]
+  before_action :check_if_workout_is_async_updating, only: [:edit, :update, :do, :undo]
 
   # GET /workouts
   # workouts_path
@@ -53,15 +53,6 @@ class WorkoutsController < ApplicationController
   # do_workout_path(:id)
   # TODO spec
   def do
-    redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
-    redirect_to(workout_path(@workout), alert: t('.already_skipped')) if @workout.skipped?
-    @workout.weight_before = current_user.latest_weight_before
-  end
-
-  # GET /workouts/:id/do_strava
-  # do_strava_workout_path(:id)
-  # TODO spec
-  def do_strava
     redirect_to(workout_path(@workout), alert: t('.already_done')) if @workout.done?
     redirect_to(workout_path(@workout), alert: t('.already_skipped')) if @workout.skipped?
     @workout.weight_before = current_user.latest_weight_before

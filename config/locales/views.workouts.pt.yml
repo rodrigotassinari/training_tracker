@@ -40,8 +40,6 @@ pt:
     edit:
       title: Editar treino
     do:
-      title: Marcar treino como feito manualmente
-    do_strava:
       title: Marcar treino como feito via atividade no Strava
       searching_strava_activities: Pesquisando suas atividades no Strava...
     do_not:

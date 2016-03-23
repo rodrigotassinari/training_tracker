@@ -225,8 +225,7 @@
         <% if workout.done? || workout.skipped? %>
           <%= link_to t('.share_workout'), new_workout_share_path(workout), role: 'button', class: 'btn btn-xs btn-primary' %>
         <% else %>
-          <%= link_to t('.mark_done_strava'), do_strava_workout_path(workout), role: 'button', class: 'btn btn-xs btn-primary' %>
-          <%= link_to t('.mark_done_manually'), do_workout_path(workout), role: 'button', class: 'btn btn-xs btn-info' %>
+          <%= link_to t('.mark_done_strava'), do_workout_path(workout), role: 'button', class: 'btn btn-xs btn-primary' %>
           <% if workout.late? || workout.today? %>
             <%= link_to t('.mark_not_done'), do_not_workout_path(workout), role: 'button', class: 'btn btn-xs btn-default' %>
           <% end %>

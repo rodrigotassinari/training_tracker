@@ -22,12 +22,8 @@
       </p>
     <% else %>
       <p>
-        <%= link_to t('.mark_done_strava'), do_strava_workout_path(@workout), role: 'button', class: 'btn btn-primary btn-block' %>
+        <%= link_to t('.mark_done_strava'), do_workout_path(@workout), role: 'button', class: 'btn btn-primary btn-block' %>
         <span class="text-muted"><small><%= t('.mark_done_strava_help') %></small></span>
-      </p>
-      <p>
-        <%= link_to t('.mark_done_manually'), do_workout_path(@workout), role: 'button', class: 'btn btn-info btn-block' %>
-        <span class="text-muted"><small><%= t('.mark_done_manually_help') %></small></span>
       </p>
 
       <% if @workout.late? || @workout.today? %>

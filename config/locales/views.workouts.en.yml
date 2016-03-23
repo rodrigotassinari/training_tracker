@@ -40,8 +40,6 @@ en:
     edit:
       title: Edit workout
     do:
-      title: Mark workout as done manually
-    do_strava:
       title: Mark workout as done via Strava activity
       searching_strava_activities: Searching your Strava activities...
     do_not:

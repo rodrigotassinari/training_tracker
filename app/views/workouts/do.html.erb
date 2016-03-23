@@ -11,16 +11,25 @@
 
       <%= render partial: 'workouts/form_errors', locals: {workout: @workout} %>
 
-      <% @workout.occurred_on ||= @workout.scheduled_on %>
-      <%= form.text_field :occurred_on, value: (l(@workout.occurred_on, format: :calendar) unless @workout.occurred_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
+      <div id="strava_activities">
+        <p><%= t('.searching_strava_activities') %></p>
+      </div>
+
+      <%= form.text_field :garmin_connect_url, class: 'done-attribute' %>
 
       <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
-
-      <%= render partial: 'workouts/form_fields_gps', locals: {form: form, workout: @workout} %>
     </div>
+
     <div class="col-sm-4">
-      <p><%= form.submit t('save'), data: {disable_with: t('saving')}, class: 'btn btn-info btn-lg btn-block' %></p>
+      <p><%= form.submit t('submit'), data: {disable_with: t('submiting')}, class: 'btn btn-primary btn-lg btn-block' %></p>
       <p><%= link_to t('back'), workout_path(@workout), role: 'button', class: 'btn btn-default btn-block' %></p>
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).on('page:change', function(event) {
+    // idempotent function
+    $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"});
+  });
+</script>

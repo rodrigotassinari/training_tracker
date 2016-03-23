@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :workouts do
     member do
       get :do
-      get :do_strava
       get :do_not
       get :strava_activities
       delete :undo
