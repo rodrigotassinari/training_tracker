@@ -61,6 +61,8 @@ gem 'kaminari', '~> 0.16'
 
 gem 'page_meta', '~> 0.1'
 
+gem 'rails_12factor', '~> 0.0'
+
 group :development, :test do
   gem 'rake', '~> 11.1'
   gem 'byebug', '~> 8.0'
