@@ -20,13 +20,13 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.0'
+gem 'jquery-rails', '~> 4.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 2.5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.4'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 0.4', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -65,7 +65,7 @@ gem 'rails_12factor', '~> 0.0'
 
 group :development, :test do
   gem 'rake', '~> 11.1'
-  gem 'byebug', '~> 8.0'
+  gem 'byebug', '~> 8.2'
   gem 'rspec-rails', '~> 3.3'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'database_cleaner', '~> 1.5'
@@ -76,7 +76,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', '~> 0.4', require: nil
+  gem 'codeclimate-test-reporter', '~> 0.5', require: nil
 end
 
 group :development do
@@ -84,7 +84,7 @@ group :development do
   gem 'web-console', '~> 3.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.4'
+  gem 'spring', '~> 1.6'
   gem 'spring-commands-rspec', '~> 1.0'
 
   gem 'guard-rspec', '~> 4.6', require: false
