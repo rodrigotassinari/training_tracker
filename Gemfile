@@ -9,7 +9,7 @@ gem 'pg', '~> 0.18'
 gem 'bootstrap-sass', '~> 3.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'font-awesome-sass', '~> 4.4'
+gem 'font-awesome-sass', '~> 4.6'
 gem 'font_assets', '~> 0.1'
 gem 'bootstrap_form', '~> 2.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,20 +32,20 @@ gem 'sdoc', '~> 0.4', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.2'
+gem 'puma', '~> 3.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 gem 'sucker_punch', '~> 2.0'
 
-gem 'rollbar', '~> 2.5'
+gem 'rollbar', '~> 2.11'
 
-gem 'browser', '~> 2.0'
+gem 'browser', '~> 2.1'
 
 gem 'omniauth-strava', '~> 0.0'
 
-gem 'strava-api-v3', '~> 0.1'
+gem 'strava-api-v3', '~> 0.6'
 
 gem 'ar-uuid', '~> 0.1'
 
@@ -65,9 +65,9 @@ gem 'rails_12factor', '~> 0.0'
 
 group :development, :test do
   gem 'rake', '~> 11.1'
-  gem 'byebug', '~> 8.2'
+  gem 'byebug', '~> 9.0'
   gem 'rspec-rails', '~> 3.3'
-  gem 'factory_girl_rails', '~> 4.5'
+  gem 'factory_girl_rails', '~> 4.7'
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-collection_matchers', '~> 1.1'
   gem 'rspec-its', '~> 1.2'
@@ -84,10 +84,10 @@ group :development do
   gem 'web-console', '~> 3.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.6'
+  gem 'spring', '~> 1.7'
   gem 'spring-commands-rspec', '~> 1.0'
 
-  gem 'guard-rspec', '~> 4.6', require: false
+  gem 'guard-rspec', '~> 4.7', require: false
 
-  gem 'foreman', '~> 0.78'
+  gem 'foreman', '~> 0.82'
 end
