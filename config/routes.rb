@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :do
       get :do_not
       get :strava_activities
+      get :garmin_connect_activities
       delete :undo
     end
     resources :shares, only: [:new, :create], controller: 'workout_shares'

@@ -15,7 +15,13 @@
         <p><%= t('.searching_strava_activities') %></p>
       </div>
 
-      <%= form.text_field :garmin_connect_url, class: 'done-attribute' %>
+      <% if current_user.garmin_connect_username? %>
+        <div id="garmin_connect_activities">
+          <p><%= t('.searching_garmin_connect_activities') %></p>
+        </div>
+      <% else %>
+        <p><%= t('.add_garmin_connect_username_to_profile', link: link_to( t('.your_profile_link'), edit_user_path) ).html_safe %></p>
+      <% end %>
 
       <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: @workout} %>
     </div>
@@ -29,7 +35,10 @@
 
 <script type="text/javascript">
   $(document).on('page:change', function(event) {
-    // idempotent function
+    // idempotent functions
     $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"});
+    <% if current_user.garmin_connect_username? %>
+      $.ajax({url: "<%= garmin_connect_activities_workout_path(@workout) %>"});
+    <% end %>
   });
 </script>

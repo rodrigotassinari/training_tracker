@@ -1,0 +1,16 @@
+<% if @activities.empty? %>
+  <p><%= t('.no_garmin_connect_activity_found', date: l(@search_date, format: :calendar)) %></p>
+  <div class="form-group">
+    <label class="control-label" for="workout_garmin_connect_url"><%= Workout.human_attribute_name('garmin_connect_url') %></label>
+    <input class="form-control done-attribute" type="text" name="workout[garmin_connect_url]" id="workout_garmin_connect_url">
+  </div>
+<% else %>
+  <div class="form-group">
+    <label class="control-label" for="workout_garmin_connect_url"><%= Workout.human_attribute_name('garmin_connect_activity') %></label>
+    <% @activities.each_with_index do |activity, index| %>
+      <div class="radio">
+        <label for="workout_garmin_connect_url_<%= index %>"><input type="radio" value="https://connect.garmin.com/modern/activity/<%= activity[:id] %>" name="workout[garmin_connect_url]" id="workout_garmin_connect_url_<%= index %>"> <%= garmin_connect_activity_description(activity) %></label>
+      </div>
+    <% end %>
+  </div>
+<% end %>

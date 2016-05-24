@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
   include WorkoutsChecker
 
   before_action :set_workout, except: [:index, :new, :create]
+  before_action :set_search_date, only: [:strava_activities, :garmin_connect_activities]
   before_action :check_if_workout_is_async_updating, only: [:edit, :update, :do, :undo]
 
   # GET /workouts
@@ -87,8 +88,17 @@ class WorkoutsController < ApplicationController
   # strava_activities_workout_path(:id)
   # TODO spec
   def strava_activities
-    @search_date = current_user.latest_done_workout.try(:occurred_on) || @workout.scheduled_on
     @activities = StravaFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  # GET /workouts/:id/garmin_connect_activities (ajax only)
+  # garmin_connect_activities_workout_path(:id)
+  # TODO spec
+  def garmin_connect_activities
+    @activities = [] # TODO GarminConnectFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
     respond_to do |format|
       format.js
     end
@@ -120,6 +130,10 @@ class WorkoutsController < ApplicationController
 
   def set_workout
     @workout = WorkoutPresenter.new(finder.find(params[:id]))
+  end
+
+  def set_search_date
+    @search_date = current_user.latest_done_workout.try(:occurred_on) || @workout.scheduled_on
   end
 
   def workout_params

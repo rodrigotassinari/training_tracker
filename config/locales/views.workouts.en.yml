@@ -42,10 +42,15 @@ en:
     do:
       title: Mark workout as done via Strava activity
       searching_strava_activities: Searching your Strava activities...
+      searching_garmin_connect_activities: Searching your Garmin Connect activities...
+      add_garmin_connect_username_to_profile: Add your Garmin Connect username to %{link} to be able to link to your activities on Garmin Connect.
+      your_profile_link: your profile
     do_not:
       title: Mark workout as not done / skipped
     strava_activities:
       no_strava_activity_found: No activity found since %{date}.
+    garmin_connect_activities:
+      no_garmin_connect_activity_found: No activity found since %{date}.
     form_errors:
       validation_errors:
         one: '1 error prohibited this workout from being saved'

@@ -42,10 +42,15 @@ pt:
     do:
       title: Marcar treino como feito via atividade no Strava
       searching_strava_activities: Pesquisando suas atividades no Strava...
+      searching_garmin_connect_activities: Pesquisando suas atividades no Garmin Connect...
+      add_garmin_connect_username_to_profile: Adicione seu usuário do Garmin Connect ao %{link} para poder linkar para suas atividades no Garmin Connect.
+      your_profile_link: seu perfil
     do_not:
       title: Marcar treino como não feito / pulado
     strava_activities:
       no_strava_activity_found: Nenhuma atividade encontrada desde %{date}.
+    garmin_connect_activities:
+      no_garmin_connect_activity_found: Nenhuma atividade encontrada desde %{date}.
     form_errors:
       validation_errors:
         one: '1 erro impediu que este treino fosse salvo'
