@@ -29,19 +29,18 @@ module WorkoutsHelper
 
   # TODO spec
   def garmin_connect_activity_description(activity)
-    # TODO
-    date = Time.zone.parse(activity[:start_date]).to_date
+    date = Time.zone.parse("#{activity[:startTimeGMT]} UTC").to_date
     image = activity_kind_image(activity)
-    "#{image} #{I18n.l date, format: :calendar} #{activity[:name]} <small>(##{activity[:id]})</small>".html_safe
+    "#{image} #{I18n.l date, format: :calendar} #{activity[:activityName]} <small>(##{activity[:activityId]})</small>".html_safe
   end
 
   private
 
   def activity_kind_image(activity)
-    kind = case activity[:type]
-    when 'Run'
+    kind = case (activity[:type] || activity['activityType']['typeKey'])
+    when ('Run' || 'running')
       'running'
-    when 'Swim'
+    when ('Swim' || 'swimming')
       'swimming'
     else
       'cycling'

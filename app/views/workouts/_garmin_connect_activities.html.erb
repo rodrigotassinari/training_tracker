@@ -8,8 +8,10 @@
   <div class="form-group">
     <label class="control-label" for="workout_garmin_connect_url"><%= Workout.human_attribute_name('garmin_connect_activity') %></label>
     <% @activities.each_with_index do |activity, index| %>
+      <% date = Time.zone.parse("#{activity[:startTimeGMT]} UTC").to_date %>
+      <% selected = (date == @workout.scheduled_on) %>
       <div class="radio">
-        <label for="workout_garmin_connect_url_<%= index %>"><input type="radio" value="https://connect.garmin.com/modern/activity/<%= activity[:id] %>" name="workout[garmin_connect_url]" id="workout_garmin_connect_url_<%= index %>"> <%= garmin_connect_activity_description(activity) %></label>
+        <label for="workout_garmin_connect_url_<%= index %>"><input type="radio" value="https://connect.garmin.com/modern/activity/<%= activity[:activityId] %>" name="workout[garmin_connect_url]" id="workout_garmin_connect_url_<%= index %>" <%= 'checked="true"' if selected %>><%= garmin_connect_activity_description(activity) %></label>
       </div>
     <% end %>
   </div>

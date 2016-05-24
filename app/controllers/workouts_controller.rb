@@ -88,7 +88,7 @@ class WorkoutsController < ApplicationController
   # strava_activities_workout_path(:id)
   # TODO spec
   def strava_activities
-    @activities = StravaFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
+    @activities = StravaFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 7)
     respond_to do |format|
       format.js
     end
@@ -98,7 +98,7 @@ class WorkoutsController < ApplicationController
   # garmin_connect_activities_workout_path(:id)
   # TODO spec
   def garmin_connect_activities
-    @activities = GarminConnectFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
+    @activities = GarminConnectFinderService.new(current_user).recent_activities(page: 1, per_page: 7).reverse
     respond_to do |format|
       format.js
     end

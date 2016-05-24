@@ -8,8 +8,10 @@
   <div class="form-group">
     <label class="control-label required" for="workout_strava_url"><%= Workout.human_attribute_name('strava_activity') %></label>
     <% @activities.each_with_index do |activity, index| %>
+      <% date = Time.zone.parse(activity[:start_date]).to_date %>
+      <% selected = (date == @workout.scheduled_on) %>
       <div class="radio">
-        <label for="workout_strava_url_<%= index %>"><input type="radio" value="https://www.strava.com/activities/<%= activity[:id] %>" name="workout[strava_url]" id="workout_strava_url_<%= index %>"> <%= strava_activity_description(activity) %></label>
+        <label for="workout_strava_url_<%= index %>"><input type="radio" value="https://www.strava.com/activities/<%= activity[:id] %>" name="workout[strava_url]" id="workout_strava_url_<%= index %>" <%= 'checked="true"' if selected %>><%= strava_activity_description(activity) %></label>
       </div>
     <% end %>
   </div>
