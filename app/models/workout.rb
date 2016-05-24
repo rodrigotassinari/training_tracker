@@ -69,6 +69,11 @@ class Workout < ActiveRecord::Base
   scope :unskipped, -> { where(skipped: false) }
 
   # TODO spec
+  def done_or_skipped?
+    occurred_on.present? || skipped?
+  end
+
+# TODO spec
   def done?
     occurred_on.present? && !skipped?
   end

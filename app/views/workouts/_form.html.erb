@@ -4,14 +4,14 @@
 
 <%= form.text_field :scheduled_on, value: (l(workout.scheduled_on, format: :calendar) unless workout.scheduled_on.nil?), data: {mask: locale_mask('date')}, autofocus: true %>
 
-<% if workout.persisted? %>
+<% if workout.persisted? && workout.done_or_skipped? %>
   <%= form.text_field :occurred_on, value: (l(workout.occurred_on, format: :calendar) unless workout.occurred_on.nil?), data: {mask: locale_mask('date')} %>
 <% end %>
 
 <%= form.text_field :name %>
 <%= form.text_area :description %>
 
-<% if workout.persisted? %>
+<% if workout.persisted? && workout.done_or_skipped? %>
   <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: workout} %>
 
   <%= render partial: 'workouts/form_fields_gps', locals: {form: form, workout: workout} %>
