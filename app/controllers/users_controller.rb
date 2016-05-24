@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).
-      permit(:name, :email, :locale, :time_zone)
+      permit(:name, :email, :locale, :time_zone, :garmin_connect_username)
   end
 
 end

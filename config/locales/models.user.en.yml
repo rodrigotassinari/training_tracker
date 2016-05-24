@@ -10,5 +10,6 @@ en:
         email: Email
         locale: Language
         time_zone: Time Zone
+        garmin_connect_username: Garmin Connect username
         created_at: Created At
         updated_at: Updated At

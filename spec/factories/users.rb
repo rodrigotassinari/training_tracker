@@ -6,11 +6,13 @@ FactoryGirl.define do
   factory :user do
     name "John Doe"
     email { generate(:email_seq) }
+    garmin_connect_username "johndoe"
     locale "en"
     time_zone "Eastern Time (US & Canada)"
 
     factory :incomplete_user do
       email nil
+      garmin_connect_username nil
     end
 
     factory :user_with_identity do
