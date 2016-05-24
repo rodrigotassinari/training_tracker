@@ -98,7 +98,7 @@ class WorkoutsController < ApplicationController
   # garmin_connect_activities_workout_path(:id)
   # TODO spec
   def garmin_connect_activities
-    @activities = [] # TODO GarminConnectFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
+    @activities = GarminConnectFinderService.new(current_user).activities_after(@search_date.to_time, per_page: 10)
     respond_to do |format|
       format.js
     end
@@ -132,8 +132,16 @@ class WorkoutsController < ApplicationController
     @workout = WorkoutPresenter.new(finder.find(params[:id]))
   end
 
+  # TOSPEC
+  # TODO extract / improve logic
   def set_search_date
-    @search_date = current_user.latest_done_workout.try(:occurred_on) || @workout.scheduled_on
+    latest_done_workout_date = current_user.latest_done_workout.try(:occurred_on)
+    this_workout_date = @workout.scheduled_on
+    @search_date = if latest_done_workout_date.nil?
+      this_workout_date
+    else
+      (Date.current - latest_done_workout_date) >= 10 ? this_workout_date : latest_done_workout_date
+    end
   end
 
   def workout_params
