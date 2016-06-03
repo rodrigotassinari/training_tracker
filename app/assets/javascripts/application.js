@@ -22,27 +22,13 @@
 //= require inputmask.app
 //= require_tree .
 
-// https://github.com/rails/turbolinks#events
-$(document).on('ready', function(event) {
-  // initialize persistent state
-  Turbolinks.enableProgressBar();
-});
+// https://github.com/turbolinks/turbolinks#full-list-of-events
 $(document).on('turbolinks:load', function(event) {
-  // ??? turbolinks equivalent of jquery ready?
+  // initialize persistent state, turbolinks equivalent of jquery ready
+  // fires once after the initial page load, and again after every Turbolinks visit.
 });
-$(document).on('ready page:load', function(event) {
-  // apply non-idempotent transformations to the body
-});
-$(document).on('page:partial-load', function(event) {
-  // apply non-idempotent transformations to the nodes in event.data
-});
-$(document).on('page:change', function(event) {
-  // idempotent function
-});
-$(document).on('page:after-remove', function(event) {
-  // delete all references to the nodes in event.data to prevent memory leaks
-});
-
 $(document).on('turbolinks:before-cache', function(event) {
   // event if you need to prepare the document before Turbolinks caches it
+  // fires before Turbolinks saves the current page to cache.
+  $('.alert-dismissible').alert('close'); // closes flash alerts
 });

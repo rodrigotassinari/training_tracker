@@ -34,8 +34,7 @@
 <% end %>
 
 <script type="text/javascript">
-  $(document).on('page:change', function(event) {
-    // idempotent functions
+  $(document).on('turbolinks:load', function(event) {
     $.ajax({url: "<%= strava_activities_workout_path(@workout) %>"});
     <% if current_user.garmin_connect_username? %>
       $.ajax({url: "<%= garmin_connect_activities_workout_path(@workout) %>"});
