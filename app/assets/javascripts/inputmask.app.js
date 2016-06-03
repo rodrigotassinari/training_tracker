@@ -57,7 +57,7 @@ Inputmask.extendAliases({'en_duration': {
   alias: 'hh:mm:ss'
 }});
 
-$(document).on('ready page:load', function(event) {
+$(document).on('turbolinks:load', function(event) {
   // apply non-idempotent transformations to the body
 
   $('input[data-mask]').each( function() {

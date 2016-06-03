@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<%= bootstrap_form_for(@workout) do |form| %>
+<%= bootstrap_form_for(@workout.item) do |form| %>
   <div class="row">
     <div class="col-sm-8">
       <%= render partial: 'workouts/form', locals: {form: form, workout: @workout} %>
