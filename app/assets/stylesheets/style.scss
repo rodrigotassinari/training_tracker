@@ -6,3 +6,14 @@ body {
 label.required:after {
   content:" *";
 }
+
+.skipped-workout {
+  text-decoration: line-through;
+}
+
+/*
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: green;
+}
+*/
