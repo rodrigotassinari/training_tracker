@@ -27,6 +27,9 @@ $(document).on('ready', function(event) {
   // initialize persistent state
   Turbolinks.enableProgressBar();
 });
+$(document).on('turbolinks:load', function(event) {
+  // ??? turbolinks equivalent of jquery ready?
+});
 $(document).on('ready page:load', function(event) {
   // apply non-idempotent transformations to the body
 });
@@ -38,4 +41,8 @@ $(document).on('page:change', function(event) {
 });
 $(document).on('page:after-remove', function(event) {
   // delete all references to the nodes in event.data to prevent memory leaks
+});
+
+$(document).on('turbolinks:before-cache', function(event) {
+  // event if you need to prepare the document before Turbolinks caches it
 });
