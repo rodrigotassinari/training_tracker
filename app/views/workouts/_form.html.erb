@@ -9,7 +9,7 @@
 <% end %>
 
 <%= form.text_field :name %>
-<%= form.text_area :description %>
+<%= form.text_area :description, rows: 8, help: t('markdown_supported').html_safe %>
 
 <% if workout.persisted? && workout.done_or_skipped? %>
   <%= render partial: 'workouts/form_fields_observations', locals: {form: form, workout: workout} %>

@@ -36,6 +36,7 @@ pt:
   weighted_avg: média ponderada
   max: máxima
   min: mínima
+  markdown_supported: 'Formatação com <a href="https://guides.github.com/features/mastering-markdown/#what" target="_blank">Markdown</a> permitida.'
   number_to_human:
     distances:
       mili:

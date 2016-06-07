@@ -36,6 +36,7 @@ en:
   weighted_avg: weighted average
   max: maximum
   min: minimum
+  markdown_supported: 'Styling with <a href="https://guides.github.com/features/mastering-markdown/#what" target="_blank">Markdown</a> is supported.'
   number_to_human:
     distances:
       mili:
