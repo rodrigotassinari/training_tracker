@@ -1,9 +1,18 @@
 require_dependency 'activity_url_helpers'
+require_dependency 'markdown_helper'
+
 class WorkoutPresenter < Burgundy::Item
   include ActivityUrlHelpers
+  include MarkdownHelper
 
   def self.validators_on(args)
     Workout.validators_on(args)
+  end
+
+  [:description, :observations, :coach_observations].each do |attr|
+    define_method("formatted_#{attr}") do
+      markdownify(item.send(attr))
+    end
   end
 
   [:weight_before, :weight_after, :distance,

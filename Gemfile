@@ -63,6 +63,9 @@ gem 'page_meta', '~> 0.1'
 
 gem 'rails_12factor', '~> 0.0'
 
+# markdown parser
+gem 'redcarpet', '~> 3.3'
+
 group :development, :test do
   gem 'rake', '~> 11.1'
   gem 'byebug', '~> 9.0'

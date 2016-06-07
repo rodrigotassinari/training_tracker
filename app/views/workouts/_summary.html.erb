@@ -10,17 +10,19 @@
   </div>
   <div class="panel-body">
     <% if workout.description %>
-    <p class="lead"><%= workout.description %></p>
+    <div class="lead"><%= workout.formatted_description %></div>
     <% end %>
 
     <% if workout.skipped? %>
       <% if detailed %>
         <% unless workout.observations.blank? %>
-        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <pre><%= workout.observations %></pre></p>
+        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong></p>
+        <%= workout.formatted_observations %>
         <% end %>
 
         <% unless workout.coach_observations.blank? %>
-        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <pre><%= workout.coach_observations %></pre></p>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong></p>
+        <%= workout.formatted_coach_observations %>
         <% end %>
       <% end %>
     <% end %>
@@ -37,11 +39,13 @@
 
       <% if detailed %>
         <% unless workout.observations.blank? %>
-        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong> <pre><%= workout.observations %></pre></p>
+        <p><strong><%= Workout.human_attribute_name(:observations) %>:</strong></p>
+        <%= workout.formatted_observations %>
         <% end %>
 
         <% unless workout.coach_observations.blank? %>
-        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong> <pre><%= workout.coach_observations %></pre></p>
+        <p><strong><%= Workout.human_attribute_name(:coach_observations) %>:</strong></p>
+        <%= workout.formatted_coach_observations %>
         <% end %>
       <% end %>
 

@@ -33,7 +33,7 @@
   <% if workout.description %>
   <tr>
     <td><%= Workout.human_attribute_name(:description) %></td>
-    <td><%= workout.description %></td>
+    <td><%= workout.formatted_description %></td>
   </tr>
   <% end %>
 
@@ -54,14 +54,14 @@
   <% unless workout.observations.blank? %>
   <tr>
     <td><%= Workout.human_attribute_name(:observations) %></td>
-    <td><%= workout.observations %></td>
+    <td><%= workout.formatted_observations %></td>
   </tr>
   <% end %>
 
   <% unless workout.coach_observations.blank? %>
   <tr>
     <td><%= Workout.human_attribute_name(:coach_observations) %></td>
-    <td><%= workout.coach_observations %></td>
+    <td><%= workout.formatted_coach_observations %></td>
   </tr>
   <% end %>
 
