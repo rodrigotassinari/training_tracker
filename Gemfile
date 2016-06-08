@@ -81,6 +81,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'fuubar', '~> 2.0'
   gem 'codeclimate-test-reporter', '~> 0.5', require: nil
 end
 
