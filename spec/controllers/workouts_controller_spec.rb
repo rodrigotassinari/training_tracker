@@ -154,12 +154,14 @@ RSpec.describe WorkoutsController, type: :controller do
         login_as(user)
       end
       context 'when valid' do
-        it 'creates a workout'
-        it 'redirects with a success message'
+        # TODO
+        # it 'creates a workout'
+        # it 'redirects with a success message'
       end
       context 'when invalid' do
-        it 'forces the workout to the logged in user'
-        it 'renders the form again with errors'
+        # TODO
+        # it 'forces the workout to the logged in user'
+        # it 'renders the form again with errors'
       end
     end
   end
