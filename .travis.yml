@@ -7,11 +7,8 @@ env:
     - RAILS_ENV=test
     - RACK_ENV=test
     - PORT=3000
-    - PUMA_MIN_THREADS=8
-    - PUMA_MAX_THREADS=12
-    - PUMA_WORKERS=2
+    - RAILS_MAX_THREADS=5
     - DATABASE_URL=postgres://postgres:postgres@localhost
-    - DATABASE_POOL=5
     - DATABASE_REAP_FREQ=10
     - GOOGLE_ANALYTICS_ID=UA-xxxxxxxx-y
     - SECRET_KEY_BASE=training-tracker-secret-key-base
@@ -25,6 +22,10 @@ env:
     - SMTP_PASSWORD=test-smtp-password
     - ROLLBAR_SERVER_ACCESS_TOKEN=rollbar-server-token
     - ROLLBAR_CLIENT_ACCESS_TOKEN=rollbar-client-token
+    - NEW_RELIC_APP_NAME=TrainingTracker.me
+    - NEW_RELIC_LICENSE_KEY=your-new-relic-license-key
+    - STATHAT_EZ_KEY=your-stathat-ez-key
+    - STATHAT_NAMESPACE=trainingtracker_development
     # CODECLIMATE_REPO_TOKEN
     - secure: "MpnhQb+fqFpXZg9awnw2cP9NUs9/hfM/XaYYi7jA2rQ3vnWugig0sKZV/QgS6TPiQA7ykIy7zxUW8CW8dx6L1CHKbc705SkjkQ3/HiIiiMTNn9+7sWGJ+mQs0/8EiAnMVAx7vU6nk1MZONq7yyqU2X+e8xLU9w3XT1HKjbs8WvdkHRkQIO4wHRGJuMoD1SFzzabiURH7zrk+yYuMfxRPMXxa7KRaSJET4XluObcCUGnhA9e/HVWUoaMnFzVv7bbYklzVaizpnrG9+NvgNab28w7PrjzThB6cKVoLdOkZ8lhXuM7zY6/7l0mTPVmvropEoRaj4Jj2juTNFw5ORbkMRngxssD82jMo3SE7QO0Pfw9b8+NgAocvYNC7FFUaGPVvQcYYy/RVRt83uNMtQL7VfE2GYR2x+WmIt3wvgI8AmJ7YUa0QCkii0MEqK9ui+UPKXNylI1ItbOdueNfv1wsqC4NG1Fb8HmmtG3QTpzv4/gOH4xJk0gTkyJP357Gy4y1g8+CtuY8TrJgZMvNE9FcCdlVWA7KI/8Nx3KoSHRfuriC97AW7Kn1MdRjsKrNV53pqCWtJ53KBlfoRTTl22UgvJk4XCkozkja0z1urUWf3OkRBWdBsnZGVrSesVaWCP4MKycOVSEmAJ+MAsmjLXk36UhpFMfW/Mxlr4cwTNpGnj2c="
 script:
