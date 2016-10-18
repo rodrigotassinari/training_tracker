@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 0.19'
 # Twitter Bootstrap
 gem 'bootstrap-sass', '~> 3.3'
 # Use SCSS for stylesheets
@@ -20,11 +20,11 @@ gem 'coffee-rails', '~> 4.1' # TODO needed after using Turbolinks 5, why?
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.1'
+gem 'jquery-rails', '~> 4.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.6'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4', group: :doc
 
@@ -32,16 +32,13 @@ gem 'sdoc', '~> 0.4', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.4'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'puma', '~> 3.6'
 
 gem 'sucker_punch', '~> 2.0'
 
-gem 'rollbar', '~> 2.11'
+gem 'rollbar', '~> 2.13'
 
-gem 'browser', '~> 2.1'
+gem 'browser', '~> 2.2'
 
 gem 'omniauth-strava', '~> 0.0'
 
@@ -57,7 +54,7 @@ gem 'delocalize', '~> 1.0'
 
 gem 'burgundy', '~> 0.2'
 
-gem 'kaminari', '~> 0.16'
+gem 'kaminari', '~> 0.17'
 
 gem 'page_meta', '~> 0.1'
 
@@ -73,7 +70,7 @@ end
 group :development, :test do
   gem 'rake', '~> 11.1'
   gem 'byebug', '~> 9.0'
-  gem 'rspec-rails', '~> 3.3'
+  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.7'
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-collection_matchers', '~> 1.1'
@@ -89,11 +86,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.2'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.7'
-  gem 'spring-commands-rspec', '~> 1.0'
+  gem 'web-console', '~> 3.3'
 
   gem 'guard-rspec', '~> 4.7', require: false
 
