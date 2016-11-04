@@ -22,8 +22,8 @@ env:
     - SMTP_PASSWORD=test-smtp-password
     - ROLLBAR_SERVER_ACCESS_TOKEN=rollbar-server-token
     - ROLLBAR_CLIENT_ACCESS_TOKEN=rollbar-client-token
-    - NEW_RELIC_APP_NAME=TrainingTracker.me
-    - NEW_RELIC_LICENSE_KEY=your-new-relic-license-key
+    - SCOUT_NAME=TrainingTracker.me
+    - SCOUT_KEY=your-scout-license-key
     - STATHAT_EZ_KEY=your-stathat-ez-key
     - STATHAT_NAMESPACE=trainingtracker_development
     # CODECLIMATE_REPO_TOKEN

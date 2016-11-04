@@ -61,7 +61,7 @@ gem 'page_meta', '~> 0.1'
 # markdown parser
 gem 'redcarpet', '~> 3.3'
 
-gem 'newrelic_rpm', '~> 3.16'
+gem 'scout_apm', '~> 2.1'
 
 group :development, :staging, :production do
   gem 'rails_12factor', '~> 0.0'
